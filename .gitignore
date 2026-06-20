@@ -1,0 +1,9 @@
+# Internal assets — NOT for the public website
+growth-kit/
+Michigan-Shippers-Supply-Research-Dossier.md
+Michigan-Shippers-Supply-Brand-Bible.pdf
+brand-bible.html
+build_logos.py
+
+# System
+.DS_Store
