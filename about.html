@@ -114,20 +114,23 @@
       <div class="email-cta"><span class="ic">📍</span><span><b>Visit / Mail</b><a href="https://maps.google.com/?q=17369+Taft+Rd%2C+Spring+Lake%2C+MI+49456" target="_blank" rel="noopener">17369 Taft Rd, Spring Lake, MI 49456</a></span></div>
       <div class="email-cta"><span class="ic">🕘</span><span><b>Hours</b><span style="color:#cdc1a8;font-weight:600;">Monday to Friday, 9:00 AM to 5:00 PM</span></span></div>
     </div>
-    <!-- This form works with NO backend: on submit it opens the visitor's email client
-         pre-filled to sales@michiganshippers.com (see msSendQuote script below).
-         UPGRADE PATH for true in-page submit + file attachments landing in the inbox:
-         grab a free access key at web3forms.com (verifies to sales@michiganshippers.com),
-         then set action="https://api.web3forms.com/submit", method="POST",
-         enctype="multipart/form-data", add <input type="hidden" name="access_key" value="KEY">
-         and remove the onsubmit handler. -->
-    <form id="quoteForm" onsubmit="return msSendQuote(event)">
+    <!-- Quote form submits via Web3Forms (web3forms.com) so the visitor's message AND
+         their uploaded artwork files get emailed to the team (mailto can't attach files).
+         SETUP: paste the Web3Forms access key into the access_key value below. Create a free
+         key + verify the destination inbox at web3forms.com; submissions land in that inbox.
+         Until a real key is set, the form safely falls back to opening a pre-filled email
+         (text only, no attachments). -->
+    <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="access_key" value="PASTE_WEB3FORMS_ACCESS_KEY" />
+      <input type="hidden" name="subject" value="New label quote request from michiganshippers.com" />
+      <input type="hidden" name="from_name" value="Michigan Shippers Supply website" />
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" />
       <label for="name">Your name</label>
       <input id="name" name="name" type="text" placeholder="Jane Maker" required />
       <label for="email">Your email</label>
       <input id="email" name="email" type="email" placeholder="jane@yourbrand.com" required />
       <label for="type">What do you need labels for?</label>
-      <select id="type" name="type">
+      <select id="type" name="label_type">
         <option>Product labels</option>
         <option>Food &amp; packaging</option>
         <option>Candy</option>
@@ -140,28 +143,40 @@
       <label for="msg">Tell us about your project</label>
       <textarea id="msg" name="message" rows="4" placeholder="Quantity, size, product type, timeline…"></textarea>
       <label for="artwork">Upload your artwork or files (optional)</label>
-      <input id="artwork" name="artwork" type="file" multiple accept=".ai.eps.pdf.svg.tif.tiff.png.jpg.jpeg" />
+      <input id="artwork" name="attachment" type="file" multiple accept=".ai,.eps,.pdf,.svg,.tif,.tiff,.png,.jpg,.jpeg" />
       <p class="upload-hint">For the sharpest print, send <strong>vector files</strong>, <strong>.AI, .EPS, .PDF,</strong> or <strong>.SVG</strong> open straight in Adobe Illustrator and never lose quality. High-resolution <strong>.PNG</strong> or <strong>.TIFF</strong> work too. Please avoid low-res JPEGs or screenshots, they pixelate when printed.</p>
       <button class="btn btn-primary" type="submit">Send to sales@michiganshippers.com</button>
-      <p class="form-note">Hitting send opens your email pre-filled to <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a>, just attach any artwork and send. Big print-ready files? Email them straight over so nothing gets compressed.</p>
+      <p class="form-note" id="formNote">Your details and any uploaded files go straight to our team. Have very large print-ready files (over a few MB)? Email them to <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a> so nothing gets compressed.</p>
     </form>
     <script>
-      function msSendQuote(e){
-        e.preventDefault();
-        var g=function(id){var el=document.getElementById(id);return el?String(el.value).trim():'';};
-        var name=g('name'), email=g('email'), type=g('type'), msg=g('msg');
-        var subject='Label quote request, '+(name||'website');
-        var body=
-          'Name: '+name+'\n'+
-          'Email: '+email+'\n'+
-          'Label type: '+type+'\n\n'+
-          'Project details:\n'+(msg||'(none provided)')+'\n\n'+
-          ', Sent from michiganshippers.com';
-        window.location.href='mailto:sales@michiganshippers.com'
-          +'?subject='+encodeURIComponent(subject)
-          +'&body='+encodeURIComponent(body);
-        return false;
-      }
+      (function(){
+        var form=document.getElementById('quoteForm');
+        var note=document.getElementById('formNote');
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var keyEl=form.querySelector('input[name=access_key]');
+          var key=keyEl?keyEl.value:'';
+          if(!key || key.indexOf('PASTE_')===0){ return mailtoFallback(); }
+          var fileInput=form.querySelector('input[type=file]');
+          var hadFiles=!!(fileInput && fileInput.files && fileInput.files.length);
+          var btn=form.querySelector('button[type=submit]'); var orig=btn.textContent;
+          btn.disabled=true; btn.textContent='Sending…';
+          fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
+            .then(function(r){return r.json();})
+            .then(function(d){
+              if(d.success){ note.innerHTML='✓ Thanks! Your request'+(hadFiles?' and files were':' was')+' sent to our team. We\'ll be in touch with your quote.'; form.reset(); btn.textContent='Sent ✓'; }
+              else { note.innerHTML='Sorry, that didn\'t go through. Please email <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a> directly.'; btn.disabled=false; btn.textContent=orig; }
+            })
+            .catch(function(){ note.innerHTML='Network issue. Please email <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a> directly.'; btn.disabled=false; btn.textContent=orig; });
+        });
+        function mailtoFallback(){
+          var g=function(id){var el=document.getElementById(id);return el?String(el.value).trim():'';};
+          var name=g('name'),email=g('email'),type=g('type'),msg=g('msg');
+          var subject='Label quote request, '+(name||'website');
+          var body='Name: '+name+'\nEmail: '+email+'\nLabel type: '+type+'\n\nProject details:\n'+(msg||'(none provided)')+'\n\nSent from michiganshippers.com';
+          window.location.href='mailto:sales@michiganshippers.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+        }
+      })();
     </script>
   </div>
 </section>
@@ -217,5 +232,6 @@
   </div>
 </footer>
 
+<script src="chat.js" defer></script>
 </body>
 </html>
