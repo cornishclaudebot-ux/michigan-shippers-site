@@ -1,0 +1,14 @@
+# Netlify config for Michigan Shippers Supply.
+# Static site at repo root + one serverless function (the help-chat AI proxy).
+# The Gemini API key is set in the Netlify dashboard as an environment variable
+# named GEMINI_API_KEY (never committed to the repo).
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Pretty path: the site calls /api/chat, which maps to the function.
+[[redirects]]
+  from = "/api/chat"
+  to = "/.netlify/functions/chat"
+  status = 200

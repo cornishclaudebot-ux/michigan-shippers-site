@@ -5,6 +5,15 @@
 (function () {
   "use strict";
 
+  // ---- AI backend (optional, fully graceful) ----
+  // When AI_ENABLED is true, the widget asks the Netlify function (Google Gemini, free tier).
+  // If that call fails for ANY reason (not configured yet, rate limit, network, API error),
+  // it silently falls back to the scripted knowledge base below + the email handoff.
+  // GO-LIVE: flip AI_ENABLED to true once the Netlify function + GEMINI_API_KEY are set.
+  var AI_ENABLED = false;
+  var AI_ENDPOINT = "/api/chat";
+  var history = [];
+
   // ---- Knowledge base (grounded in the site's real content) ----
   var KB = [
     { keys: ["what do you print", "what do you make", "what can you print", "products", "services", "what do you offer", "types of label", "kinds of label", "what kind", "what we print"],
@@ -95,11 +104,50 @@
 
   function scroll() { body.scrollTop = body.scrollHeight; }
   function addMsg(html, who) { var m = el("<div class='chat-msg chat-" + who + "'></div>"); m.innerHTML = html; body.appendChild(m); scroll(); return m; }
-  function botReply(html) {
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+  // Canned message (e.g. the welcome): brief typing pause, then show.
+  function botSay(html, delay) {
     var typing = el("<div class='chat-typing'>typing…</div>"); body.appendChild(typing); scroll();
-    setTimeout(function () { typing.remove(); addMsg(html, "bot"); }, 480);
+    setTimeout(function () { typing.remove(); addMsg(html, "bot"); }, delay || 480);
   }
-  function send(text) { text = (text || "").trim(); if (!text) return; addMsg(text.replace(/</g, "&lt;"), "user"); botReply(answer(text)); }
+
+  // Render an AI plain-text reply safely: escape HTML, keep line breaks, linkify our email.
+  function renderReply(t) {
+    return esc(t).replace(/\n+/g, "<br>").replace(/sales@michiganshippers\.com/g, "<a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>");
+  }
+
+  // Ask the AI backend. Resolves to a reply string, or null to signal "use the scripted answer".
+  function askAI() {
+    var ctrl = (typeof AbortController !== "undefined") ? new AbortController() : null;
+    var t = ctrl ? setTimeout(function () { ctrl.abort(); }, 11000) : null;
+    return fetch(AI_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: history.slice(-8) }),
+      signal: ctrl ? ctrl.signal : undefined
+    }).then(function (r) { if (t) clearTimeout(t); return r.ok ? r.json() : null; })
+      .then(function (d) { return (d && d.reply) ? String(d.reply) : null; })
+      .catch(function () { if (t) clearTimeout(t); return null; });
+  }
+
+  // Handle a user message: try AI first (if enabled); the scripted bot is always the safety net.
+  function respond(text) {
+    var typing = el("<div class='chat-typing'>typing…</div>"); body.appendChild(typing); scroll();
+    function scripted() { typing.remove(); addMsg(answer(text), "bot"); }
+    if (!AI_ENABLED) { setTimeout(scripted, 420); return; }
+    askAI().then(function (reply) {
+      if (reply) { typing.remove(); addMsg(renderReply(reply), "bot"); history.push({ role: "assistant", text: reply }); }
+      else { scripted(); }
+    }, scripted);
+  }
+
+  function send(text) {
+    text = (text || "").trim(); if (!text) return;
+    addMsg(esc(text), "user");
+    history.push({ role: "user", text: text });
+    respond(text);
+  }
 
   function renderChips() {
     chipsWrap.innerHTML = "";
@@ -112,7 +160,7 @@
 
   function open() {
     panel.classList.add("open"); fab.style.display = "none";
-    if (!started) { started = true; renderChips(); botReply("Hi! 👋 I'm the Michigan Shippers helper. Ask me about what we print, turnaround, file types, foil lids, or getting a quote. What can I help with?"); }
+    if (!started) { started = true; renderChips(); botSay("Hi! 👋 I'm the Michigan Shippers helper. Ask me about what we print, turnaround, file types, foil lids, or getting a quote. What can I help with?"); }
     setTimeout(function () { input.focus(); }, 120);
   }
   function close() { panel.classList.remove("open"); fab.style.display = "inline-flex"; }
