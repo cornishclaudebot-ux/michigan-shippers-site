@@ -10,7 +10,7 @@
   // If that call fails for ANY reason (not configured yet, rate limit, network, API error),
   // it silently falls back to the scripted knowledge base below + the email handoff.
   // GO-LIVE: flip AI_ENABLED to true once the Netlify function + GEMINI_API_KEY are set.
-  var AI_ENABLED = false;
+  var AI_ENABLED = true;
   var AI_ENDPOINT = "/api/chat";
   var history = [];
 
