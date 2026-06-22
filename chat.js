@@ -21,7 +21,7 @@
     { keys: ["turnaround", "how fast", "how long does", "how soon", "lead time", "deadline", "rush", "quick", "when can i get", "speed"],
       a: "Most orders ship in <strong>10 days or less</strong>, the same fast turnaround for small first runs and large production orders alike. On a tight deadline? Tell us and we'll do our best." },
     { keys: ["minimum", "minimums", "moq", "smallest order", "small order", "how few", "small batch", "small run", "minimum order"],
-      a: "We love helping startups and small businesses, so there are <strong>no scary minimums</strong>. Tell us what you need and we'll size the job to you, first runs and small batches included." },
+      a: "It depends on the product! Custom <strong>foil lids</strong> (our Keurig-compatible coffee-pod lids) have a <strong>5,000-lid minimum</strong>. Everything else has <strong>no minimum</strong>, so first runs and small batches are welcome. What are you looking to print? For specifics, our labeling specialists are happy to help at <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>." },
     { keys: ["file", "files", "format", "formats", "artwork", "vector", "illustrator", "design file", "eps", "pdf", "svg", "tiff", "what should i send"],
       a: "Vector files are best: <strong>.AI, .EPS, .PDF, and .SVG</strong> stay crisp at any size. High-resolution <strong>.PNG</strong> or <strong>.TIFF</strong> work too. No artwork yet? Our in-house design team will build it for you." },
     { keys: ["foil", "lid", "lids", "keurig", "k cup", "kcup", "k-cup", "coffee pod", "pods", "metal", "tin", "metallic"],
@@ -39,7 +39,7 @@
     { keys: ["contact", "phone", "call", "number", "reach", "talk to", "speak to", "get in touch"],
       a: "You can call <strong>(616) 935-6680</strong> (toll-free 800-442-4639) or email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>. The <a href='about.html#contact'>Get a Quote</a> form is the fastest way to start." },
     { keys: ["quote", "price", "pricing", "cost", "how much", "estimate", "expensive", "rate", "rates", "ballpark"],
-      a: "Pricing depends on your label type, size, quantity, and material, so the fastest way to a fair number is the <a href='about.html#contact'>Get a Quote</a> form (you can even upload your artwork) or email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>. No pressure, no big minimums." },
+      a: "Pricing depends on your label type, size, quantity, and material, so the fastest way to a fair number is the <a href='about.html#contact'>Get a Quote</a> form (you can even upload your artwork) or email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>. No pressure, and our labeling specialists will get you a fair number." },
     { keys: ["white glove", "white-glove", "premium", "managed inventory", "just in time", "just-in-time", "hold inventory", "never run out", "dedicated specialist"],
       a: "Our premium <strong>Managed Inventory &amp; Just-in-Time</strong> program is white-glove: a dedicated specialist, your labels held and ready, and printing on demand so you never run out or tie up cash. Ask about a private consultation on the <a href='index.html#programs'>home page</a>." },
     { keys: ["design help", "no design", "dont have a design", "do not have", "help with design", "create a design", "make a design", "logo"],
@@ -56,7 +56,7 @@
   var GREET = ["hi", "hello", "hey", "yo", "howdy", "good morning", "good afternoon", "good evening"];
   var THANKS = ["thank", "thanks", "thx", "appreciate", "awesome", "perfect"];
   var BYE = ["bye", "goodbye", "see ya", "that is all", "thats all", "no thanks"];
-  var FALLBACK = "Great question, and I want to make sure you get the right answer from a real person. The quickest way is to email our team at <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a> or use the <a href='about.html#contact'>Get a Quote</a> form, and we'll get right back to you.";
+  var FALLBACK = "Great question, and I want to make sure you get the right answer from a real person. The quickest way is to email our team at <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a> or use the <a href='about.html#contact'>Get a Quote</a> form. Tell us what you're printing and roughly how many, and one of our labeling specialists will get right back to you.";
 
   function norm(s) { return " " + String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim() + " "; }
   function ws(t, k) { return t.indexOf(" " + k.trim()) > -1; }            // word-start (lets stems match: minimum -> minimums)
