@@ -41,7 +41,7 @@ function resp(code, obj) {
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return resp(405, { reply: null, error: "method_not_allowed" });
 
-  const key = process.env.GEMINI_API_KEY;
+  const key = (process.env.GEMINI_API_KEY || "").trim(); // trim guards against a stray newline/space from paste
   if (!key) return resp(200, { reply: null, note: "no_key" }); // client falls back to scripted bot
 
   let body;
