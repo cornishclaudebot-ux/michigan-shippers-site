@@ -69,7 +69,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         system_instruction: { parts: [{ text: SYSTEM }] },
         contents: contents,
-        generationConfig: { temperature: 0.3, maxOutputTokens: 320, topP: 0.9 },
+        generationConfig: { temperature: 0.3, maxOutputTokens: 512, topP: 0.9, thinkingConfig: { thinkingBudget: 0 } },
         safetySettings: [
           { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_ONLY_HIGH" },
           { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_ONLY_HIGH" }
