@@ -6,7 +6,7 @@
    scripted answers + email. That means the chat never breaks and never costs money
    beyond the free tier (over-limit just degrades to the scripted bot). */
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-1.5-flash-latest";
+const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
 const SYSTEM = [
   "You are the friendly website help assistant for Michigan Shippers Supply, a family-owned custom label printer in Spring Lake, Michigan, in business since 1959.",
@@ -47,16 +47,6 @@ exports.handler = async (event) => {
   let body;
   try { body = JSON.parse(event.body || "{}"); } catch (e) { return resp(400, { reply: null, error: "bad_json" }); }
 
-  // Temporary discovery helper: list models this key can use with generateContent.
-  if (body && body.debug === "models") {
-    try {
-      const lr = await fetch("https://generativelanguage.googleapis.com/v1beta/models?key=" + encodeURIComponent(key) + "&pageSize=1000");
-      const ld = await lr.json();
-      const names = (ld.models || []).filter(function (m) { return (m.supportedGenerationMethods || []).indexOf("generateContent") > -1; }).map(function (m) { return m.name; });
-      return resp(200, { models: names });
-    } catch (e3) { return resp(200, { models: [], error: String(e3) }); }
-  }
-
   const raw = Array.isArray(body.messages) ? body.messages.slice(-8) : [];
   const contents = raw
     .filter(function (m) { return m && typeof m.text === "string" && m.text.trim(); })
@@ -87,11 +77,7 @@ exports.handler = async (event) => {
       })
     });
     clearTimeout(timer);
-    if (!r.ok) {
-      var errText = "";
-      try { errText = await r.text(); } catch (e2) {}
-      return resp(200, { reply: null, note: "api_" + r.status, detail: String(errText).slice(0, 400) }); // degrade to scripted; detail for debugging
-    }
+    if (!r.ok) return resp(200, { reply: null, note: "api_" + r.status }); // degrade to scripted
     const data = await r.json();
     let reply = "";
     if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
