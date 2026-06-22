@@ -77,7 +77,11 @@ exports.handler = async (event) => {
       })
     });
     clearTimeout(timer);
-    if (!r.ok) return resp(200, { reply: null, note: "api_" + r.status }); // degrade to scripted
+    if (!r.ok) {
+      var errText = "";
+      try { errText = await r.text(); } catch (e2) {}
+      return resp(200, { reply: null, note: "api_" + r.status, detail: String(errText).slice(0, 400) }); // degrade to scripted; detail for debugging
+    }
     const data = await r.json();
     let reply = "";
     if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
