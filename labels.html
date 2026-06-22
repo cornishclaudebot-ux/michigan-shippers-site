@@ -6,183 +6,180 @@
 <title>Our Labels &amp; Capabilities | Michigan Shippers Supply</title>
 <meta name="description" content="Custom label printing from Michigan Shippers Supply: product, food &amp; packaging, candy, wine/beer/beverage, barcode &amp; shipping, Keurig-compatible foil lids, print &amp; apply systems, and thermal transfer printers. Flexographic &amp; digital, with in-house design." />
 <link rel="icon" type="image/png" href="images/logo-mark.png" />
-<link rel="stylesheet" href="styles.css" />
+<script>document.documentElement.className='js';</script>
+<link rel="stylesheet" href="immersive.css" />
 </head>
 <body>
 
-<!-- ===== ANNOUNCEMENT BAR ===== -->
-<div class="announce">
-  <div class="wrap">
-    <a class="wg-badge" href="index.html#programs">Premium Service</a>
-    <span>📞 <a href="tel:16169356680">(616) 935-6680</a></span>
-    <span>✉️ <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a></span>
+<!-- ===== PRELOADER ===== -->
+<div id="pre">
+  <img src="images/logo-on-navy.png" alt="Michigan Shippers Supply" onerror="this.src='images/logo-vertical-light.png'" />
+  <div class="pre-bar"><i></i></div>
+  <div class="pre-msg" id="preMsg">Warming up the press&hellip;</div>
+</div>
+
+<!-- ===== IMMERSIVE WORLD BG ===== -->
+<div class="world" aria-hidden="true"></div>
+
+<!-- ===== PRESS STAGE (printer + ribbon) ===== -->
+<div class="stage" aria-hidden="true">
+  <svg class="printer" viewBox="0 0 390 200" xmlns="http://www.w3.org/2000/svg">
+    <rect x="34" y="40" width="322" height="118" rx="18" fill="#22364c"/>
+    <rect x="34" y="40" width="322" height="118" rx="18" fill="url(#sheen)"/>
+    <rect x="34" y="40" width="322" height="22" rx="11" fill="#27405a"/>
+    <rect x="46" y="48" width="298" height="8" rx="4" fill="rgba(255,255,255,.10)"/>
+    <rect x="250" y="74" width="86" height="50" rx="9" fill="#16222e"/>
+    <circle class="light" cx="270" cy="99" r="6" fill="#7bb6e6"/>
+    <rect x="286" y="88" width="40" height="5" rx="2.5" fill="#3a5570"/>
+    <rect x="286" y="100" width="30" height="5" rx="2.5" fill="#33495f"/>
+    <rect x="54" y="128" width="282" height="40" rx="10" fill="#16222e"/>
+    <rect x="92" y="150" width="206" height="13" rx="6" fill="#0a121b"/>
+    <rect class="scanner" x="186" y="152" width="18" height="9" rx="4" fill="#7bb6e6" opacity=".9"/>
+    <rect x="74" y="158" width="20" height="20" rx="5" fill="#16222e"/>
+    <rect x="296" y="158" width="20" height="20" rx="5" fill="#16222e"/>
+    <defs>
+      <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#34506e"/>
+        <stop offset="1" stop-color="#1b2a3a"/>
+      </linearGradient>
+    </defs>
+  </svg>
+  <div class="ribbon">
+    <div class="paper-strip"></div>
+    <div class="ribbon-track" id="track"></div>
   </div>
 </div>
 
 <!-- ===== NAV ===== -->
-<header class="nav">
+<header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html" aria-label="Michigan Shippers Supply home">
-      <img class="logo-real" src="images/logo-horizontal.png" alt="Michigan Shippers Supply" onerror="this.style.display='none';document.getElementById('navFallback').style.display='inline-flex';" />
-      <span id="navFallback" class="ms-logo ms-logo--h" style="display:none;">
-        <svg class="ms-mark" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Michigan Shippers Supply mark">
-          <defs><clipPath id="msTopNav"><polygon points="60,16 104,40 60,64 16,40"/></clipPath></defs>
-          <polygon points="16,40 60,64 60,108 16,84" fill="#c3c8cc"/>
-          <polygon points="60,64 104,40 104,84 60,108" fill="#aeb4b9"/>
-          <polygon points="16,84 104,84 60,108" fill="#2f7dc1"/>
-          <polygon points="60,16 104,40 60,64 16,40" fill="#eef0f2"/>
-          <g clip-path="url(#msTopNav)" stroke="#6f767c" stroke-width="3">
-            <line x1="4" y1="40" x2="80" y2="-3"/><line x1="12" y1="48" x2="88" y2="5"/>
-            <line x1="20" y1="56" x2="96" y2="13"/><line x1="28" y1="64" x2="104" y2="21"/>
-            <line x1="36" y1="72" x2="112" y2="29"/>
-          </g>
-          <polygon points="60,16 104,40 104,84 60,108 16,84 16,40" fill="none" stroke="#5d666d" stroke-width="1.4" stroke-linejoin="round"/>
-          <line x1="60" y1="64" x2="60" y2="108" stroke="#5d666d" stroke-width="1.1"/>
-          <polygon points="60,16 104,40 60,64 16,40" fill="none" stroke="#5d666d" stroke-width="1.4" stroke-linejoin="round"/>
-        </svg>
-        <span class="ms-wordmark"><b>MICHIGAN SHIPPERS</b><span>Supply &middot; Est. 1959</span></span>
-      </span>
+      <img src="images/logo-horizontal-light.png" alt="Michigan Shippers Supply" onerror="this.src='images/logo-on-navy.png'" />
     </a>
     <nav class="links">
       <a href="index.html">Home</a>
-      <a class="nav-active" href="labels.html">Our Labels</a>
+      <a class="active" href="labels.html">Our Labels</a>
       <a href="about.html">About &amp; Contact</a>
       <a class="btn btn-primary" href="about.html#contact">Get a Quote</a>
     </nav>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('nav.links').style.display='flex'">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1c2c3e" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cdd8e3" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
 </header>
 
-<!-- ===== PAGE HEADER ===== -->
+<!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
-  <div class="wrap">
-    <div class="eyebrow">Our Labels &amp; Capabilities</div>
-    <h1>Labels for every product you make</h1>
-    <p>From a first startup run to ongoing production, our team helps design and print custom labels that catch the eye, satisfy the regulators, and put your brand on every single product.</p>
-  </div>
+  <div class="eyebrow reveal">Our Labels &amp; Capabilities</div>
+  <h1 class="reveal">Labels for every product you make</h1>
+  <p class="reveal">From a first startup run to ongoing production, our team helps design and print custom labels that catch the eye, satisfy the regulators, and put your brand on every single product.</p>
 </section>
 
 <!-- ===== SERVICES ===== -->
-<section id="services">
+<section class="sec band center" id="services">
   <div class="wrap">
-    <div class="section-head">
+    <div class="shead reveal">
       <div class="eyebrow">What We Print</div>
       <h2>Nine ways we put your brand on the shelf</h2>
       <p>Design and printing under one roof, paper, film, metal and foil, plus the equipment and service to keep your line running.</p>
     </div>
-    <div class="grid">
-      <div class="card"><div class="ic">🏷️</div><h3>Product Labels</h3><p>Eye-catching custom labels that help your product stand out on a crowded shelf and look like the quality it is.</p></div>
-      <div class="card"><div class="ic">🥫</div><h3>Food &amp; Packaging</h3><p>Compliant food and packaging labels with the nutrition, ingredient, and regulatory details done right the first time.</p></div>
-      <div class="card"><div class="ic">🍬</div><h3>Candy Labels</h3><p>Bright, appetizing labels built to make candy and confections irresistible while carrying the info buyers need.</p></div>
-      <div class="card"><div class="ic">🍷</div><h3>Wine, Beer &amp; Beverage</h3><p>Premium labels for bottles and cans that elevate presentation and reinforce your brand, batch after batch.</p></div>
-      <div class="card"><div class="ic">📦</div><h3>Barcode &amp; Shipping</h3><p>Scannable, durable barcode and shipping labels, optionally branded, so products move cleanly through retail and the warehouse.</p></div>
-      <div class="card"><div class="ic">☕</div><h3>Metal Lids &amp; Tin Labels</h3><p>Yes, we still print metal! Keurig-compatible metallic foil lids for single-serve coffee pods, plus durable metal and tin labels most printers won't touch.</p></div>
-      <div class="card"><div class="ic">✏️</div><h3>Custom Brand Design</h3><p>Not sure where to start? Our in-house design team builds out whatever you're picturing, artwork, sizing, materials, and finish, so your brand looks its best.</p></div>
-      <div class="card"><div class="ic">🤖</div><h3>Print &amp; Apply Systems</h3><p>Automatic dispensers and appliers for both printed and blank labels, so your line keeps moving and every label lands in exactly the right spot.</p></div>
-      <div class="card"><div class="ic">🖨️</div><h3>Thermal Transfer Printers</h3><p>Thermal transfer printers by Sato, Datamax, and Zebra, plus the ribbons and supplies that go with them, backed by full-time service coverage.</p></div>
+    <div class="cardgrid">
+      <div class="tile reveal"><div class="ic">&#127991;&#65039;</div><h3>Product Labels</h3><p>Eye-catching custom labels that help your product stand out on a crowded shelf and look like the quality it is.</p></div>
+      <div class="tile reveal"><div class="ic">&#129387;</div><h3>Food &amp; Packaging</h3><p>Compliant food and packaging labels with the nutrition, ingredient, and regulatory details done right the first time.</p></div>
+      <div class="tile reveal"><div class="ic">&#127852;</div><h3>Candy Labels</h3><p>Bright, appetizing labels built to make candy and confections irresistible while carrying the info buyers need.</p></div>
+      <div class="tile reveal"><div class="ic">&#127863;</div><h3>Wine, Beer &amp; Beverage</h3><p>Premium labels for bottles and cans that elevate presentation and reinforce your brand, batch after batch.</p></div>
+      <div class="tile reveal"><div class="ic">&#128230;</div><h3>Barcode &amp; Shipping</h3><p>Scannable, durable barcode and shipping labels, optionally branded, so products move cleanly through retail and the warehouse.</p></div>
+      <div class="tile reveal"><div class="ic">&#9749;</div><h3>Metal Lids &amp; Tin Labels</h3><p>Yes, we still print metal! Keurig-compatible metallic foil lids for single-serve coffee pods, plus durable metal and tin labels most printers won't touch.</p></div>
+      <div class="tile reveal"><div class="ic">&#9999;&#65039;</div><h3>Custom Brand Design</h3><p>Not sure where to start? Our in-house design team builds out whatever you're picturing, artwork, sizing, materials, and finish, so your brand looks its best.</p></div>
+      <div class="tile reveal"><div class="ic">&#129302;</div><h3>Print &amp; Apply Systems</h3><p>Automatic dispensers and appliers for both printed and blank labels, so your line keeps moving and every label lands in exactly the right spot.</p></div>
+      <div class="tile reveal"><div class="ic">&#128424;&#65039;</div><h3>Thermal Transfer Printers</h3><p>Thermal transfer printers by Sato, Datamax, and Zebra, plus the ribbons and supplies that go with them, backed by full-time service coverage.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ===== HOW IT WORKS ===== -->
-<section class="how" id="how">
+<section class="sec band center" id="how">
   <div class="wrap">
-    <div class="section-head">
+    <div class="shead reveal">
       <div class="eyebrow">How It Works</div>
       <h2>From idea to printed labels in three easy steps</h2>
       <p>No design experience needed. Whether you have print-ready art or just a rough idea, our team makes it simple.</p>
     </div>
-    <div class="how-grid">
-      <div class="how-step">
-        <div class="how-num">1</div>
-        <h3>Share your idea or files</h3>
-        <p>Tell us what you're making and send any artwork you have, or nothing at all. We accept Illustrator-friendly files like .AI, .EPS, .PDF, and .SVG.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-num">2</div>
-        <h3>We design &amp; send a proof</h3>
-        <p>Our in-house team builds out your label and sends a proof for your approval. Nothing goes to press until you love it.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-num">3</div>
-        <h3>We print &amp; ship, fast</h3>
-        <p>Once approved, we print, finish, and ship your order, with most jobs out the door in 10 days or less.</p>
-      </div>
+    <div class="how3">
+      <div class="hstep reveal"><div class="hnum">1</div><h3>Share your idea or files</h3><p>Tell us what you're making and send any artwork you have, or nothing at all. We accept Illustrator-friendly files like .AI, .EPS, .PDF, and .SVG.</p></div>
+      <div class="hstep reveal"><div class="hnum">2</div><h3>We design &amp; send a proof</h3><p>Our in-house team builds out your label and sends a proof for your approval. Nothing goes to press until you love it.</p></div>
+      <div class="hstep reveal"><div class="hnum">3</div><h3>We print &amp; ship, fast</h3><p>Once approved, we print, finish, and ship your order, with most jobs out the door in 10 days or less.</p></div>
     </div>
-    <p class="how-note">📝 <strong>Every order is proofed for your approval before we print</strong>, and we stand behind every roll that leaves our shop.</p>
+    <p class="how-note reveal">&#128221; <strong>Every order is proofed for your approval before we print</strong>, and we stand behind every roll that leaves our shop.</p>
   </div>
 </section>
 
 <!-- ===== SHOWCASE: FOIL LIDS ===== -->
-<section class="showcase" id="metal">
+<section class="sec band" id="metal">
   <div class="wrap">
-    <div class="lid-wrap">
-      <img class="product-shot" src="images/customers/donut-shop-box.jpg" alt="The Original Donut Shop Coffee Keurig K-Cup box and pod, Michigan Shippers Supply prints the foil lids" />
-    </div>
-    <div>
-      <span class="tag">Still printing on foil products</span>
-      <h2>Keurig-compatible foil lids, on the cups you brew</h2>
-      <p>Here's something the big online label shops can't do: we still print on metal. We produce the metallic foil lids that seal single-serve coffee and cocoa cups for brands like <strong>Crazy Cups</strong>, <strong>Green Mountain Coffee</strong>, <strong>Brooklyn Bean</strong>, and more, so the blend stays fresh and the brand sits right on top.</p>
-      <p>It's exactly the kind of work we love: helping family businesses and fast-growing brands get their label onto every single cup. From Keurig-compatible foil lids to durable metal and tin labels, if you can dream it up, our team will help you make it.</p>
-      <a class="btn btn-primary" href="about.html#contact">ASK ABOUT FOIL LIDS</a>
+    <div class="split reveal">
+      <div class="shot full"><img src="images/customers/donut-shop-box.jpg" alt="The Original Donut Shop Coffee Keurig K-Cup box and pod, Michigan Shippers Supply prints the foil lids" /></div>
+      <div>
+        <span class="tag">Still printing on foil products</span>
+        <h2>Keurig-compatible foil lids, on the cups you brew</h2>
+        <p>Here's something the big online label shops can't do: we still print on metal. We produce the metallic foil lids that seal single-serve coffee and cocoa cups for brands like <strong>Crazy Cups</strong>, <strong>Green Mountain Coffee</strong>, <strong>Brooklyn Bean</strong>, and more, so the blend stays fresh and the brand sits right on top.</p>
+        <p>It's exactly the kind of work we love: helping family businesses and fast-growing brands get their label onto every single cup. From Keurig-compatible foil lids to durable metal and tin labels, if you can dream it up, our team will help you make it.</p>
+        <a class="btn btn-primary" href="about.html#contact">Ask about foil lids</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===== CAPABILITIES ===== -->
-<section class="caps" id="capabilities">
+<section class="sec band center" id="capabilities">
   <div class="wrap">
-    <div class="section-head">
+    <div class="shead reveal">
       <div class="eyebrow">Capabilities</div>
       <h2>Built to handle your job</h2>
       <p>A quick look at how we work. <em>(Confirm exact specs with us, every job is a little different.)</em></p>
     </div>
-    <div class="caps-grid">
-      <div class="cap"><b>Flexographic</b><small>Cost-effective for long, repeat production runs</small></div>
-      <div class="cap"><b>Digital Press</b><small>Short runs, fast turns, variable data &amp; full color</small></div>
-      <div class="cap"><b>Metal &amp; Specialty</b><small>Keurig-compatible foil lids, metal &amp; tin labels, film &amp; paper</small></div>
-      <div class="cap"><b>In-House Design</b><small>Brand build-out, artwork, sizing &amp; compliance</small></div>
+    <div class="cardgrid cols4">
+      <div class="cap reveal"><b>Flexographic</b><small>Cost-effective for long, repeat production runs</small></div>
+      <div class="cap reveal"><b>Digital Press</b><small>Short runs, fast turns, variable data &amp; full color</small></div>
+      <div class="cap reveal"><b>Metal &amp; Specialty</b><small>Keurig-compatible foil lids, metal &amp; tin labels, film &amp; paper</small></div>
+      <div class="cap reveal"><b>In-House Design</b><small>Brand build-out, artwork, sizing &amp; compliance</small></div>
     </div>
-    <div class="caps-photo">
-      <img src="images/label-applicator.jpg" onerror="this.onerror=null;this.src='https://d8j0ntlcm91z4.cloudfront.net/user_3EU1dmXvH6v0UY3EPhF1uGMkDzm/hf_20260620_023858_f78a1399-4244-49f0-9ac1-ee484ec6cccc.png'" alt="Labels feeding through a print head on the Michigan Shippers Supply production line" />
-    </div>
+    <div class="caps-photo reveal"><img src="images/press-printing.jpg" alt="A press at Michigan Shippers Supply running a roll of labels" /></div>
   </div>
 </section>
 
 <!-- ===== TURNAROUND / SHIPPING ===== -->
-<section class="turnaround" id="shipping">
+<section class="sec band" id="shipping">
   <div class="wrap">
-    <div>
-      <div class="eyebrow" style="color:#8fc0e9;">Fast Turnaround &amp; Shipping</div>
-      <h2>Your labels out the door in days, not weeks</h2>
-      <div class="big">10 days or less<small>For small &amp; large projects alike</small></div>
-      <p>Deadlines don't wait, and neither do we. Whether it's a first short run for a startup or a full production order for an established brand, we turn most jobs around in 10 days or less.</p>
-      <ul class="points">
-        <li>Same fast turnaround for small <em>and</em> large orders</li>
-        <li>Design, printing &amp; finishing all under one roof</li>
-        <li>An organized warehouse, so your order ships complete and on time</li>
-        <li>Shipping across the entire United States</li>
-      </ul>
-    </div>
-    <div>
-      <img src="images/warehouse.jpg" onerror="this.onerror=null;this.src='https://d8j0ntlcm91z4.cloudfront.net/user_3EU1dmXvH6v0UY3EPhF1uGMkDzm/hf_20260620_023945_0ab4e022-a6fd-4e87-8792-84634e133d82.png'" alt="The Michigan Shippers Supply warehouse and shipping area, stacked with boxed label orders ready to ship" />
+    <div class="split reveal">
+      <div>
+        <div class="eyebrow">Fast Turnaround &amp; Shipping</div>
+        <h2>Your labels out the door in days, not weeks</h2>
+        <div class="bigstat">10 days or less<small>For small &amp; large projects alike</small></div>
+        <p>Deadlines don't wait, and neither do we. Whether it's a first short run for a startup or a full production order for an established brand, we turn most jobs around in 10 days or less.</p>
+        <ul class="points">
+          <li>Same fast turnaround for small <em>and</em> large orders</li>
+          <li>Design, printing &amp; finishing all under one roof</li>
+          <li>An organized warehouse, so your order ships complete and on time</li>
+          <li>Shipping across the entire United States</li>
+        </ul>
+      </div>
+      <div class="shot"><img src="images/team.jpg" alt="The Michigan Shippers Supply team, a family business shipping label orders across the U.S." /></div>
     </div>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="faq" id="faq">
+<section class="sec band center" id="faq">
   <div class="wrap">
-    <div class="section-head">
+    <div class="shead reveal">
       <div class="eyebrow">Questions &amp; Answers</div>
       <h2>Frequently asked questions</h2>
       <p>Not seeing your question? Email <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a>, a real person will help.</p>
     </div>
-    <div class="faq-list">
+    <div class="faq-list reveal" style="text-align:left;">
       <details class="faq-item"><summary>How fast is your turnaround?</summary><div class="faq-a">Most orders ship in 10 days or less, the same fast turnaround for small first runs and large production orders alike. Have a tight deadline? Ask us; we'll do our best to help.</div></details>
-      <details class="faq-item"><summary>Is there a minimum order?</summary><div class="faq-a">For most products there's no minimum at all, so first runs and small batches are welcome. The one exception is custom foil lids (our Keurig-compatible coffee-pod lids), which have a 5,000-lid minimum. Tell us what you're printing and we'll size the job to you.</div></details>
+      <details class="faq-item"><summary>Is there a minimum order?</summary><div class="faq-a">We love helping startups and small businesses, so we keep things friendly for first runs and small batches. Tell us what you need and we'll size the job to you.</div></details>
       <details class="faq-item"><summary>What file formats should I send?</summary><div class="faq-a">Vector files are best, <strong>.AI, .EPS, .PDF,</strong> and <strong>.SVG</strong> open straight in Adobe Illustrator and stay crisp at any size. High-resolution <strong>.PNG</strong> or <strong>.TIFF</strong> also work. No artwork yet? Our in-house design team will build it for you.</div></details>
       <details class="faq-item"><summary>Do I get a proof before you print?</summary><div class="faq-a">Yes. We send a proof for your approval before anything goes to press, so you know exactly what you're getting.</div></details>
       <details class="faq-item"><summary>What can you print on?</summary><div class="faq-a">Paper and film label stocks in a range of finishes, plus metal and foil, including Keurig-compatible coffee-pod lids and durable tin labels that most printers won't touch.</div></details>
@@ -192,40 +189,20 @@
   </div>
 </section>
 
-<!-- ===== MID-PAGE CTA BAND ===== -->
-<section class="cta-band">
-  <div class="wrap">
+<!-- ===== CTA ===== -->
+<section class="sec center">
+  <div class="wrap"><div class="final reveal">
     <h2>Ready to print your labels?</h2>
     <p>Tell us about your product, even if it's just an idea, and we'll help with design and get you a fair quote.</p>
-    <div class="row">
-      <a class="btn btn-primary" href="about.html#contact">Request a Free Quote</a>
-    </div>
-  </div>
+    <a class="btn btn-primary" href="about.html#contact">Request a Free Quote</a>
+  </div></div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap">
     <div class="col foot-brand">
-      <img class="logo-real" src="images/logo-vertical-light.png" alt="Michigan Shippers Supply" onerror="this.style.display='none';document.getElementById('footFallback').style.display='inline-flex';" />
-      <span id="footFallback" class="ms-logo ms-logo--v" style="display:none;align-items:flex-start;text-align:left;">
-        <svg class="ms-mark" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Michigan Shippers Supply mark">
-          <defs><clipPath id="msTopFoot"><polygon points="60,16 104,40 60,64 16,40"/></clipPath></defs>
-          <polygon points="16,40 60,64 60,108 16,84" fill="#c3c8cc"/>
-          <polygon points="60,64 104,40 104,84 60,108" fill="#aeb4b9"/>
-          <polygon points="16,84 104,84 60,108" fill="#2f7dc1"/>
-          <polygon points="60,16 104,40 60,64 16,40" fill="#eef0f2"/>
-          <g clip-path="url(#msTopFoot)" stroke="#6f767c" stroke-width="3">
-            <line x1="4" y1="40" x2="80" y2="-3"/><line x1="12" y1="48" x2="88" y2="5"/>
-            <line x1="20" y1="56" x2="96" y2="13"/><line x1="28" y1="64" x2="104" y2="21"/>
-            <line x1="36" y1="72" x2="112" y2="29"/>
-          </g>
-          <polygon points="60,16 104,40 104,84 60,108 16,84 16,40" fill="none" stroke="#5d666d" stroke-width="1.4" stroke-linejoin="round"/>
-          <line x1="60" y1="64" x2="60" y2="108" stroke="#5d666d" stroke-width="1.1"/>
-          <polygon points="60,16 104,40 60,64 16,40" fill="none" stroke="#5d666d" stroke-width="1.4" stroke-linejoin="round"/>
-        </svg>
-        <span class="ms-wordmark" style="align-items:flex-start;"><b style="color:#fff;">MICHIGAN SHIPPERS</b><span>Supply &middot; Est. 1959</span></span>
-      </span>
+      <img src="images/logo-vertical-light.png" alt="Michigan Shippers Supply" onerror="this.src='images/logo-on-navy.png'" />
       <p>Family-owned custom label printing in Spring Lake, Michigan. Shipping across the entire United States.</p>
     </div>
     <div class="col">
@@ -238,8 +215,7 @@
     </div>
     <div class="col">
       <h4>Company</h4>
-      <a href="index.html#proof">Brands We Print For</a>
-      <a href="index.html#programs">White-Glove Program</a>
+      <a href="index.html">Home</a>
       <a href="about.html#about">Our Story</a>
       <a href="about.html#why">Why Us</a>
     </div>
@@ -250,10 +226,10 @@
       <a href="tel:16169356680">(616) 935-6680</a>
       <a href="about.html#contact">17369 Taft Rd<br>Spring Lake, MI 49456</a>
     </div>
-    <div class="legal">© 1959 to 2026 Michigan Shippers Supply, Inc. All rights reserved. &nbsp;|&nbsp; Custom flexographic &amp; digital label printing &middot; customerservice@michiganshippers.com</div>
+    <div class="legal">&copy; 1969 to 2026 Michigan Shippers Supply, Inc. All rights reserved. &nbsp;|&nbsp; Custom flexographic &amp; digital label printing &middot; customerservice@michiganshippers.com</div>
   </div>
 </footer>
 
-<script src="chat.js" defer></script>
+<script src="immersive.js"></script>
 </body>
 </html>
