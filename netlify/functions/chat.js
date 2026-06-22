@@ -47,6 +47,16 @@ exports.handler = async (event) => {
   let body;
   try { body = JSON.parse(event.body || "{}"); } catch (e) { return resp(400, { reply: null, error: "bad_json" }); }
 
+  // Temporary discovery helper: list models this key can use with generateContent.
+  if (body && body.debug === "models") {
+    try {
+      const lr = await fetch("https://generativelanguage.googleapis.com/v1beta/models?key=" + encodeURIComponent(key) + "&pageSize=1000");
+      const ld = await lr.json();
+      const names = (ld.models || []).filter(function (m) { return (m.supportedGenerationMethods || []).indexOf("generateContent") > -1; }).map(function (m) { return m.name; });
+      return resp(200, { models: names });
+    } catch (e3) { return resp(200, { models: [], error: String(e3) }); }
+  }
+
   const raw = Array.isArray(body.messages) ? body.messages.slice(-8) : [];
   const contents = raw
     .filter(function (m) { return m && typeof m.text === "string" && m.text.trim(); })
