@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About &amp; Contact | Michigan Shippers Supply</title>
-<meta name="description" content="Michigan Shippers Supply is a family-owned custom label printer in Spring Lake, Michigan, in business for 67 years. Get a free quote: call (616) 935-6680 or email sales@michiganshippers.com." />
+<meta name="description" content="Michigan Shippers Supply is a family-owned custom label printer in Spring Lake, Michigan, in business for 67 years. Get a free quote: call (616) 935-6680 or email customerservice@michiganshippers.com." />
 <link rel="icon" type="image/png" href="images/logo-mark.png" />
 <link rel="stylesheet" href="styles.css" />
 </head>
@@ -15,7 +15,7 @@
   <div class="wrap">
     <a class="wg-badge" href="index.html#programs">Premium Service</a>
     <span>📞 <a href="tel:16169356680">(616) 935-6680</a></span>
-    <span>✉️ <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a></span>
+    <span>✉️ <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a></span>
   </div>
 </div>
 
@@ -107,27 +107,23 @@
       <p style="color:#c7bda6;margin-bottom:24px;">Tell us a little about your product, even if it's just an idea, and our team will help with design and get you a fair quote. No pressure, no big minimums to start.</p>
       <div class="email-cta">
         <span class="ic">✉️</span>
-        <span><b>Email us directly</b><a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a></span>
+        <span><b>Email us directly</b><a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a></span>
       </div>
       <div class="email-cta"><span class="ic">📞</span><span><b>Call</b><a href="tel:+16169356680">(616) 935-6680</a> &middot; <a href="tel:+18004424639">Toll-free (800) 442-4639</a></span></div>
       <div class="email-cta"><span class="ic">📍</span><span><b>Visit / Mail</b><a href="https://maps.google.com/?q=17369+Taft+Rd%2C+Spring+Lake%2C+MI+49456" target="_blank" rel="noopener">17369 Taft Rd, Spring Lake, MI 49456</a></span></div>
       <div class="email-cta"><span class="ic">🕘</span><span><b>Hours</b><span style="color:#cdc1a8;font-weight:600;">Monday to Friday, 9:00 AM to 5:00 PM</span></span></div>
     </div>
-    <!-- Quote form posts to FormSubmit (formsubmit.co) so the visitor's message AND their
-         uploaded artwork files are emailed straight to sales@michiganshippers.com. A browser
-         mailto: link physically cannot carry attachments, which is why uploaded files were not
-         coming through before. FormSubmit needs no account and no API key. ONE-TIME SETUP: the
-         first real submission from the live site triggers a confirmation email to
-         sales@michiganshippers.com with an "Activate Form" button, click it once and every
-         future submission, including its file attachments, is delivered automatically.
-         File uploads require a normal multipart POST, so this form submits natively (no AJAX). -->
-    <form id="quoteForm" action="https://formsubmit.co/sales@michiganshippers.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="New label quote request from michiganshippers.com" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value="https://michigan-shippers.netlify.app/thanks.html" />
-      <!-- Honeypot: bots fill hidden fields, real visitors never see this one -->
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
+    <!-- Quote form uses Netlify Forms. Every submission (including uploaded files) is stored in
+         the Netlify dashboard (Forms tab) so a spam filter can never lose a lead, and Netlify
+         emails a copy to the address configured there (customerservice@michiganshippers.com).
+         A browser mailto: link cannot carry attachments, which is why uploads failed before.
+         File uploads need a native multipart POST, so this form submits normally (no AJAX).
+         The data-netlify attribute + hidden form-name let Netlify detect and process it. -->
+    <form id="quoteForm" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/thanks.html">
+      <input type="hidden" name="form-name" value="quote" />
+      <input type="hidden" name="subject" value="New label quote request from michiganshippers.com" />
+      <!-- Honeypot: bots fill this hidden field; real visitors never see it -->
+      <p hidden><label>Skip if you are human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
       <label for="name">Your name</label>
       <input id="name" name="name" type="text" placeholder="Jane Maker" required />
       <label for="email">Your email</label>
@@ -150,8 +146,8 @@
       <label for="artwork">Upload your artwork or files (optional)</label>
       <input id="artwork" name="attachment" type="file" multiple accept=".ai,.eps,.pdf,.svg,.tif,.tiff,.png,.jpg,.jpeg" />
       <p class="upload-hint">For the sharpest print, send <strong>vector files</strong>, <strong>.AI, .EPS, .PDF,</strong> or <strong>.SVG</strong> open straight in Adobe Illustrator and never lose quality. High-resolution <strong>.PNG</strong> or <strong>.TIFF</strong> work too. Please avoid low-res JPEGs or screenshots, they pixelate when printed.</p>
-      <button class="btn btn-primary" type="submit">Send to sales@michiganshippers.com</button>
-      <p class="form-note" id="formNote">Your details and any uploaded files go straight to our team. Have very large print-ready files (over a few MB)? Email them to <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a> so nothing gets compressed.</p>
+      <button class="btn btn-primary" type="submit">Send to customerservice@michiganshippers.com</button>
+      <p class="form-note" id="formNote">Your details and any uploaded files go straight to our team. Have very large print-ready files (over a few MB)? Email them to <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a> so nothing gets compressed.</p>
     </form>
     <script>
       // Show a "Sending…" state on submit, then let the native multipart POST proceed.
@@ -212,11 +208,11 @@
     <div class="col">
       <h4>Contact</h4>
       <a href="about.html#contact">Request a Quote</a>
-      <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a>
+      <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a>
       <a href="tel:16169356680">(616) 935-6680</a>
       <a href="about.html#contact">17369 Taft Rd<br>Spring Lake, MI 49456</a>
     </div>
-    <div class="legal">© 1959 to 2026 Michigan Shippers Supply, Inc. All rights reserved. &nbsp;|&nbsp; Custom flexographic &amp; digital label printing &middot; sales@michiganshippers.com</div>
+    <div class="legal">© 1959 to 2026 Michigan Shippers Supply, Inc. All rights reserved. &nbsp;|&nbsp; Custom flexographic &amp; digital label printing &middot; customerservice@michiganshippers.com</div>
   </div>
 </footer>
 

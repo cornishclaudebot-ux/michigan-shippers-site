@@ -21,7 +21,7 @@
     { keys: ["turnaround", "how fast", "how long does", "how soon", "lead time", "deadline", "rush", "urgent", "hurry", "quick", "when can i get", "speed"],
       a: "Most orders ship in <strong>10 days or less</strong>, the same fast turnaround for first runs, big production orders, and foil lids alike. On a tight deadline? Rush jobs are handled case by case and we can often move fast, so tell us your date or call <strong>(616) 935-6680</strong> and we'll do our best." },
     { keys: ["minimum", "minimums", "moq", "smallest order", "small order", "how few", "small batch", "small run", "minimum order"],
-      a: "It depends on the product! Custom <strong>foil lids</strong> (our Keurig-compatible coffee-pod lids) have a <strong>5,000-lid minimum</strong>. Everything else has <strong>no minimum</strong>, so first runs and small batches are welcome. What are you looking to print? For specifics, our labeling specialists are happy to help at <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>." },
+      a: "It depends on the product! Custom <strong>foil lids</strong> (our Keurig-compatible coffee-pod lids) have a <strong>5,000-lid minimum</strong>. Everything else has <strong>no minimum</strong>, so first runs and small batches are welcome. What are you looking to print? For specifics, our labeling specialists are happy to help at <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>." },
     { keys: ["file", "files", "format", "formats", "artwork", "vector", "illustrator", "design file", "eps", "pdf", "svg", "tiff", "what should i send"],
       a: "Vector files are best: <strong>.AI, .EPS, .PDF, and .SVG</strong> stay crisp at any size. High-resolution <strong>.PNG</strong> or <strong>.TIFF</strong> work too. No artwork yet? Our in-house design team will build it for you." },
     { keys: ["foil", "lid", "lids", "keurig", "k cup", "kcup", "k-cup", "coffee pod", "pods", "metal", "tin", "metallic"],
@@ -29,9 +29,9 @@
     { keys: ["proof", "approve", "approval", "see before", "preview"],
       a: "Yes. We send a <strong>proof for your approval</strong> before anything goes to press, so you know exactly what you're getting." },
     { keys: ["sample", "samples", "free sample", "free samples", "send a sample", "get a sample", "request a sample"],
-      a: "Yes! We're happy to send <strong>free samples at no cost</strong>. Just email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a> and let us know what you'd like to see." },
+      a: "Yes! We're happy to send <strong>free samples at no cost</strong>. Just email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a> and let us know what you'd like to see." },
     { keys: ["international", "internationally", "ship internationally", "international shipping", "outside the us", "outside the united states", "canada", "mexico", "overseas", "export", "other countries", "ship abroad"],
-      a: "We focus on the <strong>United States</strong>, but we can sometimes accommodate an international order. Email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a> and we'll see what we can do." },
+      a: "We focus on the <strong>United States</strong>, but we can sometimes accommodate an international order. Email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a> and we'll see what we can do." },
     { keys: ["material", "materials", "stock", "print on", "substrate", "paper", "film", "finish", "finishes"],
       a: "We print on paper and film label stocks in a range of finishes, plus metal and foil, including Keurig-compatible coffee-pod lids and durable tin labels." },
     { keys: ["where are you", "location", "address", "spring lake", "located", "find you", "visit", "michigan"],
@@ -41,9 +41,9 @@
     { keys: ["hours", "open", "closed", "when are you open", "what time"],
       a: "Our hours are <strong>Monday to Friday, 9:00 AM to 5:00 PM</strong>." },
     { keys: ["contact", "phone", "call", "number", "reach", "talk to", "speak to", "get in touch"],
-      a: "You can call <strong>(616) 935-6680</strong> (toll-free 800-442-4639) or email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>. The <a href='about.html#contact'>Get a Quote</a> form is the fastest way to start." },
+      a: "You can call <strong>(616) 935-6680</strong> (toll-free 800-442-4639) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>. The <a href='about.html#contact'>Get a Quote</a> form is the fastest way to start." },
     { keys: ["quote", "price", "pricing", "cost", "how much", "estimate", "expensive", "rate", "rates", "ballpark"],
-      a: "Pricing depends on your label type, size, quantity, and material, so the fastest way to a fair number is the <a href='about.html#contact'>Get a Quote</a> form (you can even upload your artwork) or email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>. No pressure, and our labeling specialists will get you a fair number." },
+      a: "Pricing depends on your label type, size, quantity, and material, so the fastest way to a fair number is the <a href='about.html#contact'>Get a Quote</a> form (you can even upload your artwork) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>. No pressure, and our labeling specialists will get you a fair number." },
     { keys: ["white glove", "white-glove", "premium", "managed inventory", "just in time", "just-in-time", "hold inventory", "never run out", "dedicated specialist"],
       a: "Our premium <strong>Managed Inventory &amp; Just-in-Time</strong> program is white-glove: a dedicated specialist, your labels held and ready, and printing on demand so you never run out or tie up cash. Ask about a private consultation on the <a href='index.html#programs'>home page</a>." },
     { keys: ["design help", "no design", "dont have a design", "do not have", "help with design", "create a design", "make a design", "logo"],
@@ -55,12 +55,12 @@
     { keys: ["barcode", "shipping label", "scan", "scannable"],
       a: "We print scannable, durable <strong>barcode and shipping labels</strong>, optionally branded, so products move cleanly through retail and the warehouse." },
     { keys: ["place an order", "buy", "purchase", "i need", "i want", "order"],
-      a: "Happy to get that started! The best first step is a quick quote so we can size the job and price it right: use the <a href='about.html#contact'>Get a Quote</a> form (upload artwork if you have it) or email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>." }
+      a: "Happy to get that started! The best first step is a quick quote so we can size the job and price it right: use the <a href='about.html#contact'>Get a Quote</a> form (upload artwork if you have it) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>." }
   ];
   var GREET = ["hi", "hello", "hey", "yo", "howdy", "good morning", "good afternoon", "good evening"];
   var THANKS = ["thank", "thanks", "thx", "appreciate", "awesome", "perfect"];
   var BYE = ["bye", "goodbye", "see ya", "that is all", "thats all", "no thanks"];
-  var FALLBACK = "Great question, and I want to make sure you get the right answer from a real person. The quickest way is to email our team at <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a> or use the <a href='about.html#contact'>Get a Quote</a> form. Tell us what you're printing and roughly how many, and one of our labeling specialists will get right back to you.";
+  var FALLBACK = "Great question, and I want to make sure you get the right answer from a real person. The quickest way is to email our team at <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a> or use the <a href='about.html#contact'>Get a Quote</a> form. Tell us what you're printing and roughly how many, and one of our labeling specialists will get right back to you.";
 
   function norm(s) { return " " + String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim() + " "; }
   function ws(t, k) { return t.indexOf(" " + k.trim()) > -1; }            // word-start (lets stems match: minimum -> minimums)
@@ -75,7 +75,7 @@
     }
     if (score >= 1 && best) { return best.a; }
     for (i = 0; i < THANKS.length; i++) { if (ws(t, THANKS[i])) { return "You're welcome! Anything else I can help with? When you're ready, the <a href='about.html#contact'>Get a Quote</a> form takes about a minute."; } }
-    for (i = 0; i < BYE.length; i++) { if (ws(t, BYE[i])) { return "Thanks for stopping by! Reach us anytime at <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a> or (616) 935-6680."; } }
+    for (i = 0; i < BYE.length; i++) { if (ws(t, BYE[i])) { return "Thanks for stopping by! Reach us anytime at <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a> or (616) 935-6680."; } }
     for (i = 0; i < GREET.length; i++) { if (ww(t, GREET[i])) { return "Hi there! I can help with what we print, turnaround, file types, foil lids, and getting a quote. What are you working on?"; } }
     return FALLBACK;
   }
@@ -95,7 +95,7 @@
     "<div class='chat-body' id='chatBody'></div>" +
     "<div class='chat-chips' id='chatChips'></div>" +
     "<form class='chat-input-row' id='chatForm'><input id='chatInput' type='text' placeholder='Type your question…' autocomplete='off' aria-label='Your message' /><button type='submit'>Send</button></form>" +
-    "<div class='chat-foot'>Automated quick help. For anything else, email <a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>.</div>" +
+    "<div class='chat-foot'>Automated quick help. For anything else, email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>.</div>" +
     "</div>");
 
   document.body.appendChild(fab);
@@ -118,7 +118,7 @@
 
   // Render an AI plain-text reply safely: escape HTML, keep line breaks, linkify our email.
   function renderReply(t) {
-    return esc(t).replace(/\n+/g, "<br>").replace(/sales@michiganshippers\.com/g, "<a href='mailto:sales@michiganshippers.com'>sales@michiganshippers.com</a>");
+    return esc(t).replace(/\n+/g, "<br>").replace(/customerservice@michiganshippers\.com/g, "<a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>");
   }
 
   // Ask the AI backend. Resolves to a reply string, or null to signal "use the scripted answer".
