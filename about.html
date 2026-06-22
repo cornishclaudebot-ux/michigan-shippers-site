@@ -113,21 +113,27 @@
       <div class="email-cta"><span class="ic">📍</span><span><b>Visit / Mail</b><a href="https://maps.google.com/?q=17369+Taft+Rd%2C+Spring+Lake%2C+MI+49456" target="_blank" rel="noopener">17369 Taft Rd, Spring Lake, MI 49456</a></span></div>
       <div class="email-cta"><span class="ic">🕘</span><span><b>Hours</b><span style="color:#cdc1a8;font-weight:600;">Monday to Friday, 9:00 AM to 5:00 PM</span></span></div>
     </div>
-    <!-- Quote form submits via Web3Forms (web3forms.com) so the visitor's message AND
-         their uploaded artwork files get emailed to the team (mailto can't attach files).
-         SETUP: paste the Web3Forms access key into the access_key value below. Create a free
-         key + verify the destination inbox at web3forms.com; submissions land in that inbox.
-         Until a real key is set, the form safely falls back to opening a pre-filled email
-         (text only, no attachments). -->
-    <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="access_key" value="PASTE_WEB3FORMS_ACCESS_KEY" />
-      <input type="hidden" name="subject" value="New label quote request from michiganshippers.com" />
-      <input type="hidden" name="from_name" value="Michigan Shippers Supply website" />
-      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" />
+    <!-- Quote form posts to FormSubmit (formsubmit.co) so the visitor's message AND their
+         uploaded artwork files are emailed straight to sales@michiganshippers.com. A browser
+         mailto: link physically cannot carry attachments, which is why uploaded files were not
+         coming through before. FormSubmit needs no account and no API key. ONE-TIME SETUP: the
+         first real submission from the live site triggers a confirmation email to
+         sales@michiganshippers.com with an "Activate Form" button, click it once and every
+         future submission, including its file attachments, is delivered automatically.
+         File uploads require a normal multipart POST, so this form submits natively (no AJAX). -->
+    <form id="quoteForm" action="https://formsubmit.co/sales@michiganshippers.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="New label quote request from michiganshippers.com" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://michigan-shippers.netlify.app/thanks.html" />
+      <!-- Honeypot: bots fill hidden fields, real visitors never see this one -->
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
       <label for="name">Your name</label>
       <input id="name" name="name" type="text" placeholder="Jane Maker" required />
       <label for="email">Your email</label>
       <input id="email" name="email" type="email" placeholder="jane@yourbrand.com" required />
+      <label for="phone">Your phone number (optional)</label>
+      <input id="phone" name="phone" type="tel" placeholder="(616) 555-0148" autocomplete="tel" inputmode="tel" />
       <label for="type">What do you need labels for?</label>
       <select id="type" name="label_type">
         <option>Product labels</option>
@@ -148,33 +154,16 @@
       <p class="form-note" id="formNote">Your details and any uploaded files go straight to our team. Have very large print-ready files (over a few MB)? Email them to <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a> so nothing gets compressed.</p>
     </form>
     <script>
+      // Show a "Sending…" state on submit, then let the native multipart POST proceed.
+      // We deliberately do NOT preventDefault: the browser must perform the real form POST
+      // so the selected files upload as attachments (an AJAX/fetch submit cannot send them).
       (function(){
         var form=document.getElementById('quoteForm');
-        var note=document.getElementById('formNote');
-        form.addEventListener('submit', function(e){
-          e.preventDefault();
-          var keyEl=form.querySelector('input[name=access_key]');
-          var key=keyEl?keyEl.value:'';
-          if(!key || key.indexOf('PASTE_')===0){ return mailtoFallback(); }
-          var fileInput=form.querySelector('input[type=file]');
-          var hadFiles=!!(fileInput && fileInput.files && fileInput.files.length);
-          var btn=form.querySelector('button[type=submit]'); var orig=btn.textContent;
-          btn.disabled=true; btn.textContent='Sending…';
-          fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
-            .then(function(r){return r.json();})
-            .then(function(d){
-              if(d.success){ note.innerHTML='✓ Thanks! Your request'+(hadFiles?' and files were':' was')+' sent to our team. We\'ll be in touch with your quote.'; form.reset(); btn.textContent='Sent ✓'; }
-              else { note.innerHTML='Sorry, that didn\'t go through. Please email <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a> directly.'; btn.disabled=false; btn.textContent=orig; }
-            })
-            .catch(function(){ note.innerHTML='Network issue. Please email <a href="mailto:sales@michiganshippers.com">sales@michiganshippers.com</a> directly.'; btn.disabled=false; btn.textContent=orig; });
+        if(!form) return;
+        form.addEventListener('submit', function(){
+          var btn=form.querySelector('button[type=submit]');
+          if(btn){ btn.disabled=true; btn.textContent='Sending…'; }
         });
-        function mailtoFallback(){
-          var g=function(id){var el=document.getElementById(id);return el?String(el.value).trim():'';};
-          var name=g('name'),email=g('email'),type=g('type'),msg=g('msg');
-          var subject='Label quote request, '+(name||'website');
-          var body='Name: '+name+'\nEmail: '+email+'\nLabel type: '+type+'\n\nProject details:\n'+(msg||'(none provided)')+'\n\nSent from michiganshippers.com';
-          window.location.href='mailto:sales@michiganshippers.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-        }
       })();
     </script>
   </div>
