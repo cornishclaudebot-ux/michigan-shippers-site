@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign In &amp; Track Orders | Michigan Shippers Supply</title>
+<meta name="description" content="Sign in to your Michigan Shippers Supply account to check out, track orders, and see shipping updates. Secure accounts powered by Shopify." />
+<link rel="icon" type="image/png" href="images/logo-mark.png" />
+<script>document.documentElement.className='js';</script>
+<link rel="stylesheet" href="immersive.css" />
+<link rel="stylesheet" href="store.css" />
+</head>
+<body>
+
+<!-- ===== PRELOADER ===== -->
+<div id="pre">
+  <img src="images/logo-on-navy.png" alt="Michigan Shippers Supply" onerror="this.src='images/logo-vertical-light.png'" />
+  <div class="pre-bar"><i></i></div>
+  <div class="pre-msg" id="preMsg">Loading your account&hellip;</div>
+</div>
+
+<!-- ===== IMMERSIVE WORLD BG ===== -->
+<div class="world" aria-hidden="true"></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Michigan Shippers Supply home">
+      <img src="images/logo-horizontal-light.png" alt="Michigan Shippers Supply" onerror="this.src='images/logo-on-navy.png'" />
+    </a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="labels.html">Our Labels</a>
+      <details class="nav-shop">
+        <summary>Shop<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="shop-menu">
+          <a href="store.html#cat-printers">Printers &amp; Printheads</a>
+          <a href="store.html#cat-ribbons">Thermal-Transfer Ribbons</a>
+          <a href="store.html#cat-markers">Paint Markers &amp; Coding</a>
+          <a href="store.html#cat-applicators">Rollers &amp; Applicators</a>
+          <a href="store.html#cat-coatings">UV Varnish &amp; Coatings</a>
+          <a href="store.html#cat-barcodes">Barcodes &amp; Scanning</a>
+          <a href="store.html#cat-software">Label Software</a>
+          <a href="store.html#cat-custom">Custom Orders &amp; Services</a>
+          <a class="shop-all" href="store.html">Shop all supplies</a>
+        </div>
+      </details>
+      <a href="about.html">About &amp; Contact</a>
+      <a class="nav-signin active" href="account.html">Sign In</a>
+      <button class="nav-cart" type="button" data-cart-open aria-label="Open cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge">0</span>
+      </button>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('nav.links').style.display='flex'">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cdd8e3" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===== AUTH ===== -->
+<section class="auth-wrap" id="loginView">
+  <div class="auth-card reveal">
+    <div class="eyebrow">Customer Account</div>
+    <h1>Welcome back</h1>
+    <p class="sub">Sign in to check out, track orders, and follow your shipments to the door.</p>
+
+    <div class="sso">
+      <button class="sso-btn" type="button" data-sso="google">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.16a6.6 6.6 0 0 1-.34-2.16c0-.75.13-1.48.34-2.16V7H2.18A11 11 0 0 0 1 12c0 1.77.42 3.45 1.18 4.94l3.66-2.78z"/><path fill="#EA4335" d="M12 5.5c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.5 12 5.5z"/></svg>
+        Continue with Google
+      </button>
+      <button class="sso-btn" type="button" data-sso="apple">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="#fff"><path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-1.72-.92-2.83-.9-1.46.02-2.8.85-3.55 2.16-1.51 2.62-.39 6.5 1.08 8.63.72 1.04 1.57 2.21 2.69 2.17 1.08-.04 1.49-.7 2.79-.7 1.3 0 1.67.7 2.81.68 1.16-.02 1.9-1.06 2.61-2.11.82-1.21 1.16-2.38 1.18-2.44-.03-.01-2.26-.87-2.29-3.71zM14.47 4.38c.6-.72 1-1.73.89-2.73-.86.03-1.9.57-2.51 1.29-.55.64-1.03 1.66-.9 2.64.96.07 1.93-.49 2.52-1.2z"/></svg>
+        Continue with Apple
+      </button>
+      <button class="sso-btn" type="button" data-sso="microsoft">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F25022" d="M2 2h9.4v9.4H2z"/><path fill="#7FBA00" d="M12.6 2H22v9.4h-9.4z"/><path fill="#00A4EF" d="M2 12.6h9.4V22H2z"/><path fill="#FFB900" d="M12.6 12.6H22V22h-9.4z"/></svg>
+        Continue with Microsoft
+      </button>
+    </div>
+    <div class="auth-divider">or use your email</div>
+
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" type="button" data-mode="signin">Sign in</button>
+      <button class="auth-tab" type="button" data-mode="signup">Create account</button>
+    </div>
+
+    <form id="authForm" novalidate>
+      <div id="nameField" style="display:none;">
+        <label for="fullname">Full name</label>
+        <input id="fullname" name="fullname" type="text" placeholder="Jane Maker" autocomplete="name" />
+      </div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="jane@yourbrand.com" autocomplete="email" required />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+      <button class="btn btn-primary" id="authSubmit" type="submit">Sign in</button>
+    </form>
+
+    <p class="auth-alt">Need to order today? <a href="about.html#contact">Request a quote</a> or email <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a>.</p>
+  </div>
+
+  <div class="auth-perks">
+    <div class="perk"><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><div><b>Track every order</b><small>Real-time order status</small></div></div>
+    <div class="perk"><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><div><b>Live shipping updates</b><small>Follow it to your door</small></div></div>
+    <div class="perk"><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span><div><b>Reorder in one click</b><small>Your supplies, fast</small></div></div>
+    <div class="perk"><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></span><div><b>Saved invoices</b><small>Every receipt, one place</small></div></div>
+  </div>
+</section>
+
+<!-- ===== ACCOUNT DASHBOARD (mock — shown after sign-in) ===== -->
+<section class="dash" id="dashboardView" style="display:none;">
+  <div class="dash-head">
+    <div><div class="eyebrow">Customer Account</div><h1>Your orders</h1></div>
+    <button class="sign-out" id="signOut" type="button">Sign out</button>
+  </div>
+  <p class="dash-sub">Track every shipment and reorder your supplies in one click.</p>
+  <div class="dash-banner"><b>Preview.</b> This is what your account will look like. Once Shopify is connected, your real orders and live carrier tracking appear here automatically.</div>
+
+  <!-- In transit -->
+  <article class="order-card">
+    <div class="order-top">
+      <div><div class="onum">Order #MSS-10428</div><div class="odate">Placed June 18, 2026</div></div>
+      <span class="order-status transit">In transit</span>
+    </div>
+    <div class="order-items">Wax-Resin Ribbon, 4.33" × 1476' (×4) &middot; Felt-Edge Squeegee (×2)</div>
+    <div class="order-meta"><span>Carrier <b>UPS Ground</b></span><span>Tracking <b>1Z999AA10123456784</b></span><span>Est. delivery <b>June 24</b></span></div>
+    <div class="track">
+      <div class="track-step done"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Order placed</span></div>
+      <div class="track-step done current"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Shipped</span></div>
+      <div class="track-step"><span class="dot"></span><span class="lbl">Out for delivery</span></div>
+      <div class="track-step"><span class="dot"></span><span class="lbl">Delivered</span></div>
+    </div>
+  </article>
+
+  <!-- Delivered -->
+  <article class="order-card">
+    <div class="order-top">
+      <div><div class="onum">Order #MSS-10391</div><div class="odate">Placed June 5, 2026</div></div>
+      <span class="order-status delivered">Delivered</span>
+    </div>
+    <div class="order-items">Zebra ZD621 Desktop Printer &middot; Resin Ribbon, 4.33" × 1476' (×6)</div>
+    <div class="order-meta"><span>Carrier <b>FedEx Home</b></span><span>Tracking <b>7712 3456 7890</b></span><span>Delivered <b>June 12</b></span></div>
+    <div class="track">
+      <div class="track-step done"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Order placed</span></div>
+      <div class="track-step done"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Shipped</span></div>
+      <div class="track-step done"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Out for delivery</span></div>
+      <div class="track-step done current"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Delivered</span></div>
+    </div>
+  </article>
+
+  <!-- Processing -->
+  <article class="order-card">
+    <div class="order-top">
+      <div><div class="onum">Order #MSS-10455</div><div class="odate">Placed June 22, 2026</div></div>
+      <span class="order-status processing">Processing</span>
+    </div>
+    <div class="order-items">BarTender Professional &middot; GS1 Barcode Setup (UPC / EAN)</div>
+    <div class="order-meta"><span>Status <b>Preparing your order</b></span><span>Ships in <b>1 to 2 business days</b></span></div>
+    <div class="track">
+      <div class="track-step done current"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="lbl">Order placed</span></div>
+      <div class="track-step"><span class="dot"></span><span class="lbl">Shipped</span></div>
+      <div class="track-step"><span class="dot"></span><span class="lbl">Out for delivery</span></div>
+      <div class="track-step"><span class="dot"></span><span class="lbl">Delivered</span></div>
+    </div>
+  </article>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="col foot-brand">
+      <img src="images/logo-vertical-light.png" alt="Michigan Shippers Supply" onerror="this.src='images/logo-on-navy.png'" />
+      <p>Family-owned custom label printing in Spring Lake, Michigan. Shipping across the entire United States.</p>
+    </div>
+    <div class="col">
+      <h4>Shop</h4>
+      <a href="store.html#cat-printers">Printers &amp; Printheads</a>
+      <a href="store.html#cat-ribbons">Thermal-Transfer Ribbons</a>
+      <a href="store.html#cat-markers">Paint Markers</a>
+      <a href="store.html#cat-software">Label Software</a>
+    </div>
+    <div class="col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="labels.html">Our Labels</a>
+      <a href="about.html#about">Our Story</a>
+    </div>
+    <div class="col">
+      <h4>Contact</h4>
+      <a href="about.html#contact">Request a Quote</a>
+      <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a>
+      <a href="tel:16169356680">(616) 935-6680</a>
+      <a href="about.html#contact">17369 Taft Rd<br>Spring Lake, MI 49456</a>
+    </div>
+    <div class="legal">&copy; 1969 to 2026 Michigan Shippers Supply, Inc. All rights reserved. &nbsp;|&nbsp; Custom flexographic &amp; digital label printing &middot; customerservice@michiganshippers.com</div>
+  </div>
+</footer>
+
+<script src="immersive.js"></script>
+<script src="store.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>

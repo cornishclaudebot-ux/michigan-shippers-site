@@ -45,11 +45,14 @@
   }
 
   /* ---- SCROLL-DRIVEN FEED ---- */
-  var n=nodes.length,targets=[],maxScroll=0;
-  /* each label's translateY to bring it to the slot; maxScroll cached so frame() does zero layout reads */
+  var n=nodes.length,targets=[],maxScroll=0,feedSpan=0;
+  /* each label's translateY to bring it to the slot; spans cached so frame() does zero layout reads */
   function measure(){
     targets=nodes.map(function(el){return -el.offsetTop;});
     maxScroll=document.documentElement.scrollHeight-window.innerHeight;
+    /* feed ALL labels within ~6 screens of scroll (front-loaded below) so the press prints promptly,
+       instead of dragging the 15 labels across the entire long page */
+    feedSpan=Math.max(1, Math.min(maxScroll, window.innerHeight*6));
   }
   /* re-measure once ribbon images load (their heights settle the spacing) */
   if(track){
@@ -60,7 +63,8 @@
   }
   var ticking=false, navEl=document.getElementById('nav'), navSolid=false;
   function frame(){
-    var p=maxScroll>0?Math.min(1,Math.max(0,window.scrollY/maxScroll)):0;
+    var p=feedSpan>0?Math.min(1,Math.max(0,window.scrollY/feedSpan)):0;
+    p=Math.pow(p,0.62); /* front-load: labels begin sliding out of the press from the very first scroll */
     if(!reduce && track && n){
       var t=p*(n-1),ti=Math.floor(t);if(ti>n-2)ti=n-2;if(ti<0)ti=0;
       var frac=t-ti,ty=targets.length?targets[ti]+(targets[ti+1]-targets[ti])*frac:0;
@@ -69,7 +73,7 @@
       for(var i=0;i<n;i++){
         if(ty-targets[i]>=-20 && !nodes[i].classList.contains('printed')){
           nodes[i].classList.add('printed','printing');
-          (function(el){setTimeout(function(){el.classList.remove('printing');},560);})(nodes[i]);
+          (function(el){setTimeout(function(){el.classList.remove('printing');},420);})(nodes[i]);
         }
       }
     }
@@ -95,4 +99,13 @@
   if(document.readyState!=='loading')setTimeout(init,60);
   else window.addEventListener('DOMContentLoaded',function(){setTimeout(init,60);});
   window.addEventListener('load',function(){setTimeout(init,120);});
+
+  /* ---- SHOP dropdown: close on outside click / Escape ---- */
+  document.addEventListener('click',function(e){
+    var open=document.querySelectorAll('details.nav-shop[open]');
+    for(var i=0;i<open.length;i++){ if(!open[i].contains(e.target)) open[i].removeAttribute('open'); }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'||e.keyCode===27){ var o=document.querySelectorAll('details.nav-shop[open]'); for(var i=0;i<o.length;i++) o[i].removeAttribute('open'); }
+  });
 })();

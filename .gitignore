@@ -7,3 +7,14 @@ build_logos.py
 
 # System
 .DS_Store
+
+# Shopify integration scratch (not part of deployed site)
+shopify-load.js
+shopify-id-map.json
+shopify-products.csv
+store.js.bak
+images/logo-vertical-light.orig.png
+
+# Brand bible build artifacts
+Michigan-Shippers-Supply-Brand-Bible.pptx
+pptx-build/
