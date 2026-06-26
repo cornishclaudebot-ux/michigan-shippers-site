@@ -87,14 +87,22 @@
     </div>
 
     <form id="authForm" novalidate>
-      <div id="nameField" style="display:none;">
+      <div id="nameField" class="signup-only" style="display:none;">
         <label for="fullname">Full name</label>
         <input id="fullname" name="fullname" type="text" placeholder="Jane Maker" autocomplete="name" />
       </div>
       <label for="email">Email</label>
       <input id="email" name="email" type="email" placeholder="jane@yourbrand.com" autocomplete="email" required />
+      <div class="signup-only" style="display:none;">
+        <label for="company">Company</label>
+        <input id="company" name="company" type="text" placeholder="Your business name" autocomplete="organization" />
+      </div>
+      <div class="signup-only" style="display:none;">
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="(616) 555-0100" autocomplete="tel" />
+      </div>
       <label for="password">Password</label>
-      <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+      <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="current-password" />
       <button class="btn btn-primary" id="authSubmit" type="submit">Sign in</button>
     </form>
 
@@ -197,6 +205,14 @@
     <div class="legal">&copy; 1969 to 2026 Michigan Shippers Supply, Inc. All rights reserved. &nbsp;|&nbsp; Custom flexographic &amp; digital label printing &middot; customerservice@michiganshippers.com</div>
   </div>
 </footer>
+
+<!-- Netlify Forms: auto-collects customer signups into an exportable list (Excel/CSV). Captures name/email/company/phone only, never the password. -->
+<form name="customer-signups" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="fullname" />
+  <input type="email" name="email" />
+  <input type="text" name="company" />
+  <input type="tel" name="phone" />
+</form>
 
 <script src="immersive.js"></script>
 <script src="store.js"></script>

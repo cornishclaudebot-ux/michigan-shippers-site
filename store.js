@@ -242,15 +242,23 @@
       Array.prototype.forEach.call(document.querySelectorAll('.auth-tab'),function(x){ x.classList.remove('active'); });
       t.classList.add('active');
       var mode=t.getAttribute('data-mode');
-      var nameField=document.getElementById('nameField');
-      if(nameField) nameField.style.display = mode==='signup' ? 'block' : 'none';
+      Array.prototype.forEach.call(document.querySelectorAll('.signup-only'),function(el){ el.style.display = mode==='signup' ? 'block' : 'none'; });
       var sb=document.getElementById('authSubmit'); if(sb) sb.textContent = mode==='signup' ? 'Create account' : 'Sign in';
     });
   });
 
   /* email + SSO sign-in → open the (mock) account dashboard */
   var authForm=document.getElementById('authForm');
-  if(authForm) authForm.addEventListener('submit',function(e){ e.preventDefault(); showDash(); });
+  if(authForm) authForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var at=document.querySelector('.auth-tab.active');
+    if(at && at.getAttribute('data-mode')==='signup'){
+      var g=function(id){ var el=document.getElementById(id); return el?el.value:''; };
+      var body=new URLSearchParams({ 'form-name':'customer-signups', fullname:g('fullname'), email:g('email'), company:g('company'), phone:g('phone') });
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()}).catch(function(){});
+    }
+    showDash();
+  });
   Array.prototype.forEach.call(document.querySelectorAll('[data-sso]'),function(b){
     b.addEventListener('click',function(){ showDash(); });
   });
