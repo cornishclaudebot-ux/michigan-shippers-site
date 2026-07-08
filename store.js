@@ -120,6 +120,47 @@
     });
   }
 
+  /* ---------------- live Shopify backend (/api/shop, Netlify function) ----
+     LIVE.configured flips true only when the backend answers with a working
+     catalog. Until then (no token yet, GitHub Pages fallback host, local
+     preview, Shopify outage) everything below no-ops and the site behaves
+     exactly as the original demo: mock prices, cart-permalink checkout,
+     preview account. Zero-risk, same pattern as the AI chat. ------------- */
+  var LIVE = { configured:false };
+  function api(payload){
+    return fetch('/api/shop',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ return r.json(); });
+  }
+  function getAuth(){ try{ return JSON.parse(localStorage.getItem('mss_auth')||'null'); }catch(e){ return null; } }
+  function setAuth(a){ if(a) localStorage.setItem('mss_auth', JSON.stringify(a)); else localStorage.removeItem('mss_auth'); }
+  function esc(s){
+    return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  /* overlay real Shopify prices + stock onto the rendered catalog, so what the
+     customer sees always matches what Shopify charges at checkout */
+  function applyLiveCatalog(variants){
+    var map = (window.MSS_SHOP && window.MSS_SHOP.variants) || {};
+    for(var siteId in map){
+      var lv = variants[String(map[siteId])], it = byId[siteId];
+      if(!lv || !it) continue;
+      if(typeof lv.price==='number' && !isNaN(lv.price) && lv.price>0 && it.price>0) it.price = lv.price;
+      it.soldOut = (lv.available===false);
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-add]'),function(b){
+      var it = byId[b.getAttribute('data-add')]; if(!it) return;
+      var card = b.closest('.prod-card'); if(!card) return;
+      var priceEl = card.querySelector('.price');
+      if(priceEl && it.price>0){
+        priceEl.innerHTML = (it.from?'<small>from</small>':'') + money(it.price) + (it.unit?'<small>'+it.unit+'</small>':'');
+      }
+      if(it.soldOut){ b.disabled=true; b.textContent='Sold out'; }
+    });
+    renderCart();
+  }
+
   /* ---------------- render the shop ---------------- */
   var shop = document.getElementById('shop');
   if(shop){
@@ -209,11 +250,18 @@
     });
     var co=document.getElementById('checkoutBtn');
     if(co) co.addEventListener('click',function(){
-      var cart=getCart(), shop=window.MSS_SHOP, parts=[];
-      if(shop&&shop.variants){ for(var k in cart){ if(cart[k]>0 && shop.variants[k]) parts.push(shop.variants[k]+':'+cart[k]); } }
+      var cart=getCart(), shop=window.MSS_SHOP, parts=[], lines=[];
+      if(shop&&shop.variants){ for(var k in cart){ if(cart[k]>0 && shop.variants[k]){ parts.push(shop.variants[k]+':'+cart[k]); lines.push({variantId:String(shop.variants[k]), quantity:cart[k]}); } } }
       if(!parts.length){ co.textContent='Your cart is empty'; setTimeout(function(){ co.textContent='Checkout'; },1600); return; }
       co.textContent='Taking you to secure checkout'; co.disabled=true;
-      window.location.href='https://'+shop.domain+'/cart/'+parts.join(',');
+      var permalink='https://'+shop.domain+'/cart/'+parts.join(',');
+      function fallback(){ window.location.href=permalink; }
+      if(LIVE.configured){
+        /* real Shopify cart via the backend; on any hiccup the permalink still works */
+        api({op:'checkout', lines:lines}).then(function(d){
+          if(d && d.checkoutUrl) window.location.href=d.checkoutUrl; else fallback();
+        }).catch(fallback);
+      } else fallback();
     });
   }
   /* nav cart buttons (on store/account pages open the drawer) */
@@ -247,22 +295,137 @@
     });
   });
 
-  /* email + SSO sign-in → open the (mock) account dashboard */
+  /* ---------------- real accounts (Shopify customer accounts via /api/shop) */
+  var authErr=document.getElementById('authError');
+  function showAuthErr(msg){ if(authErr){ authErr.textContent=msg; authErr.style.display='block'; } }
+  function hideAuthErr(){ if(authErr) authErr.style.display='none'; }
+
+  var CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  function fmtDate(iso){
+    var d=new Date(iso);
+    return isNaN(d) ? '' : d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  }
+
+  /* build real order cards (replaces the mock preview once signed in) */
+  function renderOrders(cust){
+    var sub=document.getElementById('dashSub');
+    if(sub) sub.textContent=(cust.firstName?'Welcome back, '+cust.firstName+'. ':'')+'Track every shipment and reorder your supplies in one click.';
+    var banner=document.getElementById('dashBanner'); if(banner) banner.style.display='none';
+    var list=document.getElementById('orderList'); if(!list) return;
+    var orders=cust.orders||[];
+    if(!orders.length){
+      list.innerHTML='<div class="dash-banner">No orders yet. <a href="store.html">Browse the supply store</a> — your orders and live tracking will appear here.</div>';
+      return;
+    }
+    list.innerHTML=orders.map(function(o){
+      var shipped=(o.fulfillments||[]).length>0;
+      var fs=String(o.fulfillmentStatus||'').toUpperCase();
+      var chip= fs==='FULFILLED' ? '<span class="order-status transit">Shipped</span>'
+              : shipped ? '<span class="order-status transit">Partially shipped</span>'
+              : '<span class="order-status processing">Processing</span>';
+      var items=(o.items||[]).map(function(li){ return esc(li.title)+(li.quantity>1?' (×'+li.quantity+')':''); }).join(' &middot; ');
+      var meta=[];
+      if(o.total) meta.push('<span>Total <b>'+esc(o.total)+'</b></span>');
+      (o.fulfillments||[]).forEach(function(f){
+        if(f.company) meta.push('<span>Carrier <b>'+esc(f.company)+'</b></span>');
+        (f.tracking||[]).forEach(function(t){
+          if(!t.number) return;
+          meta.push('<span>Tracking <b>'+(t.url?'<a href="'+esc(t.url)+'" target="_blank" rel="noopener">'+esc(t.number)+'</a>':esc(t.number))+'</b></span>');
+        });
+      });
+      if(o.statusUrl) meta.push('<span><a class="order-track-link" href="'+esc(o.statusUrl)+'" target="_blank" rel="noopener">Track this order</a></span>');
+      var steps='<div class="track">'
+        +'<div class="track-step done'+(shipped?'':' current')+'"><span class="dot">'+CHECK+'</span><span class="lbl">Order placed</span></div>'
+        +'<div class="track-step'+(shipped?' done current':'')+'"><span class="dot">'+(shipped?CHECK:'')+'</span><span class="lbl">Shipped</span></div>'
+        +'<div class="track-step"><span class="dot"></span><span class="lbl">Out for delivery</span></div>'
+        +'<div class="track-step"><span class="dot"></span><span class="lbl">Delivered</span></div></div>';
+      return '<article class="order-card"><div class="order-top"><div><div class="onum">Order '+esc(o.name)+'</div>'
+        +'<div class="odate">Placed '+esc(fmtDate(o.processedAt))+'</div></div>'+chip+'</div>'
+        +'<div class="order-items">'+items+'</div>'
+        +'<div class="order-meta">'+meta.join('')+'</div>'+steps+'</article>';
+    }).join('');
+  }
+
+  function loadOrders(){
+    var a=getAuth();
+    if(!a || !a.token) return Promise.reject(new Error('signed_out'));
+    return api({op:'orders', token:a.token}).then(function(d){
+      if(d && d.customer){ renderOrders(d.customer); showDash(); return true; }
+      setAuth(null); throw new Error((d && d.error) || 'signed_out');
+    });
+  }
+
+  /* email + SSO sign-in.
+     Demo until the backend is live; real Shopify accounts after. */
   var authForm=document.getElementById('authForm');
   if(authForm) authForm.addEventListener('submit',function(e){
-    e.preventDefault();
+    e.preventDefault(); hideAuthErr();
     var at=document.querySelector('.auth-tab.active');
-    if(at && at.getAttribute('data-mode')==='signup'){
-      var g=function(id){ var el=document.getElementById(id); return el?el.value:''; };
+    var mode=at ? at.getAttribute('data-mode') : 'signin';
+    var g=function(id){ var el=document.getElementById(id); return el?el.value.trim():''; };
+    if(mode==='signup'){
+      /* Netlify Forms capture (the auto-updating customer list) — name/email/
+         company/phone only, never the password. Runs in demo AND live mode. */
       var body=new URLSearchParams({ 'form-name':'customer-signups', fullname:g('fullname'), email:g('email'), company:g('company'), phone:g('phone') });
       fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()}).catch(function(){});
     }
-    showDash();
+    if(!LIVE.configured){ showDash(); return; }
+    var email=g('email'), pass=g('password');
+    if(!email || !pass){ showAuthErr('Enter your email and a password.'); return; }
+    var sb=document.getElementById('authSubmit'); if(sb) sb.disabled=true;
+    var done=function(){ if(sb) sb.disabled=false; };
+    var p;
+    if(mode==='signup'){
+      var full=g('fullname'), sp=full.indexOf(' ');
+      p=api({op:'signup', email:email, password:pass,
+             firstName: sp>0 ? full.slice(0,sp) : full,
+             lastName:  sp>0 ? full.slice(sp+1) : ''});
+    } else {
+      p=api({op:'signin', email:email, password:pass});
+    }
+    p.then(function(d){
+      if(d && d.token){
+        setAuth({token:d.token, expiresAt:d.expiresAt||null});
+        return loadOrders().catch(function(){ showDash(); });
+      }
+      showAuthErr((d && d.error) || 'Something went wrong. Try again or email customerservice@michiganshippers.com.');
+    }).then(done, function(){ done(); showAuthErr('Could not reach the account service. Please try again in a minute.'); });
   });
+
+  /* SSO tiles are part of the demo preview only (Shopify accounts are email +
+     password); they're hidden once the backend goes live */
   Array.prototype.forEach.call(document.querySelectorAll('[data-sso]'),function(b){
-    b.addEventListener('click',function(){ showDash(); });
+    b.addEventListener('click',function(){ if(!LIVE.configured) showDash(); });
   });
+
+  var forgot=document.getElementById('forgotLink');
+  if(forgot) forgot.addEventListener('click',function(e){
+    e.preventDefault(); hideAuthErr();
+    var el=document.getElementById('email'), email=el?el.value.trim():'';
+    if(!email){ showAuthErr('Enter your email above first, then tap "Forgot your password?" again.'); return; }
+    api({op:'recover', email:email}).then(function(d){
+      showAuthErr(d && d.ok ? 'Password reset sent — check your inbox.' : ((d && d.error) || 'Could not send the reset email.'));
+    }).catch(function(){ showAuthErr('Could not reach the account service. Please try again in a minute.'); });
+  });
+
   var signOut=document.getElementById('signOut');
-  if(signOut) signOut.addEventListener('click',showLogin);
+  if(signOut) signOut.addEventListener('click',function(){
+    var a=getAuth();
+    if(LIVE.configured && a && a.token) api({op:'signout', token:a.token}).catch(function(){});
+    setAuth(null); showLogin();
+  });
+
+  /* ---------------- boot the live backend (if configured) ---------------- */
+  api({op:'catalog'}).then(function(d){
+    if(!(d && d.configured && d.variants)) return; // stay in demo mode
+    LIVE.configured=true;
+    applyLiveCatalog(d.variants);
+    /* live-mode account UI: email+password is the real sign-in */
+    var sso=document.getElementById('ssoBlock'); if(sso) sso.style.display='none';
+    var dv=document.querySelector('.auth-divider'); if(dv) dv.textContent='Sign in with your email';
+    var fp=document.getElementById('forgotPw'); if(fp) fp.style.display='';
+    /* returning customer with a saved session → straight to their real orders */
+    if(getAuth() && loginView) loadOrders().catch(function(){ showLogin(); });
+  }).catch(function(){ /* not deployed / offline → demo mode */ });
 
 })();

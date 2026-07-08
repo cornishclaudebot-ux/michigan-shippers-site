@@ -1,7 +1,7 @@
 # Netlify config for Michigan Shippers Supply.
-# Static site at repo root + one serverless function (the help-chat AI proxy).
-# The Gemini API key is set in the Netlify dashboard as an environment variable
-# named GEMINI_API_KEY (never committed to the repo).
+# Static site at repo root + serverless functions (help-chat AI proxy + Shopify
+# storefront proxy). Secrets live in the Netlify dashboard as environment
+# variables (GEMINI_API_KEY, SHOPIFY_STOREFRONT_TOKEN) — never in the repo.
 
 [build]
   publish = "."
@@ -11,4 +11,11 @@
 [[redirects]]
   from = "/api/chat"
   to = "/.netlify/functions/chat"
+  status = 200
+
+# Shopify backend proxy (live catalog, checkout, customer accounts, orders).
+# Inert until SHOPIFY_STOREFRONT_TOKEN is set in the Netlify dashboard.
+[[redirects]]
+  from = "/api/shop"
+  to = "/.netlify/functions/shop"
   status = 200

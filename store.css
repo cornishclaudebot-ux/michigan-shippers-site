@@ -212,3 +212,13 @@
 /* hand-crafted product illustrations (sit centered on the category-colored panel) */
 .prod-card .pic .pic-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:14%;}
 .prod-card .pic .pic-art svg{width:100%;height:100%;filter:drop-shadow(0 4px 12px rgba(0,0,0,.22));}
+
+/* ===== LIVE-SHOPIFY STATES (sold-out buttons, sign-in errors, tracking links) ===== */
+.prod-card .add:disabled{opacity:.45;cursor:not-allowed;}
+.auth-forgot{margin:-6px 0 12px;text-align:right;}
+.auth-forgot a{color:#7cb6e6;font-size:.88rem;text-decoration:none;}
+.auth-forgot a:hover{text-decoration:underline;}
+.auth-error{background:rgba(192,57,43,.14);border:1px solid rgba(192,57,43,.45);color:#ffb4a8;border-radius:10px;padding:10px 14px;font-size:.92rem;margin:0 0 14px;}
+.order-meta a,.order-track-link{color:#7cb6e6;text-decoration:none;}
+.order-meta a:hover,.order-track-link:hover{text-decoration:underline;}
+.order-track-link{font-weight:600;}
