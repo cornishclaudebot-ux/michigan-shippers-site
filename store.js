@@ -80,6 +80,7 @@
       blurb:'Custom labels, tooling, rush production, and managed inventory.',
       items:[
         {id:'cu-quote', img:'images/products/cu-quote.png?v=1',  name:'Custom Label Quote',               sub:'Any size, stock, or finish',     tag:'Service', price:0},
+        {id:'cu-lids', img:'images/customers/lake-lodge.jpg',   name:'Keurig-Compatible Foil Lids',      sub:'Custom-printed pod lidding',     tag:'Service', price:0},
         {id:'cu-managed', img:'images/products/cu-managed.png?v=1',name:'Managed Inventory Consultation',   sub:'Just-in-time printing program',  tag:'Service', price:0},
         {id:'cu-die', img:'images/products/cu-die.png?v=1',    name:'Custom Die / Tooling',             sub:'New label shapes & sizes',       tag:'Service', price:250, from:true},
         {id:'cu-rush', img:'images/products/cu-rush.png?v=1',   name:'Rush Production',                  sub:'Priority queue, per order',      tag:'Service', price:75,  unit:'per order'}
@@ -228,17 +229,22 @@
     }).join('');
     var sub=document.getElementById('cartSubtotal'); if(sub) sub.textContent=money(cartTotal());
   }
+  var cartReturnFocus=null;
   function openCart(){
     var o=document.getElementById('cartOverlay'); if(!drawer||!o) return;
+    cartReturnFocus=document.activeElement;
     renderCart(); o.classList.add('open'); drawer.classList.add('open'); document.body.style.overflow='hidden';
+    var cc=document.getElementById('cartClose'); if(cc) cc.focus();
   }
   function closeCart(){
     var o=document.getElementById('cartOverlay'); if(!drawer||!o) return;
     o.classList.remove('open'); drawer.classList.remove('open'); document.body.style.overflow='';
+    if(cartReturnFocus&&cartReturnFocus.focus){ cartReturnFocus.focus(); cartReturnFocus=null; }
   }
   if(drawer){
     var ov=document.getElementById('cartOverlay'); if(ov) ov.addEventListener('click',closeCart);
     var cc=document.getElementById('cartClose'); if(cc) cc.addEventListener('click',closeCart);
+    document.addEventListener('keydown',function(e){ if((e.key==='Escape'||e.keyCode===27)&&drawer.classList.contains('open')) closeCart(); });
     drawer.addEventListener('click',function(e){
       var inc=e.target.closest('[data-inc]'), dec=e.target.closest('[data-dec]'), rm=e.target.closest('[data-rm]');
       if(!inc&&!dec&&!rm) return;

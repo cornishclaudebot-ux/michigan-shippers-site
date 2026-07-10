@@ -64,6 +64,7 @@
         </div>
       </details>
       <a class="active" href="about.html">About &amp; Contact</a>
+      <a class="nav-signin" href="account.html">Sign In</a>
       <a class="btn btn-primary" href="about.html#contact">Get a Quote</a>
     </nav>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('nav.links').style.display='flex'">
@@ -153,6 +154,7 @@
           <option>Wine / beer / beverage</option>
           <option>Barcode / shipping</option>
           <option>Keurig-compatible foil lids / tin</option>
+          <option>Managed inventory / white-glove program</option>
           <option>Brand &amp; label design help</option>
           <option>Not sure yet, need help</option>
         </select>
@@ -164,6 +166,12 @@
           <option>1,000 to 5,000</option>
           <option>5,000 to 25,000</option>
           <option>25,000 or more</option>
+        </select>
+        <label for="deadline">When do you need them?</label>
+        <select id="deadline" name="deadline">
+          <option>Flexible</option>
+          <option>2 to 3 weeks</option>
+          <option>Rush (under 10 days)</option>
         </select>
         <label for="msg">Tell us about your project</label>
         <textarea id="msg" name="message" rows="4" placeholder="Size, product type, timeline&hellip;"></textarea>
@@ -213,6 +221,7 @@
     <div class="col">
       <h4>Contact</h4>
       <a href="about.html#contact">Request a Quote</a>
+      <a href="account.html">Track your order</a>
       <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a>
       <a href="tel:16169356680">(616) 935-6680</a>
       <a href="about.html#contact">17369 Taft Rd<br>Spring Lake, MI 49456</a>
