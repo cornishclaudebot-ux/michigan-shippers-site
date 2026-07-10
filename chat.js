@@ -41,9 +41,9 @@
     { keys: ["hours", "open", "closed", "when are you open", "what time"],
       a: "Our hours are <strong>Monday to Friday, 9:00 AM to 5:00 PM</strong>." },
     { keys: ["contact", "phone", "call", "number", "reach", "talk to", "speak to", "get in touch"],
-      a: "You can call <strong>(616) 935-6680</strong> (toll-free 800-442-4639) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>. The <a href='about.html#contact'>Get a Quote</a> form is the fastest way to start." },
+      a: "You can call <strong>(616) 935-6680</strong> (toll-free 800-442-4639) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>. The <a href='index.html#contact'>Get a Quote</a> form is the fastest way to start." },
     { keys: ["quote", "price", "pricing", "cost", "how much", "estimate", "expensive", "rate", "rates", "ballpark"],
-      a: "Pricing depends on your label type, size, quantity, and material, so the fastest way to a fair number is the <a href='about.html#contact'>Get a Quote</a> form (you can even upload your artwork) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>. No pressure, and our labeling specialists will get you a fair number." },
+      a: "Pricing depends on your label type, size, quantity, and material, so the fastest way to a fair number is the <a href='index.html#contact'>Get a Quote</a> form (you can even upload your artwork) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>. No pressure, and our labeling specialists will get you a fair number." },
     { keys: ["white glove", "white-glove", "premium", "managed inventory", "just in time", "just-in-time", "hold inventory", "never run out", "dedicated specialist"],
       a: "Our premium <strong>Managed Inventory &amp; Just-in-Time</strong> program is white-glove: a dedicated specialist, your labels held and ready, and printing on demand so you never run out or tie up cash. Ask about a private consultation on the <a href='index.html#programs'>home page</a>." },
     { keys: ["design help", "no design", "dont have a design", "do not have", "help with design", "create a design", "make a design", "logo"],
@@ -55,12 +55,12 @@
     { keys: ["barcode", "shipping label", "scan", "scannable"],
       a: "We print scannable, durable <strong>barcode and shipping labels</strong>, optionally branded, so products move cleanly through retail and the warehouse." },
     { keys: ["place an order", "buy", "purchase", "i need", "i want", "order"],
-      a: "Happy to get that started! The best first step is a quick quote so we can size the job and price it right: use the <a href='about.html#contact'>Get a Quote</a> form (upload artwork if you have it) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>." }
+      a: "Happy to get that started! The best first step is a quick quote so we can size the job and price it right: use the <a href='index.html#contact'>Get a Quote</a> form (upload artwork if you have it) or email <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a>." }
   ];
   var GREET = ["hi", "hello", "hey", "yo", "howdy", "good morning", "good afternoon", "good evening"];
   var THANKS = ["thank", "thanks", "thx", "appreciate", "awesome", "perfect"];
   var BYE = ["bye", "goodbye", "see ya", "that is all", "thats all", "no thanks"];
-  var FALLBACK = "Great question, and I want to make sure you get the right answer from a real person. The quickest way is to email our team at <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a> or use the <a href='about.html#contact'>Get a Quote</a> form. Tell us what you're printing and roughly how many, and one of our labeling specialists will get right back to you.";
+  var FALLBACK = "Great question, and I want to make sure you get the right answer from a real person. The quickest way is to email our team at <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a> or use the <a href='index.html#contact'>Get a Quote</a> form. Tell us what you're printing and roughly how many, and one of our labeling specialists will get right back to you.";
 
   function norm(s) { return " " + String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim() + " "; }
   function ws(t, k) { return t.indexOf(" " + k.trim()) > -1; }            // word-start (lets stems match: minimum -> minimums)
@@ -74,7 +74,7 @@
       if (sc > score) { score = sc; best = KB[i]; }
     }
     if (score >= 1 && best) { return best.a; }
-    for (i = 0; i < THANKS.length; i++) { if (ws(t, THANKS[i])) { return "You're welcome! Anything else I can help with? When you're ready, the <a href='about.html#contact'>Get a Quote</a> form takes about a minute."; } }
+    for (i = 0; i < THANKS.length; i++) { if (ws(t, THANKS[i])) { return "You're welcome! Anything else I can help with? When you're ready, the <a href='index.html#contact'>Get a Quote</a> form takes about a minute."; } }
     for (i = 0; i < BYE.length; i++) { if (ws(t, BYE[i])) { return "Thanks for stopping by! Reach us anytime at <a href='mailto:customerservice@michiganshippers.com'>customerservice@michiganshippers.com</a> or (616) 935-6680."; } }
     for (i = 0; i < GREET.length; i++) { if (ww(t, GREET[i])) { return "Hi there! I can help with what we print, turnaround, file types, foil lids, and getting a quote. What are you working on?"; } }
     return FALLBACK;

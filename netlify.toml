@@ -19,3 +19,15 @@
   from = "/api/shop"
   to = "/.netlify/functions/shop"
   status = 200
+
+# About page removed 2026-07-10 (merged into the homepage). Old links land on the
+# contact/quote section so nothing 404s.
+[[redirects]]
+  from = "/about.html"
+  to = "/#contact"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/#contact"
+  status = 301

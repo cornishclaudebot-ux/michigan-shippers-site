@@ -85,9 +85,8 @@
           <a class="shop-all" href="store.html">Shop all supplies</a>
         </div>
       </details>
-      <a href="about.html">About &amp; Contact</a>
-      <a class="nav-signin" href="account.html">Sign In</a>
-      <a class="btn btn-primary" href="about.html#contact">Get a Quote</a>
+            <a class="nav-signin" href="account.html">Sign In</a>
+      <a class="btn btn-primary" href="#contact">Get a Quote</a>
     </nav>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('nav.links').style.display='flex'">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cdd8e3" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -104,7 +103,7 @@
     <h1 class="reveal">Watch your brand come <em>OFF THE PRESS</em>.</h1>
     <p class="lead reveal">For 57 years we've helped startups and small businesses turn an idea into a label that earns its spot on the shelf. Our own design team builds it, our presses print it, and it ships to your door. Scroll, and watch it roll.</p>
     <div class="cta-row reveal">
-      <a class="btn btn-primary" href="about.html#contact">Request a Free Quote</a>
+      <a class="btn btn-primary" href="#contact">Request a Free Quote</a>
       <a class="btn btn-ghost" href="labels.html">See What We Print</a>
     </div>
     <div class="scrollcue reveal">Scroll down &amp; watch it print<span class="chev"></span></div>
@@ -204,7 +203,7 @@
           <div class="pillar"><h4>No compromise</h4><p>Full custom quality on every batch, exactly to spec, every single time.</p></div>
         </div>
         <div class="program-cta">
-          <a class="btn btn-gold" href="about.html#contact">Request a private consultation</a>
+          <a class="btn btn-gold" href="#contact">Request a private consultation</a>
           <span class="program-note">Tailored to your run volume &amp; schedule.</span>
         </div>
       </div>
@@ -224,16 +223,96 @@
     <div class="wrap"><div class="final reveal">
       <h2>Ready to get your brand on the shelf?</h2>
       <p>Free quote, friendly minimums, and in-house design help, from a Michigan family business that's been printing labels for 57 years.</p>
-      <a class="btn btn-primary" href="about.html#contact">Request a Free Quote</a>
+      <a class="btn btn-primary" href="#contact">Request a Free Quote</a>
     </div></div>
   </section>
+<!-- ===== CONTACT / QUOTE ===== -->
+<section class="sec band" id="contact">
+  <div class="wrap">
+    <div class="shead reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Let's print your labels</h2>
+      <p>Tell us a little about your product, even if it's just an idea, and our team will help with design and get you a fair quote. No pressure, no big minimums to start.</p>
+    </div>
+    <div class="contact-wrap reveal">
+      <div class="contact-info">
+        <div class="email-cta">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7bb6e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <span><b>Email us directly</b><a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a></span>
+        </div>
+        <div class="email-cta"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7bb6e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><b>Call</b><a href="tel:+16169356680">(616) 935-6680</a> &middot; <a href="tel:+18004424639">Toll-free (800) 442-4639</a></span></div>
+        <div class="email-cta"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7bb6e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><b>Visit / Mail</b><a href="https://maps.google.com/?q=17369+Taft+Rd%2C+Spring+Lake%2C+MI+49456" target="_blank" rel="noopener">17369 Taft Rd, Spring Lake, MI 49456</a></span></div>
+        <div class="email-cta"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7bb6e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span><b>Hours</b><span>Monday to Friday, 9:00 AM to 5:00 PM</span></span></div>
+      </div>
+      <!-- Quote form uses Netlify Forms. Every submission (including uploaded files) is stored in
+           the Netlify dashboard (Forms tab) and emailed to the address configured there.
+           File uploads need a native multipart POST, so this form submits normally (no AJAX). -->
+      <form id="quoteForm" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/thanks.html">
+        <input type="hidden" name="form-name" value="quote" />
+        <input type="hidden" name="subject" value="New label quote request from michiganshippers.com" />
+        <p hidden><label>Skip if you are human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" placeholder="Jane Maker" required />
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" placeholder="jane@yourbrand.com" required />
+        <label for="phone">Your phone number (optional)</label>
+        <input id="phone" name="phone" type="tel" placeholder="(616) 555-0148" autocomplete="tel" inputmode="tel" />
+        <label for="type">What do you need labels for?</label>
+        <select id="type" name="label_type">
+          <option>Product labels</option>
+          <option>Food &amp; packaging</option>
+          <option>Candy</option>
+          <option>Wine / beer / beverage</option>
+          <option>Barcode / shipping</option>
+          <option>Keurig-compatible foil lids / tin</option>
+          <option>Managed inventory / white-glove program</option>
+          <option>Brand &amp; label design help</option>
+          <option>Not sure yet, need help</option>
+        </select>
+        <label for="quantity">About how many labels do you need?</label>
+        <select id="quantity" name="quantity">
+          <option>Not sure yet</option>
+          <option>Under 250</option>
+          <option>250 to 1,000</option>
+          <option>1,000 to 5,000</option>
+          <option>5,000 to 25,000</option>
+          <option>25,000 or more</option>
+        </select>
+        <label for="deadline">When do you need them?</label>
+        <select id="deadline" name="deadline">
+          <option>Flexible</option>
+          <option>2 to 3 weeks</option>
+          <option>Rush (under 10 days)</option>
+        </select>
+        <label for="msg">Tell us about your project</label>
+        <textarea id="msg" name="message" rows="4" placeholder="Size, product type, timeline&hellip;"></textarea>
+        <label for="artwork">Upload your artwork or files (optional)</label>
+        <input id="artwork" name="attachment" type="file" multiple accept=".ai,.eps,.pdf,.svg,.tif,.tiff,.png,.jpg,.jpeg" />
+        <p class="upload-hint">For the sharpest print, send <strong>vector files</strong>, <strong>.AI, .EPS, .PDF,</strong> or <strong>.SVG</strong> open straight in Adobe Illustrator and never lose quality. High-resolution <strong>.PNG</strong> or <strong>.TIFF</strong> work too. Please avoid low-res JPEGs or screenshots, they pixelate when printed.</p>
+        <button class="btn btn-primary" type="submit">Send to customerservice@michiganshippers.com</button>
+        <p class="form-note" id="formNote">Your details and any uploaded files go straight to our team. Have very large print-ready files (over a few MB)? Email them to <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a> so nothing gets compressed.</p>
+      </form>
+      <script>
+        // Show a "Sending…" state on submit, then let the native multipart POST proceed.
+        (function(){
+          var form=document.getElementById('quoteForm');
+          if(!form) return;
+          form.addEventListener('submit', function(){
+            var btn=form.querySelector('button[type=submit]');
+            if(btn){ btn.disabled=true; btn.textContent='Sending…'; }
+          });
+        })();
+      </script>
+    </div>
+  </div>
+</section>
 </main>
 
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap">
     <div class="col foot-brand">
-      <img src="images/logo-vertical-light.png" alt="Michigan Shippers Supply" onerror="this.src='images/logo-on-navy.png'" />
+      <img src="images/logo-vertical-light.svg" alt="Michigan Shippers Supply" onerror="this.onerror=null;this.src='images/logo-vertical-light.png'" />
       <p>Family-owned custom label printing in Spring Lake, Michigan. Shipping across the entire United States.</p>
     </div>
     <div class="col">
@@ -246,16 +325,14 @@
     <div class="col">
       <h4>Company</h4>
       <a href="index.html">Home</a>
-      <a href="about.html#about">Our Story</a>
-      <a href="about.html#why">Why Us</a>
     </div>
     <div class="col">
       <h4>Contact</h4>
-      <a href="about.html#contact">Request a Quote</a>
+      <a href="#contact">Request a Quote</a>
       <a href="account.html">Track your order</a>
       <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a>
       <a href="tel:16169356680">(616) 935-6680</a>
-      <a href="about.html#contact">17369 Taft Rd<br>Spring Lake, MI 49456</a>
+      <a href="#contact">17369 Taft Rd<br>Spring Lake, MI 49456</a>
     </div>
     <div class="legal">&copy; 1969 to 2026 Michigan Shippers Supply, Inc. All rights reserved. &nbsp;|&nbsp; Custom flexographic &amp; digital label printing &middot; customerservice@michiganshippers.com</div>
   </div>

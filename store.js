@@ -173,7 +173,7 @@
           ? '<div class="price">Quote<small>tell us your specs</small></div>'
           : '<div class="price">'+(it.from?'<small>from</small>':'')+money(it.price)+(it.unit?'<small>'+it.unit+'</small>':'')+'</div>';
         var btn = isQuote
-          ? '<a class="add quote" href="about.html#contact">Request</a>'
+          ? '<a class="add quote" href="index.html#contact">Request</a>'
           : '<button class="add" type="button" data-add="'+it.id+'">Add</button>';
         var art = (window.MSS_ART && window.MSS_ART[it.id]) || '';
         var visual = it.img ? '<img src="'+it.img+'" alt="'+it.name+'">' : (art ? '<div class="pic-art">'+art+'</div>' : icon(c.id));
