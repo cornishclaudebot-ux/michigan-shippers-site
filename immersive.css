@@ -197,7 +197,8 @@ nav.links .btn{padding:10px 20px;font-size:.9rem;}
 .how3 .hnum{width:56px;height:56px;border-radius:50%;border:2px solid rgba(47,125,193,.6);color:var(--blue-light);font-family:var(--serif);font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
 .how3 .hstep h3{font-size:1.16rem;margin-bottom:8px;}
 .how3 .hstep p{color:#b9c7d4;font-size:.96rem;}
-.how-note{max-width:700px;margin:40px auto 0;text-align:center;padding:18px 24px;background:rgba(47,125,193,.1);border:1px dashed rgba(47,125,193,.5);border-radius:12px;color:#dce5ee;font-size:.98rem;}
+/* full-bleed separator band between sections */
+.how-note{width:100vw;margin:64px calc(50% - 50vw) 0;text-align:center;padding:30px 24px;background:rgba(47,125,193,.07);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);border-radius:0;color:#dce5ee;font-size:1.02rem;letter-spacing:.01em;}
 .how-note strong{color:#fff;}
 
 /* two-column showcase (image + copy) */
