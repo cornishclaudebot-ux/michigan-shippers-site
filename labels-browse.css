@@ -1,0 +1,134 @@
+/* ============================================================
+   LABEL BROWSE — category index tiles, the spec chart, quote tray
+   Loads AFTER immersive.css and reuses its tokens and dark world.
+   Used by: labels.html, labels/<category>.html, index.html (tray)
+   ============================================================ */
+
+/* ---------- category tiles on labels.html become real links ---------- */
+a.tile{text-decoration:none;color:inherit;display:block;position:relative;}
+a.tile:hover{border-color:rgba(47,125,193,.45);transform:translateY(-3px);}
+a.tile .tile-go{display:inline-flex;align-items:center;gap:7px;margin-top:12px;color:var(--blue-light);
+  font-weight:700;font-size:.85rem;letter-spacing:.01em;}
+a.tile .tile-go svg{width:15px;height:15px;transition:transform .16s ease;}
+a.tile:hover .tile-go svg{transform:translateX(3px);}
+a.tile .tile-count{position:absolute;top:16px;right:18px;font-size:.68rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;color:#9fb3c6;}
+
+/* ---------- category page hero ---------- */
+.lt-hero{position:relative;z-index:10;max-width:var(--max);margin:0 auto;padding:18px 26px 0;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center;}
+.lt-hero .lt-shot{border-radius:20px;overflow:hidden;aspect-ratio:25/16;background:linear-gradient(150deg,#22364c,#16222e);}
+.lt-hero .lt-shot img{width:100%;height:100%;object-fit:cover;display:block;}
+.lt-hero h1{font-size:clamp(1.9rem,4vw,2.9rem);margin:0 0 12px;}
+.lt-hero .lt-lead{color:#bcd9f2;font-size:1.02rem;line-height:1.6;margin:0 0 16px;}
+.lt-caps{display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0;list-style:none;}
+.lt-caps li{display:inline-flex;align-items:center;gap:8px;font-size:.79rem;font-weight:700;letter-spacing:.03em;
+  color:#bcd9f2;background:rgba(47,125,193,.12);border:1px solid rgba(47,125,193,.32);border-radius:30px;padding:7px 14px;}
+.lt-caps li svg{width:14px;height:14px;flex:none;}
+
+/* ---------- breadcrumb ---------- */
+.crumbs{position:relative;z-index:10;max-width:var(--max);margin:0 auto;
+  /* clear the fixed nav, otherwise the breadcrumb prints straight through the logo */
+  padding:104px 26px 0;font-size:.83rem;color:#8ea4b8;}
+@media (max-width:860px){ .crumbs{padding-top:88px;} }
+.crumbs a{color:#bcd9f2;text-decoration:none;}
+.crumbs a:hover{color:#fff;text-decoration:underline;}
+.crumbs span{color:#6d829a;padding:0 7px;}
+
+/* ---------- the honesty banner above every chart ---------- */
+.lt-note{position:relative;z-index:10;max-width:var(--max);margin:26px auto 0;padding:0 26px;}
+.lt-note div{border:1px solid rgba(47,125,193,.3);background:rgba(47,125,193,.09);border-radius:14px;
+  padding:15px 18px;color:#cdd8e3;font-size:.92rem;line-height:1.6;}
+.lt-note b{color:#fff;}
+
+/* ---------- the spec chart ---------- */
+.lt-chart{position:relative;z-index:10;max-width:var(--max);margin:26px auto 0;padding:0 26px;}
+.lt-chart h2{font-size:1.3rem;margin:0 0 4px;}
+.lt-chart .lt-sub{color:#9fb3c6;font-size:.9rem;margin:0 0 16px;}
+.lt-table{width:100%;border-collapse:separate;border-spacing:0;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);border-radius:15px;overflow:hidden;}
+.lt-table thead th{text-align:left;font-family:var(--sans);font-size:.68rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:#9fb3c6;background:rgba(255,255,255,.04);padding:12px 14px;
+  border-bottom:1px solid rgba(255,255,255,.1);white-space:nowrap;}
+.lt-table td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.06);color:#cdd8e3;font-size:.9rem;vertical-align:middle;}
+.lt-table tbody tr:last-child td{border-bottom:0;}
+.lt-table tbody tr:hover{background:rgba(47,125,193,.07);}
+.lt-table .c-name{color:#fff;font-family:var(--serif);font-weight:700;font-size:.98rem;line-height:1.25;}
+.lt-table .c-size{color:#fff;font-weight:700;white-space:nowrap;}
+.lt-table .c-act{text-align:right;white-space:nowrap;}
+
+/* the flag that keeps us honest about what is a real site claim */
+.lt-flag{display:inline-block;margin-left:8px;font-size:.6rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 7px;border-radius:20px;vertical-align:middle;}
+.lt-flag.g{color:#bcd9f2;background:rgba(47,125,193,.16);border:1px solid rgba(47,125,193,.34);}
+.lt-flag.s{color:#9fb3c6;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);}
+.lt-min{display:inline-block;margin-left:8px;font-size:.6rem;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:#3a2a12;background:var(--gold);border-radius:20px;padding:3px 8px;vertical-align:middle;}
+
+/* add-to-quote button */
+.qadd{background:var(--blue);color:#fff;border:0;border-radius:8px;padding:9px 14px;font-weight:700;
+  font-size:.83rem;cursor:pointer;font-family:var(--sans);white-space:nowrap;
+  transition:background .15s ease,transform .15s ease;}
+.qadd:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.qadd.added{background:#2e8b57;}
+
+/* ---------- anything-else footer on a category page ---------- */
+.lt-any{position:relative;z-index:10;max-width:var(--max);margin:30px auto 0;padding:0 26px;}
+.lt-any div{border:1px dashed rgba(173,201,228,.34);border-radius:15px;padding:22px 24px;text-align:center;color:#cdd8e3;}
+.lt-any h3{margin:0 0 6px;font-size:1.15rem;}
+.lt-any p{margin:0 0 14px;font-size:.94rem;color:#9fb3c6;line-height:1.6;}
+
+/* ---------- sticky quote tray ---------- */
+.qtray{position:fixed;left:0;right:0;bottom:0;z-index:90;transform:translateY(110%);
+  transition:transform .28s cubic-bezier(.3,.7,.3,1);pointer-events:none;}
+.qtray.show{transform:none;pointer-events:auto;}
+.qtray-in{max-width:var(--max);margin:0 auto 14px;background:#101b26;border:1px solid rgba(47,125,193,.4);
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.55);padding:13px 16px;
+  display:flex;align-items:center;gap:14px;}
+.qtray-n{color:#cdd8e3;font-size:.92rem;flex:1;min-width:0;}
+.qtray-n b{color:#fff;font-size:1.05rem;}
+.qtray-go{background:var(--blue);color:#fff;text-decoration:none;border-radius:9px;padding:10px 17px;
+  font-weight:700;font-size:.9rem;white-space:nowrap;}
+.qtray-go:hover{background:var(--blue-dark);}
+.qtray-clear{background:none;border:0;color:#9fb3c6;font-size:.85rem;cursor:pointer;padding:6px 4px;font-family:var(--sans);}
+.qtray-clear:hover{color:#fff;text-decoration:underline;}
+
+/* the note we drop under the message box on the contact form */
+.qprefill{margin:8px 0 0;font-size:.84rem;color:var(--ink-soft);line-height:1.5;}
+
+/* ---------- mobile: the chart becomes stacked cards ---------- */
+@media (max-width:860px){
+  .lt-hero{grid-template-columns:1fr;gap:20px;padding-top:18px;}
+  .lt-table thead{display:none;}
+  .lt-table,.lt-table tbody,.lt-table tr,.lt-table td{display:block;width:100%;}
+  .lt-table{background:none;border:0;border-radius:0;}
+  .lt-table tr{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+    border-radius:14px;margin-bottom:12px;padding:14px 15px;}
+  .lt-table td{border:0;padding:3px 0;font-size:.88rem;}
+  .lt-table td::before{content:attr(data-l) ": ";color:#8ea4b8;font-weight:700;font-size:.76rem;
+    letter-spacing:.05em;text-transform:uppercase;}
+  .lt-table .c-name::before,.lt-table .c-act::before{content:none;}
+  .lt-table .c-name{font-size:1.04rem;margin-bottom:6px;}
+  .lt-table .c-act{text-align:left;margin-top:11px;}
+  .qadd{width:100%;padding:14px;font-size:.92rem;min-height:46px;}  /* 44px+ tap target */
+  /* Stack the tray on phones. Letting the count keep flex:1 squeezed it into a
+     one-word-per-line column. It gets its own full row, buttons share the next. */
+  .qtray-in{margin:0 10px 10px;flex-wrap:wrap;gap:10px;padding:12px 13px;}
+  .qtray-n{flex:0 0 100%;font-size:.88rem;}
+  .qtray-go{flex:1;text-align:center;min-height:46px;display:flex;align-items:center;justify-content:center;}
+  .qtray-clear{flex:0 0 auto;min-height:46px;}
+  /* keep clear of the floating Ask us chat bubble */
+  .qtray{padding-bottom:64px;}
+}
+
+/* the one-line "what people use this for" under each row name */
+.lt-table .c-use{font-family:var(--sans);font-weight:400;color:#9fb3c6;font-size:.83rem;
+  line-height:1.5;margin-top:5px;max-width:46ch;}
+@media (max-width:860px){ .lt-table .c-use{max-width:none;} }
+
+/* photo thumbnail on the category index tiles, Uline's tile grid idea in our world */
+a.tile .tile-shot{border-radius:14px;overflow:hidden;aspect-ratio:25/16;margin:-4px 0 14px;
+  background:linear-gradient(150deg,#22364c,#16222e);}
+a.tile .tile-shot img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .35s cubic-bezier(.2,.7,.3,1);}
+a.tile:hover .tile-shot img{transform:scale(1.04);}
