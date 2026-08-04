@@ -17,6 +17,20 @@
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var catalog = window.MSS.catalog, icon = window.MSS.icon;
+
+  /* GPU promotion only while the stage is on screen. Keeping will-change on all
+     16 cards for the whole session retained ~29MB of compositor texture across
+     the long grid scroll below, where these cards are already hidden.
+     Hold the observer in a variable; an unreferenced one can be collected. */
+  var deckIO = null;
+  if('IntersectionObserver' in window){
+    deckIO = new IntersectionObserver(function(es){
+      for(var k=0;k<es.length;k++){ stage.classList.toggle('deck-live', es[k].isIntersecting); }
+    },{rootMargin:'300px 0px'});
+    deckIO.observe(stage);
+  } else {
+    stage.classList.add('deck-live');
+  }
   function money(n){ return '$' + Number(n).toFixed(2).replace(/\.00$/,''); }
 
   /* pick 2 priced products per category for a colorful, varied deck */

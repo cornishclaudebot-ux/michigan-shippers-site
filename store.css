@@ -171,7 +171,7 @@
 .deck-intro .eyebrow{justify-content:center;display:flex;}
 .deck-intro h2{font-size:clamp(1.8rem,4vw,2.7rem);color:#fff;}
 .deck{position:absolute;top:61%;left:50%;width:0;height:0;transform-style:preserve-3d;}
-.deck-card{position:absolute;top:50%;left:50%;width:300px;height:392px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 40px 90px rgba(0,0,0,.55);display:flex;flex-direction:column;opacity:0;will-change:transform,opacity;backface-visibility:hidden;}
+.deck-card{position:absolute;top:50%;left:50%;width:300px;height:392px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 40px 90px rgba(0,0,0,.55);display:flex;flex-direction:column;opacity:0;backface-visibility:hidden;}
 .deck-card .dc-top{flex:1;display:flex;align-items:center;justify-content:center;position:relative;}
 .deck-card .dc-top svg{width:96px;height:96px;color:#fff;opacity:.96;filter:drop-shadow(0 6px 20px rgba(0,0,0,.4));position:relative;z-index:2;}
 .deck-card .dc-top::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 36%,rgba(255,255,255,.22),transparent 60%);}
@@ -222,3 +222,11 @@
 .order-meta a,.order-track-link{color:#7cb6e6;text-decoration:none;}
 .order-meta a:hover,.order-track-link:hover{text-decoration:underline;}
 .order-track-link{font-weight:600;}
+
+/* Promote deck cards ONLY while the stage is on screen (deck.js toggles .deck-live).
+   will-change on all 16 cards for the whole session retained ~29MB of GPU texture
+   across the long grid scroll below, where the cards are already hidden. */
+.deck-stage.deck-live .deck-card{will-change:transform,opacity;}
+
+/* Skip layout and paint for the product sections until they approach the fold. */
+.shop-cat{content-visibility:auto;contain-intrinsic-size:0 900px;}

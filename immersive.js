@@ -4,32 +4,54 @@
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- PRELOADER messages ---- */
-  var msgs=['Warming up the press…','Mixing the inks…','Loading the label stock…','Calibrating the die-cut…','Ready to print.'];
-  var preMsg=document.getElementById('preMsg'), mi=0;
-  if(preMsg){
-    var msgTimer=setInterval(function(){mi++;if(mi<msgs.length&&preMsg)preMsg.innerHTML=msgs[mi];},560);
+  /* ---- PRELOADER ----
+     Two rules keep this from ever being felt as "the site is slow":
+     1. It lifts on DOM-ready, NOT on window.load. 'load' waits for every image
+        on the page, so a heavy page held an opaque full-screen cover for
+        seconds even though the page was interactive in under 200ms.
+     2. It plays ONCE PER SESSION. It is a first-impression flourish, not a toll
+        booth: paying it again on every internal click is what made moving
+        between pages feel slow. */
+  var preEl = document.getElementById('pre');
+  var preSeen = false;
+  try { preSeen = sessionStorage.getItem('mssSeenPre') === '1'; } catch(e){}
+
+  if(preEl && preSeen){
+    preEl.parentNode.removeChild(preEl);          /* returning this session: no cover at all */
+  } else if(preEl){
+    var msgs=['Warming up the press…','Mixing the inks…','Loading the label stock…','Calibrating the die-cut…','Ready to print.'];
+    var preMsg=document.getElementById('preMsg'), mi=0, msgTimer=null;
+    if(preMsg){
+      msgTimer=setInterval(function(){mi++;if(mi<msgs.length&&preMsg)preMsg.innerHTML=msgs[mi];},190);
+    }
+    var hidePre=function(){
+      if(msgTimer){clearInterval(msgTimer);msgTimer=null;}
+      var p=document.getElementById('pre');
+      if(p)p.classList.add('gone');
+      try { sessionStorage.setItem('mssSeenPre','1'); } catch(e){}
+    };
+    var armPre=function(){setTimeout(hidePre, reduce?150:620);};
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',armPre);
+    else armPre();
+    setTimeout(hidePre,2000); /* safety */
   }
-  function hidePre(){if(typeof msgTimer!=='undefined')clearInterval(msgTimer);var p=document.getElementById('pre');if(p)p.classList.add('gone');}
-  window.addEventListener('load',function(){setTimeout(hidePre,reduce?300:2600);});
-  setTimeout(hidePre,5200); /* safety */
 
   /* ---- BUILD RIBBON LABELS (print order) ---- */
   var labels=[
-    {cls:'logo', html:'<img src="images/logo-horizontal.png" alt="Michigan Shippers Supply logo" onerror="this.src=\'images/logo-master.png\'">'},
+    {cls:'logo', html:'<img src="images/logo-horizontal.webp?v=20260803" alt="Michigan Shippers Supply logo" onerror="this.src=\'images/logo-master.png\'">'},
     {cls:'stamp',html:'<div class="big">EST. 1969</div><div class="sub">Spring Lake, MI</div>'},
-    {cls:'lid',  html:'<img class="lid" src="images/customers/crazy-cups-raspberry.jpg" alt="Crazy Cups Raspberry Truffle lid"><div class="cap">Crazy Cups</div><div class="sub">Raspberry Truffle</div>'},
-    {cls:'label',html:'<img class="labelimg" src="images/labels/attention-earth-ground.png" alt="Attention connect to earth ground safety label printed by Michigan Shippers Supply">'},
-    {cls:'lid',  html:'<img class="lid" src="images/customers/lake-lodge.jpg" alt="Green Mountain Lake and Lodge lid"><div class="cap">Green Mountain</div><div class="sub">Lake &amp; Lodge</div>'},
-    {cls:'label',html:'<img class="labelimg" src="images/labels/warning-sight-glass.png" alt="Warning sight glass max pressure safety label printed by Michigan Shippers Supply">'},
-    {cls:'label',html:'<img class="labelimg" src="images/labels/toms-food-markets.png" alt="Tom\'s Food Markets grocery label printed by Michigan Shippers Supply">'},
-    {cls:'lid',  html:'<img class="lid" src="images/customers/brooklyn-bean.jpg" alt="Brooklyn Bean Carnival cocoa lid"><div class="cap">Brooklyn Bean</div><div class="sub">Carnival Cocoa</div>'},
-    {cls:'label',html:'<img class="labelimg" src="images/labels/fortinos.png" alt="Fortino\'s restaurant branded label printed by Michigan Shippers Supply">'},
-    {cls:'label',html:'<img class="labelimg" src="images/labels/videojet.png" alt="Videojet industrial part number label printed by Michigan Shippers Supply">'},
-    {cls:'lid',  html:'<img class="lid" src="images/customers/mucho-gusto.jpg" alt="Mucho Gusto Chocolate con Leche lid"><div class="cap">Mucho Gusto</div><div class="sub">Chocolate con Leche</div>'},
-    {cls:'label',html:'<img class="labelimg" src="images/labels/carlon-meter.png" alt="Carlon Meter model and serial number label printed by Michigan Shippers Supply">'},
-    {cls:'label',html:'<img class="labelimg" src="images/labels/aventics.png" alt="Aventics compliance and wiring label printed by Michigan Shippers Supply">'},
-    {cls:'lid',  html:'<img class="lid" src="images/customers/crazy-cups-coconut.jpg" alt="Crazy Cups Island Rum Coconut lid"><div class="cap">Crazy Cups</div><div class="sub">Island Rum Coconut</div>'},
+    {cls:'lid',  html:'<img class="lid" src="images/customers/crazy-cups-raspberry.webp?v=20260803" alt="Crazy Cups Raspberry Truffle lid"><div class="cap">Crazy Cups</div><div class="sub">Raspberry Truffle</div>'},
+    {cls:'label',html:'<img class="labelimg" src="images/labels/attention-earth-ground.webp?v=20260803" alt="Attention connect to earth ground safety label printed by Michigan Shippers Supply">'},
+    {cls:'lid',  html:'<img class="lid" src="images/customers/lake-lodge.webp?v=20260803" alt="Green Mountain Lake and Lodge lid"><div class="cap">Green Mountain</div><div class="sub">Lake &amp; Lodge</div>'},
+    {cls:'label',html:'<img class="labelimg" src="images/labels/warning-sight-glass.webp?v=20260803" alt="Warning sight glass max pressure safety label printed by Michigan Shippers Supply">'},
+    {cls:'label',html:'<img class="labelimg" src="images/labels/toms-food-markets.webp?v=20260803" alt="Tom\'s Food Markets grocery label printed by Michigan Shippers Supply">'},
+    {cls:'lid',  html:'<img class="lid" src="images/customers/brooklyn-bean.webp?v=20260803" alt="Brooklyn Bean Carnival cocoa lid"><div class="cap">Brooklyn Bean</div><div class="sub">Carnival Cocoa</div>'},
+    {cls:'label',html:'<img class="labelimg" src="images/labels/fortinos.webp?v=20260803" alt="Fortino\'s restaurant branded label printed by Michigan Shippers Supply">'},
+    {cls:'label',html:'<img class="labelimg" src="images/labels/videojet.webp?v=20260803" alt="Videojet industrial part number label printed by Michigan Shippers Supply">'},
+    {cls:'lid',  html:'<img class="lid" src="images/customers/mucho-gusto.webp?v=20260803" alt="Mucho Gusto Chocolate con Leche lid"><div class="cap">Mucho Gusto</div><div class="sub">Chocolate con Leche</div>'},
+    {cls:'label',html:'<img class="labelimg" src="images/labels/carlon-meter.webp?v=20260803" alt="Carlon Meter model and serial number label printed by Michigan Shippers Supply">'},
+    {cls:'label',html:'<img class="labelimg" src="images/labels/aventics.webp?v=20260803" alt="Aventics compliance and wiring label printed by Michigan Shippers Supply">'},
+    {cls:'lid',  html:'<img class="lid" src="images/customers/crazy-cups-coconut.webp?v=20260803" alt="Crazy Cups Island Rum Coconut lid"><div class="cap">Crazy Cups</div><div class="sub">Island Rum Coconut</div>'},
     {cls:'cta',  html:'<div class="big">GET A QUOTE</div><div class="sub">customerservice@michiganshippers.com</div>'}
   ];
   var track=document.getElementById('track');

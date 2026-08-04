@@ -17,73 +17,74 @@
     { id:'printers', name:'Printers & Printheads',
       blurb:'Industrial and desktop thermal printers, spare units, and replacement printheads.',
       items:[
-        {id:'zebra-zd621', img:'images/products/zebra-zd621.png?v=1',   name:'Zebra ZD621 Desktop Printer',        sub:'203 dpi · USB / Ethernet / Bluetooth', tag:'Desktop',    price:649,  unit:'each'},
-        {id:'zebra-zt411', img:'images/products/zebra-zt411.png?v=1',   name:'Zebra ZT411 Industrial Printer',     sub:'4" wide · high-volume production',     tag:'Industrial', price:1899, unit:'each'},
-        {id:'datamax-iclass', img:'images/products/datamax-iclass.png?v=1',name:"Datamax-O'Neil I-Class Mark II",     sub:'Rugged all-metal industrial unit',     tag:'Industrial', price:1499, unit:'each'},
-        {id:'honeywell-pm45', img:'images/products/honeywell-pm45.png?v=1',name:'Honeywell PM45 Industrial Printer',  sub:'Color touch display · fast throughput',tag:'Industrial', price:1750, unit:'each'},
-        {id:'zebra-gk420d', img:'images/products/zebra-gk420d.png?v=1',  name:'Zebra GK420d (Refurbished)',         sub:'Direct thermal · budget-friendly spare',tag:'Spare',     price:299,  unit:'each'},
-        {id:'printhead-203', img:'images/products/printhead-203.png?v=1', name:'Replacement Printhead, 203 dpi',     sub:'Zebra-compatible · easy swap',          tag:'Parts',     price:189,  unit:'each'}
+        {id:'zebra-zd621', img:'images/products/zebra-zd621.webp?v=20260803',   name:'Zebra ZD621 Desktop Printer',        sub:'203 dpi · USB / Ethernet / Bluetooth', tag:'Desktop',    price:649,  unit:'each'},
+        {id:'zebra-zt411', img:'images/products/zebra-zt411.webp?v=20260803',   name:'Zebra ZT411 Industrial Printer',     sub:'4" wide · high-volume production',     tag:'Industrial', price:1899, unit:'each'},
+        {id:'datamax-iclass', img:'images/products/datamax-iclass.webp?v=20260803',name:"Datamax-O'Neil I-Class Mark II",     sub:'Rugged all-metal industrial unit',     tag:'Industrial', price:1499, unit:'each'},
+        {id:'honeywell-pm45', img:'images/products/honeywell-pm45.webp?v=20260803',name:'Honeywell PM45 Industrial Printer',  sub:'Color touch display · fast throughput',tag:'Industrial', price:1750, unit:'each'},
+        {id:'sato-cl4sxr', img:'images/products/sato-cl4sxr.webp?v=20260803', name:'SATO CL4-SXR Industrial Printer',    sub:'RFID-ready · 4" print width',          tag:'Industrial', price:1650, unit:'each'},
+        {id:'zebra-gk420d', img:'images/products/zebra-gk420d.webp?v=20260803',  name:'Zebra GK420d (Refurbished)',         sub:'Direct thermal · budget-friendly spare',tag:'Spare',     price:299,  unit:'each'},
+        {id:'printhead-203', img:'images/products/printhead-203.webp?v=20260803', name:'Replacement Printhead, 203 dpi',     sub:'Zebra-compatible · easy swap',          tag:'Parts',     price:189,  unit:'each'}
       ]},
     { id:'ribbons', name:'Thermal-Transfer Ribbons',
       blurb:'Wax, wax-resin, resin, and specialty colors, matched to your stock and print head.',
       items:[
-        {id:'tt-wax-433', img:'images/products/tt-wax-433.png?v=1',     name:'Wax Ribbon, 4.33" × 1476\'',        sub:'General-purpose, black',            tag:'Wax',       price:12.50, unit:'per roll'},
-        {id:'tt-waxresin-433', img:'images/products/tt-waxresin-433.png?v=1',name:'Wax-Resin Ribbon, 4.33" × 1476\'',  sub:'Durable, smudge-resistant',         tag:'Wax-Resin', price:18.00, unit:'per roll'},
-        {id:'tt-resin-433', img:'images/products/tt-resin-433.png?v=1',   name:'Resin Ribbon, 4.33" × 1476\'',      sub:'Chemical & heat resistant',         tag:'Resin',     price:24.00, unit:'per roll'},
-        {id:'tt-wax-236', img:'images/products/tt-wax-236.png?v=1',     name:'Wax Ribbon, 2.36" × 1476\'',        sub:'Narrow-web, black',                 tag:'Wax',       price:9.75,  unit:'per roll'},
-        {id:'tt-color', img:'images/products/tt-color.png?v=1',       name:'Resin Ribbon, Specialty Color',     sub:'Red · Blue · Green · White',        tag:'Color',     price:28.00, unit:'per roll'},
-        {id:'tt-nearedge', img:'images/products/tt-nearedge.png?v=1',    name:'Near-Edge Resin Ribbon',            sub:'For high-speed near-edge heads',     tag:'Resin',     price:32.00, unit:'per roll'}
+        {id:'tt-wax-433', img:'images/products/tt-wax-433.webp?v=20260803',     name:'Wax Ribbon, 4.33" × 1476\'',        sub:'General-purpose, black',            tag:'Wax',       price:12.50, unit:'per roll'},
+        {id:'tt-waxresin-433', img:'images/products/tt-waxresin-433.webp?v=20260803',name:'Wax-Resin Ribbon, 4.33" × 1476\'',  sub:'Durable, smudge-resistant',         tag:'Wax-Resin', price:18.00, unit:'per roll'},
+        {id:'tt-resin-433', img:'images/products/tt-resin-433.webp?v=20260803',   name:'Resin Ribbon, 4.33" × 1476\'',      sub:'Chemical & heat resistant',         tag:'Resin',     price:24.00, unit:'per roll'},
+        {id:'tt-wax-236', img:'images/products/tt-wax-236.webp?v=20260803',     name:'Wax Ribbon, 2.36" × 1476\'',        sub:'Narrow-web, black',                 tag:'Wax',       price:9.75,  unit:'per roll'},
+        {id:'tt-color', img:'images/products/tt-color.webp?v=20260803',       name:'Resin Ribbon, Specialty Color',     sub:'Red · Blue · Green · White',        tag:'Color',     price:28.00, unit:'per roll'},
+        {id:'tt-nearedge', img:'images/products/tt-nearedge.webp?v=20260803',    name:'Near-Edge Resin Ribbon',            sub:'For high-speed near-edge heads',     tag:'Resin',     price:32.00, unit:'per roll'}
       ]},
     { id:'markers', name:'Paint Markers & Coding',
       blurb:'Industrial paint markers, coding fluids, and inkjet cartridges.',
       items:[
-        {id:'pm-white', img:'images/products/pm-white.png?v=1',    name:'Industrial Paint Marker, White',     sub:'Fast-dry, weatherproof',           tag:'Marker', price:4.50,  unit:'each'},
-        {id:'pm-yellow', img:'images/products/pm-yellow.png?v=1',   name:'Valve-Action Paint Marker, Yellow',  sub:'Low-corrosion, high-visibility',   tag:'Marker', price:5.25,  unit:'each'},
-        {id:'pm-12pack', img:'images/products/pm-12pack.png?v=1',   name:'Paint Markers, Assorted (12-pack)',  sub:'Mixed colors, bulk value',         tag:'Marker', price:42.00, unit:'per pack'},
-        {id:'cd-makeup', img:'images/products/cd-makeup.png?v=1',   name:'Coding Make-Up Fluid',               sub:'Videojet-compatible',              tag:'Coding', price:48.00, unit:'per bottle'},
-        {id:'cd-cartridge', img:'images/products/cd-cartridge.png?v=1',name:'Inkjet Coding Cartridge',            sub:'Date / lot / batch coding',        tag:'Coding', price:36.00, unit:'each'}
+        {id:'pm-white', img:'images/products/pm-white.webp?v=20260803',    name:'Industrial Paint Marker, White',     sub:'Fast-dry, weatherproof',           tag:'Marker', price:4.50,  unit:'each'},
+        {id:'pm-yellow', img:'images/products/pm-yellow.webp?v=20260803',   name:'Valve-Action Paint Marker, Yellow',  sub:'Low-corrosion, high-visibility',   tag:'Marker', price:5.25,  unit:'each'},
+        {id:'pm-12pack', img:'images/products/pm-12pack.webp?v=20260803',   name:'Paint Markers, White (12-pack)',     sub:'Single color, bulk value',         tag:'Marker', price:42.00, unit:'per pack'},
+        {id:'cd-makeup',   name:'Coding Make-Up Fluid',               sub:'Videojet-compatible',              tag:'Coding', price:48.00, unit:'per bottle'},
+        {id:'cd-cartridge',name:'Inkjet Coding Cartridge',            sub:'Date / lot / batch coding',        tag:'Coding', price:36.00, unit:'each'}
       ]},
     { id:'applicators', name:'Rollers & Applicators',
       blurb:'Hand-held to tabletop label applicators, rollers, and tools.',
       items:[
-        {id:'app-hand', img:'images/products/app-hand.png?v=1',    name:'Hand-Held Label Applicator',        sub:'Trigger-fed, ergonomic grip',     tag:'Applicator', price:129, unit:'each'},
-        {id:'app-table', img:'images/products/app-table.png?v=1',   name:'Tabletop Roller Applicator',        sub:'Semi-automatic, repeatable',      tag:'Applicator', price:349, unit:'each'},
-        {id:'app-roller', img:'images/products/app-roller.png?v=1',  name:'Replacement Rubber Roller',         sub:'Fits most applicators',           tag:'Parts',      price:39,  unit:'each'},
-        {id:'app-bottle', img:'images/products/app-bottle.png?v=1',  name:'Round-Product / Bottle Applicator', sub:'Wrap labels onto cylinders',      tag:'Applicator', price:899, unit:'each'},
-        {id:'app-squeegee', img:'images/products/app-squeegee.png?v=1',name:'Felt-Edge Squeegee',                sub:'Bubble-free hand application',    tag:'Tool',       price:7.50,unit:'each'}
+        {id:'app-hand', img:'images/products/app-hand.webp?v=20260803',    name:'Hand-Held Label Applicator',        sub:'Trigger-fed, ergonomic grip',     tag:'Applicator', price:129, unit:'each'},
+        {id:'app-table', img:'images/products/app-table.webp?v=20260803',   name:'Tabletop Roller Applicator',        sub:'Semi-automatic, repeatable',      tag:'Applicator', price:349, unit:'each'},
+        {id:'app-roller', img:'images/products/app-roller.webp?v=20260803',  name:'Replacement Rubber Roller',         sub:'Fits most applicators',           tag:'Parts',      price:39,  unit:'each'},
+        {id:'app-bottle', img:'images/products/app-bottle.webp?v=20260803',  name:'Round-Product / Bottle Applicator', sub:'Wrap labels onto cylinders',      tag:'Applicator', price:899, unit:'each'},
+        {id:'app-squeegee', img:'images/products/app-squeegee.webp?v=20260803',name:'Felt-Edge Squeegee',                sub:'Bubble-free hand application',    tag:'Tool',       price:7.50,unit:'each'}
       ]},
     { id:'coatings', name:'UV Varnish & Coatings',
       blurb:'Gloss and matte UV varnish, overlaminates, and spot-UV finishing.',
       items:[
-        {id:'uv-gloss', img:'images/products/uv-gloss.png?v=1',name:'UV Gloss Varnish, 1 gal',  sub:'High-shine protective finish',  tag:'Varnish',  price:89,  unit:'per gallon'},
-        {id:'uv-matte', img:'images/products/uv-matte.png?v=1',name:'UV Matte Varnish, 1 gal',  sub:'Soft-touch, glare-free',        tag:'Varnish',  price:94,  unit:'per gallon'},
-        {id:'lam-film', img:'images/products/lam-film.png?v=1',name:'Overlaminate Film, Roll',  sub:'Scuff & moisture protection',   tag:'Laminate', price:65,  unit:'per roll'},
-        {id:'spot-uv', img:'images/products/spot-uv.png?v=1', name:'Spot-UV Coating Kit',      sub:'Selective high-gloss accents',  tag:'Coating',  price:120, unit:'per kit'}
+        {id:'uv-gloss',name:'UV Gloss Varnish, 1 gal',  sub:'High-shine protective finish',  tag:'Varnish',  price:89,  unit:'per gallon'},
+        {id:'uv-matte',name:'UV Matte Varnish, 1 gal',  sub:'Soft-touch, glare-free',        tag:'Varnish',  price:94,  unit:'per gallon'},
+        {id:'lam-film', img:'images/products/lam-film.webp?v=20260803',name:'Overlaminate Film, Roll',  sub:'Scuff & moisture protection',   tag:'Laminate', price:65,  unit:'per roll'},
+        {id:'spot-uv', name:'Spot-UV Coating Kit',      sub:'Selective high-gloss accents',  tag:'Coating',  price:120, unit:'per kit'}
       ]},
     { id:'barcodes', name:'Barcodes & Scanning',
       blurb:'GS1 barcode setup, verification, and handheld scanners.',
       items:[
-        {id:'bc-gs1', img:'images/products/bc-gs1.png?v=1',     name:'GS1 Barcode Setup (UPC / EAN)',   sub:'Retail-ready, registered',     tag:'Service', price:60,  unit:'one-time'},
-        {id:'bc-verify', img:'images/products/bc-verify.png?v=1',  name:'Barcode Verification, per design',sub:'ISO grade report',            tag:'Service', price:45,  unit:'per design'},
-        {id:'bc-usb', img:'images/products/bc-usb.png?v=1',     name:'Handheld Barcode Scanner, USB',   sub:'1D / 2D, plug-and-play',       tag:'Scanner', price:129, unit:'each'},
-        {id:'bc-wireless', img:'images/products/bc-wireless.png?v=1',name:'Wireless 2D Barcode Scanner',     sub:'Bluetooth, long-range',        tag:'Scanner', price:279, unit:'each'}
+        {id:'bc-gs1', img:'images/products/bc-gs1.webp?v=20260803',     name:'GS1 Barcode Setup (UPC / EAN)',   sub:'Retail-ready, registered',     tag:'Service', price:60,  unit:'one-time'},
+        {id:'bc-verify',  name:'Barcode Verification, per design',sub:'ISO grade report',            tag:'Service', price:45,  unit:'per design'},
+        {id:'bc-usb', img:'images/products/bc-usb.webp?v=20260803',     name:'Handheld Barcode Scanner, USB',   sub:'1D / 2D, plug-and-play',       tag:'Scanner', price:129, unit:'each'},
+        {id:'bc-wireless', img:'images/products/bc-wireless.webp?v=20260803',name:'Wireless 2D Barcode Scanner',     sub:'Bluetooth, long-range',        tag:'Scanner', price:279, unit:'each'}
       ]},
     { id:'software', name:'Label Software',
       blurb:'Design and print software, plus setup and training.',
       items:[
-        {id:'sw-bartender-start', img:'images/products/sw-bartender-start.png?v=1',name:'BarTender Starter',            sub:'Design + print essentials',   tag:'Software', price:327, unit:'per license'},
-        {id:'sw-bartender-pro', img:'images/products/sw-bartender-pro.png?v=1',  name:'BarTender Professional',       sub:'Databases + automation',      tag:'Software', price:695, unit:'per license'},
-        {id:'sw-nicelabel', img:'images/products/sw-nicelabel.png?v=1',      name:'NiceLabel Designer Pro',       sub:'Dynamic, data-driven labels', tag:'Software', price:599, unit:'per license'},
-        {id:'sw-training', img:'images/products/sw-training.png?v=1',       name:'Design Setup & Training, 1 hr',sub:'Remote, one-on-one',          tag:'Service',  price:95,  unit:'per hour'}
+        {id:'sw-bartender-start',name:'BarTender Starter',            sub:'Design + print essentials',   tag:'Software', price:327, unit:'per license'},
+        {id:'sw-bartender-pro',  name:'BarTender Professional',       sub:'Databases + automation',      tag:'Software', price:695, unit:'per license'},
+        {id:'sw-nicelabel',      name:'NiceLabel Designer Pro',       sub:'Dynamic, data-driven labels', tag:'Software', price:599, unit:'per license'},
+        {id:'sw-training',       name:'Design Setup & Training, 1 hr',sub:'Remote, one-on-one',          tag:'Service',  price:95,  unit:'per hour'}
       ]},
     { id:'custom', name:'Custom Orders & Services',
       blurb:'Custom labels, tooling, rush production, and managed inventory.',
       items:[
-        {id:'cu-quote', img:'images/products/cu-quote.png?v=1',  name:'Custom Label Quote',               sub:'Any size, stock, or finish',     tag:'Service', price:0},
-        {id:'cu-lids', img:'images/customers/lake-lodge.jpg',   name:'Keurig-Compatible Foil Lids',      sub:'Custom-printed pod lidding',     tag:'Service', price:0},
-        {id:'cu-managed', img:'images/products/cu-managed.png?v=1',name:'Managed Inventory Consultation',   sub:'Just-in-time printing program',  tag:'Service', price:0},
-        {id:'cu-die', img:'images/products/cu-die.png?v=1',    name:'Custom Die / Tooling',             sub:'New label shapes & sizes',       tag:'Service', price:250, from:true},
-        {id:'cu-rush', img:'images/products/cu-rush.png?v=1',   name:'Rush Production',                  sub:'Priority queue, per order',      tag:'Service', price:75,  unit:'per order'}
+        {id:'cu-quote',  name:'Custom Label Quote',               sub:'Any size, stock, or finish',     tag:'Service', price:0},
+        {id:'cu-lids', img:'images/customers/lake-lodge.webp?v=20260803',   name:'Keurig-Compatible Foil Lids',      sub:'Custom-printed pod lidding',     tag:'Service', price:0},
+        {id:'cu-managed',name:'Managed Inventory Consultation',   sub:'Just-in-time printing program',  tag:'Service', price:0},
+        {id:'cu-die',    name:'Custom Die / Tooling',             sub:'New label shapes & sizes',       tag:'Service', price:250, from:true},
+        {id:'cu-rush',   name:'Rush Production',                  sub:'Priority queue, per order',      tag:'Service', price:75,  unit:'per order'}
       ]}
   ];
 
