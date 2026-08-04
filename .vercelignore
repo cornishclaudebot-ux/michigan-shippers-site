@@ -1,0 +1,23 @@
+# Internal assets — must never reach a public host.
+# Mirrors .gitignore, because a Vercel CLI deploy uploads the working directory
+# rather than the git tree, so anything git is hiding would otherwise ship.
+# growth-kit/ carries 88 real prospect companies with 43 verified email
+# addresses; that one is the reason this file exists.
+growth-kit/
+Michigan-Shippers-Supply-Research-Dossier.md
+Michigan-Shippers-Supply-Brand-Bible.pdf
+Michigan-Shippers-Supply-Brand-Bible.pptx
+pptx-build/
+brand-bible.html
+build_logos.py
+
+# Shopify integration scratch — not part of the deployed site
+shopify-load.js
+shopify-id-map.json
+shopify-products.csv
+store.js.bak
+images/logo-vertical-light.orig.png
+
+# System
+.DS_Store
+.git

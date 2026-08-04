@@ -18,3 +18,5 @@ images/logo-vertical-light.orig.png
 # Brand bible build artifacts
 Michigan-Shippers-Supply-Brand-Bible.pptx
 pptx-build/
+.vercel
+.env*
