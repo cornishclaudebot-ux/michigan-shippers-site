@@ -31,7 +31,9 @@
     try { localStorage.setItem(KEY, JSON.stringify(list)); } catch(e){}
     paint();
   }
-  function keyOf(it){ return [it.cat, it.label, it.size, it.material].join('|'); }
+  /* A sub-label (a colour, a month, a legend) is its own quotable line, so the
+     key includes it. Without it, adding Red then Blue would collide into one row. */
+  function keyOf(it){ return [it.cat, it.label, it.sub || '', it.size, it.material].join('|'); }
 
   function add(it){
     var list = read();
@@ -54,7 +56,7 @@
     if(!l.length) return '';
     var out = ['Quote list from the website:',''];
     l.forEach(function(it,i){
-      out.push((i+1)+'. '+it.label);
+      out.push((i+1)+'. '+it.label + (it.sub ? '  ['+it.subAxis+': '+it.sub+']' : ''));
       out.push('   Category: '+it.catName);
       out.push('   Size: '+it.size+'   Format: '+it.format);
       out.push('   Material: '+it.material+'   Adhesive: '+it.adhesive);
@@ -97,8 +99,21 @@
       var k = btn.getAttribute('data-key');
       var on = l.some(function(it){ return keyOf(it)===k; });
       btn.classList.toggle('added', on);
+      /* sub-label chips are small and read as a set, so they only tint.
+         Swapping their text to "On your list" would reflow the whole grid. */
+      if(btn.classList.contains('qsub')) return;
       if(on && btn.dataset.orig===undefined){ btn.dataset.orig = btn.textContent; btn.textContent = 'On your list'; }
       if(!on && btn.dataset.orig!==undefined){ btn.textContent = btn.dataset.orig; delete btn.dataset.orig; }
+    });
+
+    /* show how many of a row's sub-labels are already on the list */
+    document.querySelectorAll('[data-expand]').forEach(function(t){
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if(!panel) return;
+      var keys = [].map.call(panel.querySelectorAll('[data-add]'), function(b){ return b.getAttribute('data-key'); });
+      var n = l.filter(function(it){ return keys.indexOf(keyOf(it)) !== -1; }).length;
+      var badge = t.querySelector('[data-picked]');
+      if(badge){ badge.textContent = n ? n + ' picked' : ''; badge.hidden = !n; }
     });
   }
 
@@ -110,13 +125,29 @@
       btn.addEventListener('click', function(){
         var d = btn.dataset;
         add({ cat:d.cat, catName:d.catname, label:d.label, size:d.size,
-              format:d.format, material:d.material, adhesive:d.adhesive });
+              format:d.format, material:d.material, adhesive:d.adhesive,
+              sub:d.sub || '', subAxis:d.subaxis || '' });
       });
     });
     /* stamp a stable key on each button so paint() can match it */
     document.querySelectorAll('[data-add]').forEach(function(btn){
       var d = btn.dataset;
-      btn.setAttribute('data-key', [d.cat,d.label,d.size,d.material].join('|'));
+      btn.setAttribute('data-key', [d.cat,d.label,d.sub||'',d.size,d.material].join('|'));
+    });
+
+    /* expand a row into its sub-labels. Inline, not a page load: picking six
+       colours should never cost six navigations, and the quote tray has to stay
+       on screen while you tick them off. */
+    document.querySelectorAll('[data-expand]').forEach(function(t){
+      if(t.__bound) return;
+      t.__bound = true;
+      t.addEventListener('click', function(){
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if(!panel) return;
+        var open = t.getAttribute('aria-expanded') === 'true';
+        t.setAttribute('aria-expanded', open ? 'false' : 'true');
+        panel.hidden = open;
+      });
     });
   }
 

@@ -75,16 +75,53 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
 const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
 
+const ICON_CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+
+/* The third level. A row expands in place into its real sub-labels (colours,
+   months, legends, sizes), each one its own quotable line. Inline rather than
+   another page because picking six colours must not cost six navigations, and
+   the quote tray needs to stay on screen while you tick them off. */
+function subRow(c, v, i) {
+  if (!v.subs || !v.subs.length) return '';
+  const id = `sub-${c.id}-${i}`;
+  const chips = v.subs.map(s => {
+    const key = [c.id, v.label, s.label, v.size, v.material].join('|');
+    return `<button class="qsub" type="button" data-add data-key="${esc(key)}"
+              data-cat="${esc(c.id)}" data-catname="${esc(c.name)}" data-label="${esc(v.label)}"
+              data-sub="${esc(s.label)}" data-subaxis="${esc(v.sub_axis || 'Option')}"
+              data-size="${esc(v.size)}" data-format="${esc(v.format)}"
+              data-material="${esc(v.material)}" data-adhesive="${esc(v.adhesive)}"
+            >${esc(s.label)}<span class="sd">${esc(s.detail)}</span></button>`;
+  }).join('\n            ');
+  return `
+        <tr class="lt-subrow" id="${id}" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">${esc(v.sub_axis || 'Options')}, pick any</p>
+              <div class="lt-chips">
+            ${chips}
+              </div>
+            </div>
+          </td>
+        </tr>`;
+}
+
 function rows(c) {
-  return c.variants.map(v => {
+  return c.variants.map((v, i) => {
     const isLid = c.id === 'foil-lids';
     const flag = v.grounding === 'grounded'
       ? '<span class="lt-flag g" title="Backed by work already shown on this site">We print this</span>'
       : '<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span>';
     const min = isLid ? '<span class="lt-min" title="Foil lids are our only product with a minimum">5,000 min</span>' : '';
-    const key = [c.id, v.label, v.size, v.material].join('|');
+    const key = [c.id, v.label, '', v.size, v.material].join('|');
+    const nSub = (v.subs || []).length;
+    const more = nSub
+      ? `<button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-${c.id}-${i}">
+            ${nSub} ${esc((v.sub_axis || 'option').toLowerCase())}${nSub === 1 ? '' : 's'} to choose
+            <span class="picked" data-picked hidden></span>${ICON_CHEV}</button>`
+      : '';
     return `        <tr>
-          <td class="c-name">${esc(v.label)}${flag}${min}<div class="c-use">${esc(v.typical_use)}</div></td>
+          <td class="c-name">${esc(v.label)}${flag}${min}<div class="c-use">${esc(v.typical_use)}</div>${more}</td>
           <td class="c-size" data-l="Size">${esc(v.size)}</td>
           <td data-l="Format">${esc(v.format)}</td>
           <td data-l="Material">${esc(v.material)}</td>
@@ -93,7 +130,7 @@ function rows(c) {
             data-cat="${esc(c.id)}" data-catname="${esc(c.name)}" data-label="${esc(v.label)}"
             data-size="${esc(v.size)}" data-format="${esc(v.format)}"
             data-material="${esc(v.material)}" data-adhesive="${esc(v.adhesive)}">Add to quote list</button></td>
-        </tr>`;
+        </tr>${subRow(c, v, i)}`;
   }).join('\n');
 }
 

@@ -84,7 +84,9 @@ a.tile .tile-count{position:absolute;top:16px;right:18px;font-size:.68rem;font-w
 .qtray.show{transform:none;pointer-events:auto;}
 .qtray-in{max-width:var(--max);margin:0 auto 14px;background:#101b26;border:1px solid rgba(47,125,193,.4);
   border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.55);padding:13px 16px;
-  display:flex;align-items:center;gap:14px;}
+  display:flex;align-items:center;gap:14px;
+  /* keep the CTA out from under the floating Ask us chat bubble */
+  padding-right:150px;}
 .qtray-n{color:#cdd8e3;font-size:.92rem;flex:1;min-width:0;}
 .qtray-n b{color:#fff;font-size:1.05rem;}
 .qtray-go{background:var(--blue);color:#fff;text-decoration:none;border-radius:9px;padding:10px 17px;
@@ -132,3 +134,39 @@ a.tile .tile-shot{border-radius:14px;overflow:hidden;aspect-ratio:25/16;margin:-
 a.tile .tile-shot img{width:100%;height:100%;object-fit:cover;display:block;
   transition:transform .35s cubic-bezier(.2,.7,.3,1);}
 a.tile:hover .tile-shot img{transform:scale(1.04);}
+
+/* ---------- sub-labels: the third level, expanded inline ---------- */
+.lt-more{margin-top:9px;background:none;border:1px solid rgba(173,201,228,.3);color:#bcd9f2;
+  border-radius:30px;padding:6px 13px;font-size:.78rem;font-weight:700;cursor:pointer;
+  font-family:var(--sans);display:inline-flex;align-items:center;gap:7px;
+  transition:background .15s ease,border-color .15s ease;}
+.lt-more:hover{background:rgba(47,125,193,.16);border-color:rgba(47,125,193,.5);color:#fff;}
+.lt-more .chev{width:13px;height:13px;transition:transform .2s ease;}
+.lt-more[aria-expanded="true"] .chev{transform:rotate(180deg);}
+.lt-more .picked{background:var(--blue);color:#fff;border-radius:20px;padding:2px 8px;font-size:.68rem;}
+
+.lt-subrow > td{padding:0 14px 16px;background:rgba(47,125,193,.05);}
+.lt-subs{border-left:2px solid rgba(47,125,193,.4);padding:2px 0 2px 15px;}
+.lt-subs .axis{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:#8ea4b8;margin:0 0 10px;}
+.lt-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.qsub{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);color:#cdd8e3;
+  border-radius:9px;padding:8px 13px;font-size:.83rem;font-weight:600;cursor:pointer;
+  font-family:var(--sans);text-align:left;line-height:1.3;
+  transition:background .14s ease,border-color .14s ease,color .14s ease;}
+.qsub:hover{background:rgba(47,125,193,.2);border-color:rgba(47,125,193,.55);color:#fff;}
+.qsub .sd{display:block;font-weight:400;font-size:.72rem;color:#8ea4b8;margin-top:2px;}
+.qsub.added{background:#2e8b57;border-color:#2e8b57;color:#fff;}
+.qsub.added .sd{color:rgba(255,255,255,.8);}
+.qsub.added::after{content:" on list";font-weight:700;font-size:.68rem;}
+
+@media (max-width:860px){
+  .lt-subrow{padding:0 !important;border:0 !important;margin-top:-12px !important;
+    background:rgba(47,125,193,.06);border-radius:0 0 14px 14px !important;}
+  .lt-subrow > td{padding:12px 15px 15px;}
+  .lt-more{min-height:44px;}
+  /* full width on phones: a half-width chip made long legends like
+     ATTENTION, CONNECT TO EARTH GROUND wrap to 150px tall. */
+  .qsub{min-height:44px;flex:1 1 100%;}
+  .lt-chips{gap:7px;}
+}

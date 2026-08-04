@@ -98,147 +98,776 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td class="c-name">Retail UPC Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">The everyday UPC on retail packaging. Send us the code you already have and we print it on the label.</div></td>
+          <td class="c-name">Retail UPC Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">The everyday UPC on retail packaging. Send us the code you already have and we print it on the label.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-0">
+            6 symbologys to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">2&quot; x 1&quot;</td>
           <td data-l="Format">Roll, 3&quot; core</td>
           <td data-l="Material">Semi-gloss paper</td>
           <td data-l="Adhesive">Permanent</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Retail UPC Barcode|2&quot; x 1&quot;|Semi-gloss paper"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Retail UPC Barcode||2&quot; x 1&quot;|Semi-gloss paper"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Retail UPC Barcode"
             data-size="2&quot; x 1&quot;" data-format="Roll, 3&quot; core"
             data-material="Semi-gloss paper" data-adhesive="Permanent">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-0" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Symbology, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Retail UPC Barcode|UPC-A|2&quot; x 1&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Retail UPC Barcode"
+              data-sub="UPC-A" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >UPC-A<span class="sd">Standard US retail grocery code</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Retail UPC Barcode|UPC-E|2&quot; x 1&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Retail UPC Barcode"
+              data-sub="UPC-E" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >UPC-E<span class="sd">Compressed code for small packages</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Retail UPC Barcode|EAN-13|2&quot; x 1&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Retail UPC Barcode"
+              data-sub="EAN-13" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >EAN-13<span class="sd">International retail code outside the US</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Retail UPC Barcode|EAN-8|2&quot; x 1&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Retail UPC Barcode"
+              data-sub="EAN-8" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >EAN-8<span class="sd">Short international code, small packs</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Retail UPC Barcode|GS1 DataBar Omnidirectional|2&quot; x 1&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Retail UPC Barcode"
+              data-sub="GS1 DataBar Omnidirectional" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >GS1 DataBar Omnidirectional<span class="sd">Fresh produce and small items</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Retail UPC Barcode|QR Code|2&quot; x 1&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Retail UPC Barcode"
+              data-sub="QR Code" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >QR Code<span class="sd">Links shoppers to a page</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Case and Pallet Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Cases and pallets headed into a distributor or a retail distribution center. Printed with your data, or blank for a print and apply line to fill in.</div></td>
+          <td class="c-name">Case and Pallet Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Cases and pallets headed into a distributor or a retail distribution center. Printed with your data, or blank for a print and apply line to fill in.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-1">
+            6 symbologys to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">4&quot; x 6&quot;</td>
           <td data-l="Format">Roll, 3&quot; core</td>
           <td data-l="Material">Semi-gloss paper</td>
           <td data-l="Adhesive">Permanent</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Case and Pallet Barcode|4&quot; x 6&quot;|Semi-gloss paper"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Case and Pallet Barcode||4&quot; x 6&quot;|Semi-gloss paper"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Case and Pallet Barcode"
             data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
             data-material="Semi-gloss paper" data-adhesive="Permanent">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-1" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Symbology, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Case and Pallet Barcode|GS1-128|4&quot; x 6&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Case and Pallet Barcode"
+              data-sub="GS1-128" data-subaxis="Symbology"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >GS1-128<span class="sd">Carries lot, date, quantity data</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Case and Pallet Barcode|ITF-14|4&quot; x 6&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Case and Pallet Barcode"
+              data-sub="ITF-14" data-subaxis="Symbology"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >ITF-14<span class="sd">Outer case code for cartons</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Case and Pallet Barcode|Code 128|4&quot; x 6&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Case and Pallet Barcode"
+              data-sub="Code 128" data-subaxis="Symbology"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Code 128<span class="sd">Dense general purpose case code</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Case and Pallet Barcode|Code 39|4&quot; x 6&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Case and Pallet Barcode"
+              data-sub="Code 39" data-subaxis="Symbology"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Code 39<span class="sd">Older code most scanners read</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Case and Pallet Barcode|GS1 DataMatrix|4&quot; x 6&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Case and Pallet Barcode"
+              data-sub="GS1 DataMatrix" data-subaxis="Symbology"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >GS1 DataMatrix<span class="sd">Two dimensional, small footprint</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Case and Pallet Barcode|QR Code|4&quot; x 6&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Case and Pallet Barcode"
+              data-sub="QR Code" data-subaxis="Symbology"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >QR Code<span class="sd">Two dimensional, scans from phones</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Branded Shipping and Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">One label that carries the scan data and your logo, so the box still looks like your brand when it lands.</div></td>
+          <td class="c-name">Branded Shipping and Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">One label that carries the scan data and your logo, so the box still looks like your brand when it lands.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-2">
+            6 sizes to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">4&quot; x 6&quot;</td>
           <td data-l="Format">Roll, 3&quot; core</td>
           <td data-l="Material">White film</td>
           <td data-l="Adhesive">Permanent</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Branded Shipping and Barcode|4&quot; x 6&quot;|White film"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Branded Shipping and Barcode||4&quot; x 6&quot;|White film"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Branded Shipping and Barcode"
             data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
             data-material="White film" data-adhesive="Permanent">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-2" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Size, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Branded Shipping and Barcode|3&quot; x 5&quot;|4&quot; x 6&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Branded Shipping and Barcode"
+              data-sub="3&quot; x 5&quot;" data-subaxis="Size"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Permanent"
+            >3&quot; x 5&quot;<span class="sd">Smaller cartons and poly mailers</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Branded Shipping and Barcode|4&quot; x 4&quot;|4&quot; x 6&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Branded Shipping and Barcode"
+              data-sub="4&quot; x 4&quot;" data-subaxis="Size"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Permanent"
+            >4&quot; x 4&quot;<span class="sd">Square format for compact boxes</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Branded Shipping and Barcode|4&quot; x 6&quot;|4&quot; x 6&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Branded Shipping and Barcode"
+              data-sub="4&quot; x 6&quot;" data-subaxis="Size"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Permanent"
+            >4&quot; x 6&quot;<span class="sd">The common shipping label size</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Branded Shipping and Barcode|4&quot; x 6.5&quot;|4&quot; x 6&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Branded Shipping and Barcode"
+              data-sub="4&quot; x 6.5&quot;" data-subaxis="Size"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Permanent"
+            >4&quot; x 6.5&quot;<span class="sd">Extra room under the barcode</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Branded Shipping and Barcode|4&quot; x 8&quot;|4&quot; x 6&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Branded Shipping and Barcode"
+              data-sub="4&quot; x 8&quot;" data-subaxis="Size"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Permanent"
+            >4&quot; x 8&quot;<span class="sd">Longer label with more text</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Branded Shipping and Barcode|6&quot; x 4&quot;|4&quot; x 6&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Branded Shipping and Barcode"
+              data-sub="6&quot; x 4&quot;" data-subaxis="Size"
+              data-size="4&quot; x 6&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Permanent"
+            >6&quot; x 4&quot;<span class="sd">Landscape layout on wide cartons</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Desktop Thermal Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">The common small format for desktop label printers at a pack station or a back counter.</div></td>
+          <td class="c-name">Desktop Thermal Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">The common small format for desktop label printers at a pack station or a back counter.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-3">
+            7 sizes to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">2.25&quot; x 1.25&quot;</td>
           <td data-l="Format">Roll, 1&quot; core</td>
           <td data-l="Material">Semi-gloss paper</td>
           <td data-l="Adhesive">Permanent</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode|2.25&quot; x 1.25&quot;|Semi-gloss paper"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode||2.25&quot; x 1.25&quot;|Semi-gloss paper"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Desktop Thermal Barcode"
             data-size="2.25&quot; x 1.25&quot;" data-format="Roll, 1&quot; core"
             data-material="Semi-gloss paper" data-adhesive="Permanent">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-3" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Size, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode|1.5&quot; x 1&quot;|2.25&quot; x 1.25&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Desktop Thermal Barcode"
+              data-sub="1.5&quot; x 1&quot;" data-subaxis="Size"
+              data-size="2.25&quot; x 1.25&quot;" data-format="Roll, 1&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >1.5&quot; x 1&quot;<span class="sd">Small parts at a bench</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode|2&quot; x 1&quot;|2.25&quot; x 1.25&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Desktop Thermal Barcode"
+              data-sub="2&quot; x 1&quot;" data-subaxis="Size"
+              data-size="2.25&quot; x 1.25&quot;" data-format="Roll, 1&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >2&quot; x 1&quot;<span class="sd">Everyday desktop printer label</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode|2.25&quot; x 1.25&quot;|2.25&quot; x 1.25&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Desktop Thermal Barcode"
+              data-sub="2.25&quot; x 1.25&quot;" data-subaxis="Size"
+              data-size="2.25&quot; x 1.25&quot;" data-format="Roll, 1&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >2.25&quot; x 1.25&quot;<span class="sd">Common desktop barcode format</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode|2.25&quot; x 2&quot;|2.25&quot; x 1.25&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Desktop Thermal Barcode"
+              data-sub="2.25&quot; x 2&quot;" data-subaxis="Size"
+              data-size="2.25&quot; x 1.25&quot;" data-format="Roll, 1&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >2.25&quot; x 2&quot;<span class="sd">Room for extra text lines</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode|3&quot; x 1&quot;|2.25&quot; x 1.25&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Desktop Thermal Barcode"
+              data-sub="3&quot; x 1&quot;" data-subaxis="Size"
+              data-size="2.25&quot; x 1.25&quot;" data-format="Roll, 1&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >3&quot; x 1&quot;<span class="sd">Longer codes on narrow items</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode|3&quot; x 2&quot;|2.25&quot; x 1.25&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Desktop Thermal Barcode"
+              data-sub="3&quot; x 2&quot;" data-subaxis="Size"
+              data-size="2.25&quot; x 1.25&quot;" data-format="Roll, 1&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >3&quot; x 2&quot;<span class="sd">Barcode plus a short description</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Desktop Thermal Barcode|4&quot; x 2&quot;|2.25&quot; x 1.25&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Desktop Thermal Barcode"
+              data-sub="4&quot; x 2&quot;" data-subaxis="Size"
+              data-size="2.25&quot; x 1.25&quot;" data-format="Roll, 1&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >4&quot; x 2&quot;<span class="sd">Widest common desktop roll size</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Small Item Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Small parts, boxed goods, and anything where a full case label will not fit. The standard 30 up sheet size.</div></td>
+          <td class="c-name">Small Item Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Small parts, boxed goods, and anything where a full case label will not fit. The standard 30 up sheet size.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-4">
+            6 sizes to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">1&quot; x 2.625&quot;</td>
           <td data-l="Format">Sheet</td>
           <td data-l="Material">Semi-gloss paper</td>
           <td data-l="Adhesive">Permanent</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Small Item Barcode|1&quot; x 2.625&quot;|Semi-gloss paper"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Small Item Barcode||1&quot; x 2.625&quot;|Semi-gloss paper"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Small Item Barcode"
             data-size="1&quot; x 2.625&quot;" data-format="Sheet"
             data-material="Semi-gloss paper" data-adhesive="Permanent">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-4" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Size, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Small Item Barcode|0.5&quot; x 1&quot;|1&quot; x 2.625&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Small Item Barcode"
+              data-sub="0.5&quot; x 1&quot;" data-subaxis="Size"
+              data-size="1&quot; x 2.625&quot;" data-format="Sheet"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >0.5&quot; x 1&quot;<span class="sd">Very small parts and vials</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Small Item Barcode|1&quot; x 1&quot;|1&quot; x 2.625&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Small Item Barcode"
+              data-sub="1&quot; x 1&quot;" data-subaxis="Size"
+              data-size="1&quot; x 2.625&quot;" data-format="Sheet"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >1&quot; x 1&quot;<span class="sd">Square mark on small boxes</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Small Item Barcode|1&quot; x 2&quot;|1&quot; x 2.625&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Small Item Barcode"
+              data-sub="1&quot; x 2&quot;" data-subaxis="Size"
+              data-size="1&quot; x 2.625&quot;" data-format="Sheet"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >1&quot; x 2&quot;<span class="sd">Short code on small cartons</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Small Item Barcode|1&quot; x 2.625&quot;|1&quot; x 2.625&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Small Item Barcode"
+              data-sub="1&quot; x 2.625&quot;" data-subaxis="Size"
+              data-size="1&quot; x 2.625&quot;" data-format="Sheet"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >1&quot; x 2.625&quot;<span class="sd">Standard thirty up sheet size</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Small Item Barcode|1.5&quot; x 1&quot;|1&quot; x 2.625&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Small Item Barcode"
+              data-sub="1.5&quot; x 1&quot;" data-subaxis="Size"
+              data-size="1&quot; x 2.625&quot;" data-format="Sheet"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >1.5&quot; x 1&quot;<span class="sd">Small boxes needing a wider code</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Small Item Barcode|2&quot; x 1&quot;|1&quot; x 2.625&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Small Item Barcode"
+              data-sub="2&quot; x 1&quot;" data-subaxis="Size"
+              data-size="1&quot; x 2.625&quot;" data-format="Sheet"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >2&quot; x 1&quot;<span class="sd">Common small retail item size</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Carton ID Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Part number, lot, or SKU on a shipper carton, with room for a barcode and a line or two of text.</div></td>
+          <td class="c-name">Carton ID Barcode<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Part number, lot, or SKU on a shipper carton, with room for a barcode and a line or two of text.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-5">
+            6 symbologys to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">4&quot; x 2&quot;</td>
           <td data-l="Format">Roll, 3&quot; core</td>
           <td data-l="Material">Semi-gloss paper</td>
           <td data-l="Adhesive">Permanent</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Carton ID Barcode|4&quot; x 2&quot;|Semi-gloss paper"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Carton ID Barcode||4&quot; x 2&quot;|Semi-gloss paper"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Carton ID Barcode"
             data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
             data-material="Semi-gloss paper" data-adhesive="Permanent">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-5" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Symbology, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Carton ID Barcode|Code 128|4&quot; x 2&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Carton ID Barcode"
+              data-sub="Code 128" data-subaxis="Symbology"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Code 128<span class="sd">Dense code for part numbers</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Carton ID Barcode|Code 39|4&quot; x 2&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Carton ID Barcode"
+              data-sub="Code 39" data-subaxis="Symbology"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Code 39<span class="sd">Widely read, letters and numbers</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Carton ID Barcode|Code 93|4&quot; x 2&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Carton ID Barcode"
+              data-sub="Code 93" data-subaxis="Symbology"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Code 93<span class="sd">Compact version of Code 39</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Carton ID Barcode|GS1-128|4&quot; x 2&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Carton ID Barcode"
+              data-sub="GS1-128" data-subaxis="Symbology"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >GS1-128<span class="sd">Adds lot and date fields</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Carton ID Barcode|Data Matrix|4&quot; x 2&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Carton ID Barcode"
+              data-sub="Data Matrix" data-subaxis="Symbology"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Data Matrix<span class="sd">Square code for small areas</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Carton ID Barcode|QR Code|4&quot; x 2&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Carton ID Barcode"
+              data-sub="QR Code" data-subaxis="Symbology"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >QR Code<span class="sd">Scans from phones and readers</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Warehouse Rack and Location<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Aisle, bay, and level markers on steel racking, where a standard adhesive tends to lift over time.</div></td>
+          <td class="c-name">Warehouse Rack and Location<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Aisle, bay, and level markers on steel racking, where a standard adhesive tends to lift over time.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-6">
+            7 sizes to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">3&quot; x 1&quot;</td>
           <td data-l="Format">Roll, 3&quot; core</td>
           <td data-l="Material">White film</td>
           <td data-l="Adhesive">High tack</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location|3&quot; x 1&quot;|White film"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location||3&quot; x 1&quot;|White film"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Warehouse Rack and Location"
             data-size="3&quot; x 1&quot;" data-format="Roll, 3&quot; core"
             data-material="White film" data-adhesive="High tack">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-6" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Size, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location|2&quot; x 1&quot;|3&quot; x 1&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Warehouse Rack and Location"
+              data-sub="2&quot; x 1&quot;" data-subaxis="Size"
+              data-size="3&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="High tack"
+            >2&quot; x 1&quot;<span class="sd">Bin level markers read close</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location|3&quot; x 1&quot;|3&quot; x 1&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Warehouse Rack and Location"
+              data-sub="3&quot; x 1&quot;" data-subaxis="Size"
+              data-size="3&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="High tack"
+            >3&quot; x 1&quot;<span class="sd">Standard bay and level marker</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location|4&quot; x 1&quot;|3&quot; x 1&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Warehouse Rack and Location"
+              data-sub="4&quot; x 1&quot;" data-subaxis="Size"
+              data-size="3&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="High tack"
+            >4&quot; x 1&quot;<span class="sd">Longer location codes on beams</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location|4&quot; x 2&quot;|3&quot; x 1&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Warehouse Rack and Location"
+              data-sub="4&quot; x 2&quot;" data-subaxis="Size"
+              data-size="3&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="High tack"
+            >4&quot; x 2&quot;<span class="sd">Larger digits for aisle reads</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location|6&quot; x 2&quot;|3&quot; x 1&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Warehouse Rack and Location"
+              data-sub="6&quot; x 2&quot;" data-subaxis="Size"
+              data-size="3&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="High tack"
+            >6&quot; x 2&quot;<span class="sd">Reads from a lift truck</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location|6&quot; x 4&quot;|3&quot; x 1&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Warehouse Rack and Location"
+              data-sub="6&quot; x 4&quot;" data-subaxis="Size"
+              data-size="3&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="High tack"
+            >6&quot; x 4&quot;<span class="sd">Overhead aisle and zone markers</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Warehouse Rack and Location|8&quot; x 2&quot;|3&quot; x 1&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Warehouse Rack and Location"
+              data-sub="8&quot; x 2&quot;" data-subaxis="Size"
+              data-size="3&quot; x 1&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="High tack"
+            >8&quot; x 2&quot;<span class="sd">Long aisle signs, distance scanning</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Bin and Shelf Label<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Bin fronts and shelf edges that get relabeled when the slotting changes.</div></td>
+          <td class="c-name">Bin and Shelf Label<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Bin fronts and shelf edges that get relabeled when the slotting changes.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-7">
+            7 sizes to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">3&quot; x 5&quot;</td>
           <td data-l="Format">Sheet</td>
           <td data-l="Material">White film</td>
           <td data-l="Adhesive">Removable</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Bin and Shelf Label|3&quot; x 5&quot;|White film"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Bin and Shelf Label||3&quot; x 5&quot;|White film"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Bin and Shelf Label"
             data-size="3&quot; x 5&quot;" data-format="Sheet"
             data-material="White film" data-adhesive="Removable">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-7" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Size, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Bin and Shelf Label|1&quot; x 3&quot;|3&quot; x 5&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Bin and Shelf Label"
+              data-sub="1&quot; x 3&quot;" data-subaxis="Size"
+              data-size="3&quot; x 5&quot;" data-format="Sheet"
+              data-material="White film" data-adhesive="Removable"
+            >1&quot; x 3&quot;<span class="sd">Narrow shelf edge strip</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Bin and Shelf Label|1.25&quot; x 4&quot;|3&quot; x 5&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Bin and Shelf Label"
+              data-sub="1.25&quot; x 4&quot;" data-subaxis="Size"
+              data-size="3&quot; x 5&quot;" data-format="Sheet"
+              data-material="White film" data-adhesive="Removable"
+            >1.25&quot; x 4&quot;<span class="sd">Shelf edge with a barcode</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Bin and Shelf Label|2&quot; x 3&quot;|3&quot; x 5&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Bin and Shelf Label"
+              data-sub="2&quot; x 3&quot;" data-subaxis="Size"
+              data-size="3&quot; x 5&quot;" data-format="Sheet"
+              data-material="White film" data-adhesive="Removable"
+            >2&quot; x 3&quot;<span class="sd">Small bin fronts</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Bin and Shelf Label|2&quot; x 4&quot;|3&quot; x 5&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Bin and Shelf Label"
+              data-sub="2&quot; x 4&quot;" data-subaxis="Size"
+              data-size="3&quot; x 5&quot;" data-format="Sheet"
+              data-material="White film" data-adhesive="Removable"
+            >2&quot; x 4&quot;<span class="sd">Standard bin front label</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Bin and Shelf Label|3&quot; x 4&quot;|3&quot; x 5&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Bin and Shelf Label"
+              data-sub="3&quot; x 4&quot;" data-subaxis="Size"
+              data-size="3&quot; x 5&quot;" data-format="Sheet"
+              data-material="White film" data-adhesive="Removable"
+            >3&quot; x 4&quot;<span class="sd">Bin label with description text</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Bin and Shelf Label|3&quot; x 5&quot;|3&quot; x 5&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Bin and Shelf Label"
+              data-sub="3&quot; x 5&quot;" data-subaxis="Size"
+              data-size="3&quot; x 5&quot;" data-format="Sheet"
+              data-material="White film" data-adhesive="Removable"
+            >3&quot; x 5&quot;<span class="sd">Large bin fronts and totes</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Bin and Shelf Label|4&quot; x 6&quot;|3&quot; x 5&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Bin and Shelf Label"
+              data-sub="4&quot; x 6&quot;" data-subaxis="Size"
+              data-size="3&quot; x 5&quot;" data-format="Sheet"
+              data-material="White film" data-adhesive="Removable"
+            >4&quot; x 6&quot;<span class="sd">Full tote and gaylord fronts</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Cycle Count and Audit<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Counted, staged, or on hold tags that come off clean when the count is closed.</div></td>
+          <td class="c-name">Cycle Count and Audit<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Counted, staged, or on hold tags that come off clean when the count is closed.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-8">
+            6 sizes to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">2&quot; x 4&quot;</td>
           <td data-l="Format">Roll, 3&quot; core</td>
           <td data-l="Material">Matte paper</td>
           <td data-l="Adhesive">Removable</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Cycle Count and Audit|2&quot; x 4&quot;|Matte paper"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Cycle Count and Audit||2&quot; x 4&quot;|Matte paper"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Cycle Count and Audit"
             data-size="2&quot; x 4&quot;" data-format="Roll, 3&quot; core"
             data-material="Matte paper" data-adhesive="Removable">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-8" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Size, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Cycle Count and Audit|1&quot; x 2&quot;|2&quot; x 4&quot;|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Cycle Count and Audit"
+              data-sub="1&quot; x 2&quot;" data-subaxis="Size"
+              data-size="2&quot; x 4&quot;" data-format="Roll, 3&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >1&quot; x 2&quot;<span class="sd">Small parts and bin counts</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Cycle Count and Audit|2&quot; x 2&quot;|2&quot; x 4&quot;|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Cycle Count and Audit"
+              data-sub="2&quot; x 2&quot;" data-subaxis="Size"
+              data-size="2&quot; x 4&quot;" data-format="Roll, 3&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >2&quot; x 2&quot;<span class="sd">Square mark on cartons</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Cycle Count and Audit|2&quot; x 3&quot;|2&quot; x 4&quot;|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Cycle Count and Audit"
+              data-sub="2&quot; x 3&quot;" data-subaxis="Size"
+              data-size="2&quot; x 4&quot;" data-format="Roll, 3&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >2&quot; x 3&quot;<span class="sd">Room for a count date</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Cycle Count and Audit|2&quot; x 4&quot;|2&quot; x 4&quot;|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Cycle Count and Audit"
+              data-sub="2&quot; x 4&quot;" data-subaxis="Size"
+              data-size="2&quot; x 4&quot;" data-format="Roll, 3&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >2&quot; x 4&quot;<span class="sd">Standard count and status label</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Cycle Count and Audit|3&quot; x 5&quot;|2&quot; x 4&quot;|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Cycle Count and Audit"
+              data-sub="3&quot; x 5&quot;" data-subaxis="Size"
+              data-size="2&quot; x 4&quot;" data-format="Roll, 3&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >3&quot; x 5&quot;<span class="sd">Large hold and staged marks</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Cycle Count and Audit|4&quot; x 6&quot;|2&quot; x 4&quot;|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Cycle Count and Audit"
+              data-sub="4&quot; x 6&quot;" data-subaxis="Size"
+              data-size="2&quot; x 4&quot;" data-format="Roll, 3&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >4&quot; x 6&quot;<span class="sd">Pallet level count and hold</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Freezer and Cold Storage<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Inventory going straight into cold storage, where the label has to stick on a cold, damp surface.</div></td>
+          <td class="c-name">Freezer and Cold Storage<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Inventory going straight into cold storage, where the label has to stick on a cold, damp surface.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-9">
+            6 sizes to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">4&quot; x 2&quot;</td>
           <td data-l="Format">Roll, 3&quot; core</td>
           <td data-l="Material">White film</td>
           <td data-l="Adhesive">Freezer grade</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Freezer and Cold Storage|4&quot; x 2&quot;|White film"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Freezer and Cold Storage||4&quot; x 2&quot;|White film"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Freezer and Cold Storage"
             data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
             data-material="White film" data-adhesive="Freezer grade">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-9" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Size, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Freezer and Cold Storage|1&quot; x 2&quot;|4&quot; x 2&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Freezer and Cold Storage"
+              data-sub="1&quot; x 2&quot;" data-subaxis="Size"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Freezer grade"
+            >1&quot; x 2&quot;<span class="sd">Small packs and portion bags</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Freezer and Cold Storage|2&quot; x 3&quot;|4&quot; x 2&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Freezer and Cold Storage"
+              data-sub="2&quot; x 3&quot;" data-subaxis="Size"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Freezer grade"
+            >2&quot; x 3&quot;<span class="sd">Cases going into the freezer</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Freezer and Cold Storage|2&quot; x 4&quot;|4&quot; x 2&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Freezer and Cold Storage"
+              data-sub="2&quot; x 4&quot;" data-subaxis="Size"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Freezer grade"
+            >2&quot; x 4&quot;<span class="sd">Case labels with lot data</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Freezer and Cold Storage|3&quot; x 2&quot;|4&quot; x 2&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Freezer and Cold Storage"
+              data-sub="3&quot; x 2&quot;" data-subaxis="Size"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Freezer grade"
+            >3&quot; x 2&quot;<span class="sd">Totes and lugs in cold</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Freezer and Cold Storage|4&quot; x 2&quot;|4&quot; x 2&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Freezer and Cold Storage"
+              data-sub="4&quot; x 2&quot;" data-subaxis="Size"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Freezer grade"
+            >4&quot; x 2&quot;<span class="sd">Standard cold storage carton label</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Freezer and Cold Storage|4&quot; x 6&quot;|4&quot; x 2&quot;|White film"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Freezer and Cold Storage"
+              data-sub="4&quot; x 6&quot;" data-subaxis="Size"
+              data-size="4&quot; x 2&quot;" data-format="Roll, 3&quot; core"
+              data-material="White film" data-adhesive="Freezer grade"
+            >4&quot; x 6&quot;<span class="sd">Pallet loads entering cold storage</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Pallet License Plate<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">The pallet level barcode that ties a full load to one scan. Fan-fold stacks feed a printer without a rewind.</div></td>
+          <td class="c-name">Pallet License Plate<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">The pallet level barcode that ties a full load to one scan. Fan-fold stacks feed a printer without a rewind.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-10">
+            6 symbologys to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">4&quot; x 6.5&quot;</td>
           <td data-l="Format">Fan-fold</td>
           <td data-l="Material">Semi-gloss paper</td>
           <td data-l="Adhesive">Permanent</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Pallet License Plate|4&quot; x 6.5&quot;|Semi-gloss paper"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Pallet License Plate||4&quot; x 6.5&quot;|Semi-gloss paper"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Pallet License Plate"
             data-size="4&quot; x 6.5&quot;" data-format="Fan-fold"
             data-material="Semi-gloss paper" data-adhesive="Permanent">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-10" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Symbology, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Pallet License Plate|GS1-128 (SSCC-18)|4&quot; x 6.5&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Pallet License Plate"
+              data-sub="GS1-128 (SSCC-18)" data-subaxis="Symbology"
+              data-size="4&quot; x 6.5&quot;" data-format="Fan-fold"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >GS1-128 (SSCC-18)<span class="sd">The standard pallet license plate</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Pallet License Plate|Code 128|4&quot; x 6.5&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Pallet License Plate"
+              data-sub="Code 128" data-subaxis="Symbology"
+              data-size="4&quot; x 6.5&quot;" data-format="Fan-fold"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Code 128<span class="sd">General purpose pallet identifier</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Pallet License Plate|Code 39|4&quot; x 6.5&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Pallet License Plate"
+              data-sub="Code 39" data-subaxis="Symbology"
+              data-size="4&quot; x 6.5&quot;" data-format="Fan-fold"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Code 39<span class="sd">Older readers still scan it</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Pallet License Plate|GS1 DataMatrix|4&quot; x 6.5&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Pallet License Plate"
+              data-sub="GS1 DataMatrix" data-subaxis="Symbology"
+              data-size="4&quot; x 6.5&quot;" data-format="Fan-fold"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >GS1 DataMatrix<span class="sd">Two dimensional, holds more data</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Pallet License Plate|QR Code|4&quot; x 6.5&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Pallet License Plate"
+              data-sub="QR Code" data-subaxis="Symbology"
+              data-size="4&quot; x 6.5&quot;" data-format="Fan-fold"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >QR Code<span class="sd">Scans from handhelds and phones</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Pallet License Plate|Sequential number only|4&quot; x 6.5&quot;|Semi-gloss paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Pallet License Plate"
+              data-sub="Sequential number only" data-subaxis="Symbology"
+              data-size="4&quot; x 6.5&quot;" data-format="Fan-fold"
+              data-material="Semi-gloss paper" data-adhesive="Permanent"
+            >Sequential number only<span class="sd">Plain numbering, no scan code</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Durable Asset Tag<span class="lt-flag g" title="Backed by work already shown on this site">We print this</span><div class="c-use">Equipment, tooling, and fixed assets that need to stay readable for years. Metal and foil are part of what we print.</div></td>
+          <td class="c-name">Durable Asset Tag<span class="lt-flag g" title="Backed by work already shown on this site">We print this</span><div class="c-use">Equipment, tooling, and fixed assets that need to stay readable for years. Metal and foil are part of what we print.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-11">
+            5 symbologys to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">2&quot; x 1&quot;</td>
           <td data-l="Format">Sheet</td>
           <td data-l="Material">Metal or foil</td>
           <td data-l="Adhesive">Permanent</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Durable Asset Tag|2&quot; x 1&quot;|Metal or foil"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Durable Asset Tag||2&quot; x 1&quot;|Metal or foil"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Durable Asset Tag"
             data-size="2&quot; x 1&quot;" data-format="Sheet"
             data-material="Metal or foil" data-adhesive="Permanent">Add to quote list</button></td>
         </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-11" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Symbology, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Durable Asset Tag|Code 39|2&quot; x 1&quot;|Metal or foil"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Durable Asset Tag"
+              data-sub="Code 39" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Sheet"
+              data-material="Metal or foil" data-adhesive="Permanent"
+            >Code 39<span class="sd">Long standing asset tag code</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Durable Asset Tag|Code 128|2&quot; x 1&quot;|Metal or foil"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Durable Asset Tag"
+              data-sub="Code 128" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Sheet"
+              data-material="Metal or foil" data-adhesive="Permanent"
+            >Code 128<span class="sd">Dense code for longer serials</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Durable Asset Tag|QR Code|2&quot; x 1&quot;|Metal or foil"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Durable Asset Tag"
+              data-sub="QR Code" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Sheet"
+              data-material="Metal or foil" data-adhesive="Permanent"
+            >QR Code<span class="sd">Scans with a phone camera</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Durable Asset Tag|Data Matrix|2&quot; x 1&quot;|Metal or foil"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Durable Asset Tag"
+              data-sub="Data Matrix" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Sheet"
+              data-material="Metal or foil" data-adhesive="Permanent"
+            >Data Matrix<span class="sd">Tiny square code on tools</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Durable Asset Tag|Sequential number only|2&quot; x 1&quot;|Metal or foil"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Durable Asset Tag"
+              data-sub="Sequential number only" data-subaxis="Symbology"
+              data-size="2&quot; x 1&quot;" data-format="Sheet"
+              data-material="Metal or foil" data-adhesive="Permanent"
+            >Sequential number only<span class="sd">Plain serial numbers, no code</span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
         <tr>
-          <td class="c-name">Inventory Status Dot<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Color coded dots for received, counted, quarantined, or first in first out rotation.</div></td>
+          <td class="c-name">Inventory Status Dot<span class="lt-flag s" title="A standard starting spec, change anything before we quote">Starting spec</span><div class="c-use">Color coded dots for received, counted, quarantined, or first in first out rotation.</div><button class="lt-more" type="button" data-expand aria-expanded="false" aria-controls="sub-barcode-labels-12">
+            7 diameters to choose
+            <span class="picked" data-picked hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></td>
           <td class="c-size" data-l="Size">0.75&quot; circle</td>
           <td data-l="Format">Roll, 1&quot; core</td>
           <td data-l="Material">Matte paper</td>
           <td data-l="Adhesive">Removable</td>
-          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Inventory Status Dot|0.75&quot; circle|Matte paper"
+          <td class="c-act"><button class="qadd" type="button" data-add data-key="barcode-labels|Inventory Status Dot||0.75&quot; circle|Matte paper"
             data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Inventory Status Dot"
             data-size="0.75&quot; circle" data-format="Roll, 1&quot; core"
             data-material="Matte paper" data-adhesive="Removable">Add to quote list</button></td>
+        </tr>
+        <tr class="lt-subrow" id="sub-barcode-labels-12" hidden>
+          <td colspan="6">
+            <div class="lt-subs">
+              <p class="axis">Diameter, pick any</p>
+              <div class="lt-chips">
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Inventory Status Dot|0.5&quot; circle|0.75&quot; circle|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Inventory Status Dot"
+              data-sub="0.5&quot; circle" data-subaxis="Diameter"
+              data-size="0.75&quot; circle" data-format="Roll, 1&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >0.5&quot; circle<span class="sd">Small parts and file tabs</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Inventory Status Dot|0.75&quot; circle|0.75&quot; circle|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Inventory Status Dot"
+              data-sub="0.75&quot; circle" data-subaxis="Diameter"
+              data-size="0.75&quot; circle" data-format="Roll, 1&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >0.75&quot; circle<span class="sd">The everyday status dot</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Inventory Status Dot|1&quot; circle|0.75&quot; circle|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Inventory Status Dot"
+              data-sub="1&quot; circle" data-subaxis="Diameter"
+              data-size="0.75&quot; circle" data-format="Roll, 1&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >1&quot; circle<span class="sd">Totes, folders, and cartons</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Inventory Status Dot|1.25&quot; circle|0.75&quot; circle|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Inventory Status Dot"
+              data-sub="1.25&quot; circle" data-subaxis="Diameter"
+              data-size="0.75&quot; circle" data-format="Roll, 1&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >1.25&quot; circle<span class="sd">Reads across a work bench</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Inventory Status Dot|1.5&quot; circle|0.75&quot; circle|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Inventory Status Dot"
+              data-sub="1.5&quot; circle" data-subaxis="Diameter"
+              data-size="0.75&quot; circle" data-format="Roll, 1&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >1.5&quot; circle<span class="sd">Cases and larger cartons</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Inventory Status Dot|2&quot; circle|0.75&quot; circle|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Inventory Status Dot"
+              data-sub="2&quot; circle" data-subaxis="Diameter"
+              data-size="0.75&quot; circle" data-format="Roll, 1&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >2&quot; circle<span class="sd">Reads across the aisle</span></button>
+            <button class="qsub" type="button" data-add data-key="barcode-labels|Inventory Status Dot|3&quot; circle|0.75&quot; circle|Matte paper"
+              data-cat="barcode-labels" data-catname="Barcode &amp; Inventory Labels" data-label="Inventory Status Dot"
+              data-sub="3&quot; circle" data-subaxis="Diameter"
+              data-size="0.75&quot; circle" data-format="Roll, 1&quot; core"
+              data-material="Matte paper" data-adhesive="Removable"
+            >3&quot; circle<span class="sd">Pallet loads and bulk stock</span></button>
+              </div>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
