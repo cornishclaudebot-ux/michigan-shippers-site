@@ -263,7 +263,7 @@
       <!-- Quote form uses Netlify Forms. Every submission (including uploaded files) is stored in
            the Netlify dashboard (Forms tab) and emailed to the address configured there.
            File uploads need a native multipart POST, so this form submits normally (no AJAX). -->
-      <form id="quoteForm" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/thanks.html">
+      <form id="quoteForm" name="quote" method="POST" enctype="multipart/form-data" action="/api/quote">
         <input type="hidden" name="form-name" value="quote" />
         <input type="hidden" name="subject" value="New label quote request from michiganshippers.com" />
         <p hidden><label>Skip if you are human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
@@ -309,13 +309,65 @@
         <p class="form-note" id="formNote">Your details and any uploaded files go straight to our team. Have very large print-ready files (over a few MB)? Email them to <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a> so nothing gets compressed.</p>
       </form>
       <script>
-        // Show a "Sending…" state on submit, then let the native multipart POST proceed.
+        /* Post the quote to /api/quote (Resend) instead of Netlify Forms.
+           Netlify Forms only collect when Netlify serves the site, and deploys
+           there are credit-blocked, so the site now runs on Vercel.
+
+           This is the business's primary conversion path, so it fails LOUD:
+           success is revealed ONLY on a 2xx, and any failure shows a real error
+           with a working mailto rather than a thank-you page that quietly ate
+           the request. Files are read as base64 because the endpoint takes JSON. */
         (function(){
           var form=document.getElementById('quoteForm');
           if(!form) return;
-          form.addEventListener('submit', function(){
+          var note=document.getElementById('formNote');
+          var MAX_BYTES=2300000; /* ~3.1MB base64, under Vercel's 4.5MB body cap */
+
+          function readFile(f){
+            return new Promise(function(res,rej){
+              var r=new FileReader();
+              r.onload=function(){ var s=String(r.result); res({filename:f.name, content:s.slice(s.indexOf(',')+1)}); };
+              r.onerror=rej; r.readAsDataURL(f);
+            });
+          }
+          function fail(msg){
+            if(note){
+              note.innerHTML = msg + ' You can also email <a href="mailto:customerservice@michiganshippers.com">customerservice@michiganshippers.com</a> or call <a href="tel:16169356680">(616) 935-6680</a>.';
+              note.style.color = '#a4331f';
+            }
+          }
+
+          form.addEventListener('submit', async function(e){
+            e.preventDefault();
             var btn=form.querySelector('button[type=submit]');
+            var orig=btn?btn.textContent:'';
             if(btn){ btn.disabled=true; btn.textContent='Sending…'; }
+            if(note){ note.style.color=''; }
+
+            try{
+              var fd=new FormData(form), payload={};
+              ['name','email','phone','label_type','quantity','deadline','message','bot-field']
+                .forEach(function(k){ payload[k]=fd.get(k)||''; });
+
+              var input=document.getElementById('artwork');
+              var files=input&&input.files?[].slice.call(input.files,0,6):[];
+              var total=files.reduce(function(n,f){return n+f.size;},0);
+              if(total>MAX_BYTES){
+                if(btn){ btn.disabled=false; btn.textContent=orig; }
+                return fail('Those files are too large to send through the form (about 2MB total is the limit).');
+              }
+              payload.attachments = await Promise.all(files.map(readFile));
+
+              var r = await fetch('/api/quote',{
+                method:'POST', headers:{'Content-Type':'application/json'},
+                body: JSON.stringify(payload)
+              });
+              if(!r.ok) throw new Error('http '+r.status);
+              window.location.href='/thanks.html';   /* success ONLY on a 2xx */
+            }catch(err){
+              if(btn){ btn.disabled=false; btn.textContent=orig; }
+              fail('Something went wrong sending that, so it did not reach us.');
+            }
           });
         })();
       </script>
